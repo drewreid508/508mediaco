@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>508 Media Co. — Meta Ads &amp; Creative for the Trades</title>
+<meta name="description" content="Meta ads and creative production for roofing, HVAC, concrete, and other trades in Greenville, SC. Your work is great. Your advertising isn't — yet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F3F6FA; --surface:#FFFFFF; --surface-2:#E9EFF7;
+  --ink:#0D1219; --ink-2:#55637A; --ink-3:#8493A8;
+  --rule:#D8E2EF; --rule-strong:#B9C8DC;
+  --accent:#2C6FE0; --accent-ink:#1B4FA8; --accent-soft:#E6EFFD;
+  --gain:#0F7A5C; --gain-soft:#E2F3ED;
+  --shadow:0 1px 2px rgba(13,18,25,.05),0 8px 24px -12px rgba(13,18,25,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A0E14; --surface:#111922; --surface-2:#18222E;
+    --ink:#E9EEF6; --ink-2:#94A3B8; --ink-3:#6B7C91;
+    --rule:#212D3B; --rule-strong:#33445A;
+    --accent:#5C9BFF; --accent-ink:#9CC1FF; --accent-soft:#12233D;
+    --gain:#43C79A; --gain-soft:#0E2A22;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A0E14; --surface:#111922; --surface-2:#18222E;
+  --ink:#E9EEF6; --ink-2:#94A3B8; --ink-3:#6B7C91;
+  --rule:#212D3B; --rule-strong:#33445A;
+  --accent:#5C9BFF; --accent-ink:#9CC1FF; --accent-soft:#12233D;
+  --gain:#43C79A; --gain-soft:#0E2A22;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -14px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent-soft);color:var(--accent-ink)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+img{max-width:100%}
+
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.01em;font-size:16px}
+.brand span{color:var(--accent)}
+nav.links{display:none;gap:28px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+@media(min-width:760px){nav.links{display:flex}}
+nav.links a{text-decoration:none;color:var(--ink-2)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:11px 20px;border-radius:3px;white-space:nowrap;cursor:pointer;border:1px solid transparent}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.pri:hover{background:var(--accent-ink)}
+.btn.sec{background:transparent;border-color:var(--rule-strong);color:var(--ink)}
+.btn.sec:hover{border-color:var(--accent);color:var(--accent)}
+
+.hero{padding:96px 0 64px;border-bottom:1px solid var(--rule)}
+.kick{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
+h1{font-family:"Oswald",Impact,sans-serif;font-weight:600;text-transform:uppercase;line-height:1.02;font-size:clamp(34px,6vw,62px);margin:0 0 24px;text-wrap:balance;letter-spacing:-.004em;max-width:16ch}
+h1 em{font-style:normal;color:var(--accent)}
+.stand{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:56ch;margin:0 0 32px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+
+section{padding:64px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.eye{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px}
+h2{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(24px,3.2vw,33px);line-height:1.08;margin:0 0 18px;text-wrap:balance;max-width:20ch}
+.lede{font-size:18.5px;color:var(--ink-2);max-width:62ch;margin:0 0 8px}
+
+.grid3{display:grid;gap:16px;margin-top:32px}
+@media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);padding:26px 24px}
+.card h3{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;font-size:17px;letter-spacing:.02em;margin:0 0 10px}
+.card p{margin:0;color:var(--ink-2);font-size:15.5px}
+.card .num{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accent);margin:0 0 10px;letter-spacing:.1em}
+
+.teardown{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);padding:32px;margin-top:28px;box-shadow:var(--shadow)}
+.teardown h3{font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:20px;margin:0 0 10px}
+.teardown p{color:var(--ink-2);max-width:60ch;margin:0 0 20px}
+
+.pgrid{display:grid;gap:16px;margin-top:32px}
+@media(min-width:820px){.pgrid{grid-template-columns:repeat(4,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);padding:24px 20px;display:flex;flex-direction:column}
+.plan.hot{border-color:var(--accent);position:relative}
+.plan .tag{position:absolute;top:-11px;left:20px;background:var(--accent);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:980px}
+.plan h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+.plan .price{font-family:"Oswald",sans-serif;font-weight:600;font-size:28px;margin:0 0 14px}
+.plan .price span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);text-transform:none;letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.plan li{font-size:14.5px;color:var(--ink-2);padding:7px 0 7px 18px;position:relative;border-top:1px solid var(--rule)}
+.plan li:first-child{border-top:0}
+.plan li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+.ptabs{display:flex;gap:8px;margin:24px 0 0;font-family:"IBM Plex Mono",monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.ptabs button{background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-2);padding:8px 16px;cursor:pointer;border-radius:3px}
+.ptabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.plans-block[hidden]{display:none}
+
+.steps{counter-reset:st;list-style:none;padding:0;margin:32px 0 0;display:grid;gap:24px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{counter-increment:st}
+.steps li::before{content:counter(st,decimal-leading-zero);display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accent);background:var(--accent-soft);padding:4px 9px;border-radius:4px;margin-bottom:12px}
+.steps b{display:block;font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:15px;margin-bottom:6px}
+.steps span{color:var(--ink-2);font-size:14.5px}
+
+.faq details{border-bottom:1px solid var(--rule);padding:18px 0}
+.faq summary{font-family:"Oswald",sans-serif;font-weight:500;text-transform:uppercase;font-size:15px;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+ ";color:var(--accent)}
+.faq details[open] summary::before{content:"– "}
+.faq p{color:var(--ink-2);margin:12px 0 0;max-width:60ch}
+
+.contact{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);padding:36px;display:grid;gap:28px;margin-top:28px}
+@media(min-width:760px){.contact{grid-template-columns:1fr 1fr}}
+.contact form{display:grid;gap:12px}
+.contact input,.contact textarea{font-family:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--rule-strong);border-radius:3px;background:var(--paper);color:var(--ink)}
+.contact textarea{min-height:96px;resize:vertical}
+.contact label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:-6px}
+.side h3{font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:18px;margin:0 0 10px}
+.side p{color:var(--ink-2);font-size:15px}
+.side a.big{display:block;margin-top:16px}
+
+footer{padding:40px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer p{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);margin:0}
+.note-setup{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);background:var(--surface-2);border:1px dashed var(--rule-strong);padding:10px 14px;margin-top:14px;max-width:60ch}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap topbar">
+    <div class="brand">508 <span>MEDIA CO.</span></div>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn pri" href="#contact">Free ad teardown</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="kick">508 Media Co. · Greenville, SC</p>
+    <h1>Your work is great.<br><em>Your advertising isn't.</em></h1>
+    <p class="stand">Meta ads and creative production for roofing, HVAC, concrete, and trade businesses ready to stop relying on referrals alone. We build the ad, run the ad, and show you the numbers.</p>
+    <div class="ctas">
+      <a class="btn pri" href="#contact">Book a free call</a>
+      <a class="btn sec" href="#contact">Get a free ad teardown</a>
+    </div>
+  </section>
+
+  <section id="teardown">
+    <div class="wrap">
+      <p class="eye">No pitch, just proof</p>
+      <h2>Free ad teardown</h2>
+      <p class="lede">Send one ad you're currently running — yours or a competitor's. We'll record a straight breakdown of what's costing you leads, and one thing we'd change first. No call required to get it.</p>
+      <div class="teardown">
+        <h3>What you get</h3>
+        <p>A 3–5 minute video, recorded, not a deck. What's working, what's bleeding budget, and the single highest-leverage fix — sent to your inbox within one business day.</p>
+        <a class="btn pri" href="#contact">Send us an ad</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="eye">What we do</p>
+      <h2>Ads and the creative that makes them work</h2>
+      <p class="lede">Most agencies do one or the other. We do both, because a well-targeted ad with weak creative still loses to a scrappy ad with a hook that stops the scroll.</p>
+      <div class="grid3">
+        <div class="card">
+          <p class="num">01</p>
+          <h3>Meta ads management</h3>
+          <p>Campaign build, targeting, budget pacing, and weekly optimization on Facebook and Instagram — built around cost per lead, not vanity metrics.</p>
+        </div>
+        <div class="card">
+          <p class="num">02</p>
+          <h3>Creative production</h3>
+          <p>On-site or studio shoots edited into scroll-stopping vertical ads — job walkthroughs, before/afters, and the proof that makes a homeowner trust you with a five-figure job.</p>
+        </div>
+        <div class="card">
+          <p class="num">03</p>
+          <h3>Lead reporting</h3>
+          <p>A plain weekly number: what we spent, what it cost per lead, and what changed. No dashboard you need a login to understand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <p class="eye">Straightforward pricing</p>
+      <h2>Pick a lane and start</h2>
+      <p class="lede">One-off project work to test the fit, or a monthly retainer once it's proven. Custom scope for anything bigger — reach out and we'll price it plainly.</p>
+
+      <div class="ptabs">
+        <button type="button" class="on" data-tab="project">Project</button>
+        <button type="button" data-tab="monthly">Monthly retainer</button>
+      </div>
+
+      <div class="plans-block" data-block="project">
+        <div class="pgrid">
+          <div class="plan">
+            <h4>Starter</h4>
+            <div class="price">$750</div>
+            <ul><li>One ad concept, shot &amp; edited</li><li>Campaign build on Meta</li><li>2 weeks of management</li></ul>
+            <a class="btn sec" href="#contact">Get started</a>
+          </div>
+          <div class="plan hot">
+            <span class="tag">Most common</span>
+            <h4>Growth</h4>
+            <div class="price">$1,250</div>
+            <ul><li>3 ad concepts, shot &amp; edited</li><li>Full campaign build &amp; targeting</li><li>4 weeks of management</li><li>Weekly reporting call</li></ul>
+            <a class="btn pri" href="#contact">Get started</a>
+          </div>
+          <div class="plan">
+            <h4>Launch</h4>
+            <div class="price">$2,000<span>+</span></div>
+            <ul><li>Full-day shoot, 5+ concepts</li><li>Multi-campaign structure</li><li>6 weeks of management</li><li>A/B creative testing</li></ul>
+            <a class="btn sec" href="#contact">Get started</a>
+          </div>
+          <div class="plan">
+            <h4>Custom</h4>
+            <div class="price">Let's talk</div>
+            <ul><li>Multi-location or seasonal</li><li>Scoped to your goals</li><li>Flexible term</li></ul>
+            <a class="btn sec" href="#contact">Book a call</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="plans-block" data-block="monthly" hidden>
+        <div class="pgrid">
+          <div class="plan">
+            <h4>Foundation</h4>
+            <div class="price">$1,500<span>/mo</span></div>
+            <ul><li>Ongoing Meta ad management</li><li>1 new creative shoot / month</li><li>3-month minimum</li></ul>
+            <a class="btn sec" href="#contact">Get started</a>
+          </div>
+          <div class="plan hot">
+            <span class="tag">Most common</span>
+            <h4>Growth</h4>
+            <div class="price">$2,500<span>/mo</span></div>
+            <ul><li>Multi-campaign management</li><li>2 creative shoots / month</li><li>Weekly optimization &amp; reporting</li><li>3-month minimum</li></ul>
+            <a class="btn pri" href="#contact">Get started</a>
+          </div>
+          <div class="plan">
+            <h4>Scale</h4>
+            <div class="price">$4,000<span>/mo</span></div>
+            <ul><li>Multi-location campaigns</li><li>Weekly creative production</li><li>Dedicated strategy call</li><li>3-month minimum</li></ul>
+            <a class="btn sec" href="#contact">Get started</a>
+          </div>
+          <div class="plan">
+            <h4>Custom</h4>
+            <div class="price">Let's talk</div>
+            <ul><li>Franchise / multi-brand</li><li>Scoped to your goals</li><li>Flexible term</li></ul>
+            <a class="btn sec" href="#contact">Book a call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <p class="eye">How it works</p>
+      <h2>From first call to running ads, fast</h2>
+      <ol class="steps">
+        <li><b>Audit</b><span>We look at what you're running now — or what you're not — and where the money's leaking.</span></li>
+        <li><b>Build</b><span>Shoot day or footage pull, edited into ads built to stop a scroll and get a call.</span></li>
+        <li><b>Launch</b><span>Campaigns go live with real targeting, not "boost post."</span></li>
+        <li><b>Scale</b><span>Weekly numbers, weekly adjustments, and more budget behind whatever's working.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <p class="eye">Questions</p>
+      <h2>Before you book a call</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you work outside Greenville / the Upstate?</summary>
+          <p>Yes — creative shoots are easiest in the Upstate SC area, but ad management works with any trade business in the US. If you can send footage or host a shoot day, we can run it.</p>
+        </details>
+        <details>
+          <summary>What if I've never run ads before?</summary>
+          <p>That's most of who we work with. The audit and first project are built to get you a working campaign without you needing to learn Meta Ads Manager.</p>
+        </details>
+        <details>
+          <summary>How fast until I see leads?</summary>
+          <p>Campaigns typically go live within a week of the shoot. Lead flow depends on budget and season, but you'll see cost-per-lead numbers from week one.</p>
+        </details>
+        <details>
+          <summary>Is there a contract?</summary>
+          <p>Project work is one-time. Monthly retainers run a 3-month minimum, then month-to-month — enough time to actually judge results.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eye">Start here</p>
+      <h2>Book a call or send an ad</h2>
+      <div class="contact">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" required>
+          <label for="business">Business &amp; trade</label>
+          <input id="business" name="business" placeholder="e.g. Upstate Roofing Co.">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel">
+          <label for="message">What's going on?</label>
+          <textarea id="message" name="message" placeholder="Currently running ads, want a teardown, want to start from scratch..."></textarea>
+          <button class="btn pri" type="submit" style="margin-top:8px">Send it</button>
+          <div class="note-setup">Setup needed: replace YOUR_FORM_ID with a real Formspree endpoint (free tier) before this form can deliver submissions.</div>
+        </form>
+        <div class="side">
+          <h3>Prefer to just talk?</h3>
+          <p>Book directly on the calendar — no form, no waiting on a reply.</p>
+          <a class="btn sec big" href="https://calendly.com/YOUR-LINK" target="_blank" rel="noopener">Book a call on Calendly →</a>
+          <div class="note-setup">Setup needed: replace YOUR-LINK with your real Calendly URL (free tier).</div>
+          <p style="margin-top:24px">Or email directly:<br><strong>hello@508mediaco.com</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 508 Media Co. · Greenville, SC</p>
+    <p>Meta ads &amp; creative for the trades</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.ptabs button');
+  var blocks = document.querySelectorAll('.plans-block');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var target = btn.getAttribute('data-tab');
+      blocks.forEach(function(b){ b.hidden = b.getAttribute('data-block') !== target; });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+[
+  {
+    "file": "asset-01-1ad4b33fb1.gif",
+    "mime": "image/gif",
+    "bytes": 37,
+    "token": "__ASSET_asset-01-1ad4b33fb1.gif__"
+  },
+  {
+    "file": "asset-02-b6bc9c61a8.jpg",
+    "mime": "image/jpeg",
+    "bytes": 43771,
+    "token": "__ASSET_asset-02-b6bc9c61a8.jpg__"
+  },
+  {
+    "file": "asset-03-2c0e12ff65.mp4",
+    "mime": "video/mp4",
+    "bytes": 1366825,
+    "token": "__ASSET_asset-03-2c0e12ff65.mp4__"
+  },
+  {
+    "file": "asset-04-1bc97b76a1.jpg",
+    "mime": "image/jpeg",
+    "bytes": 24749,
+    "token": "__ASSET_asset-04-1bc97b76a1.jpg__"
+  },
+  {
+    "file": "asset-05-600d905dab.mp4",
+    "mime": "video/mp4",
+    "bytes": 500225,
+    "token": "__ASSET_asset-05-600d905dab.mp4__"
+  },
+  {
+    "file": "asset-06-9e1adb1030.jpg",
+    "mime": "image/jpeg",
+    "bytes": 52546,
+    "token": "__ASSET_asset-06-9e1adb1030.jpg__"
+  },
+  {
+    "file": "asset-07-e02665782a.mp4",
+    "mime": "video/mp4",
+    "bytes": 317626,
+    "token": "__ASSET_asset-07-e02665782a.mp4__"
+  },
+  {
+    "file": "asset-08-970952f874.jpg",
+    "mime": "image/jpeg",
+    "bytes": 26457,
+    "token": "__ASSET_asset-08-970952f874.jpg__"
+  },
+  {
+    "file": "asset-09-8963be0622.mp4",
+    "mime": "video/mp4",
+    "bytes": 985101,
+    "token": "__ASSET_asset-09-8963be0622.mp4__"
+  },
+  {
+    "file": "asset-10-860a65df83.jpg",
+    "mime": "image/jpeg",
+    "bytes": 34478,
+    "token": "__ASSET_asset-10-860a65df83.jpg__"
+  },
+  {
+    "file": "asset-11-6684d8c875.mp4",
+    "mime": "video/mp4",
+    "bytes": 877422,
+    "token": "__ASSET_asset-11-6684d8c875.mp4__"
+  },
+  {
+    "file": "asset-12-7b0d705441.jpg",
+    "mime": "image/jpeg",
+    "bytes": 37135,
+    "token": "__ASSET_asset-12-7b0d705441.jpg__"
+  },
+  {
+    "file": "asset-13-73ce21b05e.mp4",
+    "mime": "video/mp4",
+    "bytes": 867496,
+    "token": "__ASSET_asset-13-73ce21b05e.mp4__"
+  },
+  {
+    "file": "asset-14-4d6e58a006.jpg",
+    "mime": "image/jpeg",
+    "bytes": 73800,
+    "token": "__ASSET_asset-14-4d6e58a006.jpg__"
+  },
+  {
+    "file": "asset-15-e7580b48a2.mp4",
+    "mime": "video/mp4",
+    "bytes": 880475,
+    "token": "__ASSET_asset-15-e7580b48a2.mp4__"
+  },
+  {
+    "file": "asset-16-cad2ce3487.jpg",
+    "mime": "image/jpeg",
+    "bytes": 53638,
+    "token": "__ASSET_asset-16-cad2ce3487.jpg__"
+  },
+  {
+    "file": "asset-17-ff32b4b65a.mp4",
+    "mime": "video/mp4",
+    "bytes": 1369587,
+    "token": "__ASSET_asset-17-ff32b4b65a.mp4__"
+  },
+  {
+    "file": "asset-18-f5fb2833e8.png",
+    "mime": "image/png",
+    "bytes": 116314,
+    "token": "__ASSET_asset-18-f5fb2833e8.png__"
+  }
+]

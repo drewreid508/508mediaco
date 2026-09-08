@@ -1,0 +1,7 @@
+{
+  "_booking_url": "Google Calendar > Create > Appointment schedule > Open booking page. Looks like https://calendar.google.com/calendar/appointments/schedules/AcZssZ...?gv=true",
+  "booking_url": "",
+
+  "_formspree_id": "The part after /f/ in your Formspree endpoint, e.g. xyeyeewz. Until set, the contact form tells people to email or call instead.",
+  "formspree_id": ""
+}

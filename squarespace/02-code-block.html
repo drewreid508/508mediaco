@@ -1,0 +1,836 @@
+<!--
+  508 MEDIA CO. — paste into the Code Block on the blank Home page.
+  Requires 01-site-header-injection.html to be in Code Injection already.
+-->
+<div id="mc508">
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="mark" href="#top" aria-label="508 Media Co. — home"><i></i><b>508</b><s>MEDIA CO.</s><u></u><i></i></a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn sm js-book" href="#contact">Book a shoot</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+<div class="sheet" id="sheet" hidden>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#packages">Packages</a>
+  <a href="#value">Why it's worth it</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn js-book" href="#contact">Book a shoot</a>
+</div>
+
+<main id="top">
+
+
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="tag rv">508 Media Co. · Upstate South Carolina</p>
+    <h1 class="d1 rv">Professional video content,<br><span class="hl">every single month.</span></h1>
+    <p class="lead rv">Cinematic Reels, ad creative and automotive content — filmed, edited and delivered ready to post. You own everything.</p>
+    <div class="hero-cta rv">
+      <a class="btn lg js-book" href="#contact">Book a shoot →</a>
+      <a class="btn lg ghost" href="#portfolio">View my work →</a>
+    </div>
+    <p class="hero-sub rv">Monthly packages from $850. Three-month minimum, then month to month.</p>
+    <ul class="trust rv">
+      <li>Shot and edited by me</li>
+      <li>Ready to post or run as ads</li>
+      <li>Every file is yours</li>
+    </ul>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><i></i></div>
+</section>
+
+
+<section class="band hair" id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">Services</p>
+      <h2 class="d2">What I make.</h2>
+      <p class="lead">Everything is shot, cut, graded and finished by me — colour grading, sound design and motion graphics included as standard.</p>
+    </div>
+    <div class="does rv four">
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Business Reels</h3>
+        <p>Vertical short-form for Instagram, Facebook and TikTok — paced and cut to hold attention past the first second.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+        <h3>Facebook &amp; Instagram ads</h3>
+        <p>Ad creative built to run as ads — hook up front, clean sound, exported in the right sizes and ready to put a budget behind.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13h18v5H3z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></div>
+        <h3>Automotive content</h3>
+        <p>Shops, dealerships, detailers, builds and rollers — cinematic vehicle content that looks like the money in the car.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Custom projects</h3>
+        <p>Bigger productions, multiple vehicles, events, campaigns — anything that doesn't fit a package gets quoted on the project.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="band hair" id="portfolio">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">Portfolio</p>
+      <h2 class="d2">The work.</h2>
+      <p class="lead">Every piece here is mine — filmed, cut and finished by me. Tap any of them to play with sound.</p>
+    </div>
+
+    <div class="filters rv" role="group" aria-label="Filter work by category">
+      <button type="button" data-f="all" aria-pressed="true">All work</button>
+      <button type="button" data-f="automotive" aria-pressed="false">Automotive</button>
+      <button type="button" data-f="cinematic" aria-pressed="false">Cinematic</button>
+      <button type="button" data-f="business" aria-pressed="false">Local business</button>
+      <button type="button" data-f="social" aria-pressed="false">Social content</button>
+    </div>
+
+    <div class="reels rv" id="grid">
+      <article class="reel" data-cat="automotive cinematic social">
+        <div class="vid" data-mv="auto-roller.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="auto-roller.jpg" alt="Bagged Ram 2500 rolling shot at dusk" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Bagged Ram 2500</h3>
+          <p>Highway rolling shots at dusk, overpass passes and forged wheel detail.</p>
+          <p class="role">Automotive · Roller</p></div>
+      </article>
+      <article class="reel" data-cat="automotive cinematic">
+        <div class="vid" data-mv="auto-guardian.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="auto-guardian.jpg" alt="Semi trucks lit up at night" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Guardian Lighting</h3>
+          <p>Semi trucks after dark, shot so the lighting carries the whole piece.</p>
+          <p class="role">Client · Night</p></div>
+      </article>
+      <article class="reel" data-cat="automotive cinematic">
+        <div class="vid" data-mv="auto-tundra.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="auto-tundra.jpg" alt="Fabrication and powdercoat shop build" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Naked Metal Fabrication</h3>
+          <p>Fabrication and powdercoat work — grinder sparks, hardware detail and the finished truck.</p>
+          <p class="role">Client · Shop build</p></div>
+      </article>
+      <article class="reel" data-cat="automotive social">
+        <div class="vid" data-mv="auto-ram2500.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="auto-ram2500.jpg" alt="Black Ram 2500 walkaround" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Ram 2500 walkaround</h3>
+          <p>Black on black, shot tight — stance, wheels and the details people zoom in on.</p>
+          <p class="role">Automotive · Vehicle feature</p></div>
+      </article>
+      <article class="reel" data-cat="business social">
+        <div class="vid" data-mv="biz-blueworks.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="biz-blueworks.jpg" alt="Blueworks Dumpsters roll-off delivery" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Blueworks Dumpsters</h3>
+          <p>Roll-off delivery and load-out filmed on the job. A service business shown doing the work.</p>
+          <p class="role">Client · Local business</p></div>
+      </article>
+      <article class="reel" data-cat="business cinematic">
+        <div class="vid" data-mv="biz-stadium.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="biz-stadium.jpg" alt="Bratcher's Power Washing stadium clean" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Bratcher's Power Washing</h3>
+          <p>Greer High School stadium. Drone, ground and a before/after payoff.</p>
+          <p class="role">Client · Drone &amp; ground</p></div>
+      </article>
+      <article class="reel" data-cat="business social">
+        <div class="vid" data-mv="biz-7brew.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="biz-7brew.jpg" alt="7 Brew night shoot" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>7 Brew night shoot</h3>
+          <p>Night wash at 7 Brew Simpsonville, cut into a ready-to-run ad with an end card.</p>
+          <p class="role">Client · Night shoot</p></div>
+      </article>
+      <article class="reel" data-cat="automotive social">
+        <div class="vid" data-mv="auto-build.mp4">
+          <span class="snd">Sound on</span>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="auto-build.jpg" alt="Super Duty suspension build" loading="lazy" width="540" height="960">
+          <span class="play"></span>
+        </div>
+        <div class="meta"><h3>Shop build</h3>
+          <p>Suspension build on a Super Duty. Detail work, sparks and slow motion, cut for socials.</p>
+          <p class="role">Automotive · Shop build</p></div>
+      </article>
+    </div>
+    <p class="lead-sm rv" id="empty" hidden>Nothing in that category yet.</p>
+  </div>
+</section>
+
+
+<section class="band hair" id="packages">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">Packages</p>
+      <h2 class="d2">Content every month, not once a year.</h2>
+      <p class="lead">One shoot day a month turns into a stack of content you can post, promote and advertise with. Three-month minimum so there's enough runway to build a real library — then month to month.</p>
+    </div>
+
+    <div class="plans trio rv">
+      <div class="plan">
+        <p class="t">Package 01</p>
+        <p class="nm">Starter</p>
+        <p class="px">$850<em>per month</em></p>
+        <p class="term">3-month minimum · <b>$2,550</b> total</p>
+        <p class="for">For a business that wants to stay visible without a big monthly commitment.</p>
+        <ul>
+          <li><b>3 videos</b> per month</li>
+          <li><b>8 photos</b> per month</li>
+          <li>2 hours filming, 1 location</li>
+          <li>Cinematic colour grading</li>
+          <li>Sound design</li>
+          <li>Motion graphics where they help</li>
+          <li>Vertical 9:16, ready to post</li>
+          <li>Ad-ready exports</li>
+          <li>You own everything</li>
+        </ul>
+        <p class="excl">No drone on this package.</p>
+        <a class="btn ghost js-pkg" href="#contact" data-pkg="Starter — $850/mo">Inquire →</a>
+      </div>
+
+      <div class="plan star">
+        <span class="badge">MOST POPULAR</span>
+        <p class="t">Package 02</p>
+        <p class="nm">Content</p>
+        <p class="px">$1,500<em>per month</em></p>
+        <p class="term">3-month minimum · <b>$4,500</b> total</p>
+        <p class="for">The one most businesses land on — enough content to post consistently and still have ads to run.</p>
+        <ul>
+          <li><b>8 videos</b> per month</li>
+          <li><b>15 photos</b> per month</li>
+          <li>3–4 hours filming, up to 2 locations</li>
+          <li><b>Drone included</b> where it's safe and legal to fly</li>
+          <li>Cinematic colour grading</li>
+          <li>Sound design</li>
+          <li>Motion graphics</li>
+          <li>Vertical 9:16, ready to post</li>
+          <li>Ad-ready exports</li>
+          <li>You own everything</li>
+        </ul>
+        <p class="excl good">Nearly three times the content of Starter for less than double the price.</p>
+        <a class="btn js-pkg" href="#contact" data-pkg="Content — $1,500/mo (Most popular)">Inquire →</a>
+      </div>
+
+      <div class="plan">
+        <p class="t">Package 03</p>
+        <p class="nm">Signature</p>
+        <p class="px">$2,300<em>per month</em></p>
+        <p class="term">3-month minimum · <b>$6,900</b> total</p>
+        <p class="for">For a business posting daily, running ads, and wanting a proper content library behind it.</p>
+        <ul>
+          <li><b>15 videos</b> per month</li>
+          <li><b>25 photos</b> per month</li>
+          <li>5–6 hours filming, multiple locations</li>
+          <li><b>Drone included</b> where it's safe and legal to fly</li>
+          <li>Cinematic colour grading</li>
+          <li>Advanced sound design</li>
+          <li>Motion graphics</li>
+          <li>Vertical and horizontal deliverables</li>
+          <li>Ad-ready exports</li>
+          <li>You own everything</li>
+        </ul>
+        <p class="excl">The full production treatment, every month.</p>
+        <a class="btn ghost js-pkg" href="#contact" data-pkg="Signature — $2,300/mo">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="pnote hi rv" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <span><b>Need something outside these?</b> Bigger productions, multiple vehicles, events and one-off campaigns are quoted on the project.</span>
+      <a class="btn sm js-pkg" href="#contact" data-pkg="Custom project">Request a custom quote →</a>
+    </div>
+
+    <p class="fine"><b>Production costs are separate.</b> Package prices cover my time, equipment and post-production. Anything a specific shoot needs on top — location or venue fees, permits, props, paid talent, studio rental or travel beyond the Upstate — is quoted and agreed with you before it's booked. <b>Advertising spend is also separate</b> and is paid by you directly to Facebook, Instagram or wherever you're running: it never runs through me and is never marked up. Drone filming depends on location, weather, safety and applicable airspace rules and isn't guaranteed on any given day. After the initial three months, packages continue month to month and can be cancelled with 30 days' notice.</p>
+  </div>
+</section>
+
+
+<section class="band hair" id="value">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">Why it's worth it</p>
+      <h2 class="d2">You're not buying videos.<br><span class="dim">You're buying a content library.</span></h2>
+    </div>
+    <div class="does rv">
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/></svg></div>
+        <h3>Attention</h3>
+        <p>Content built to stop a thumb mid-scroll — hooks in the first second, pacing that holds, sound that lands. Not a slideshow with music over it.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Consistency</h3>
+        <p>The hardest part of social isn't one good post, it's the next one. A monthly package means you always have something ready to go out.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.8.8-5 4.7 1.3 6.8L12 17.3 6 20.6l1.3-6.8-5-4.7 6.8-.8z"/></svg></div>
+        <h3>Professional image</h3>
+        <p>How your business looks online is how people judge it before they ever call. Proper cameras, proper lighting, proper finishing.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+        <h3>Ad-ready content</h3>
+        <p>Everything is exported in the right sizes and formats to run as paid ads the day you get it — or just post it organically and spend nothing.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 2H7a2 2 0 0 0-2 2v16l7-4 7 4V4a2 2 0 0 0-2-2z"/></svg></div>
+        <h3>Ownership</h3>
+        <p>Every finished file is yours to use anywhere, forever — social, ads, your website, future campaigns. No licence fees, no expiry.</p>
+      </article>
+      <article class="do-card">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 6h13v12H2z"/><path d="M15 10l7-4v12l-7-4"/></svg></div>
+        <h3>Expertise</h3>
+        <p>Seven years behind a camera, from filming motocross as a kid to shooting businesses and builds now. One person, start to finish — nothing farmed out.</p>
+      </article>
+    </div>
+    <p class="lead-sm rv">Professional content gives your business stronger creative to market with. What it returns depends on your offer, your audience, your budget and how consistently you use it — the parts you control. I make the creative as good as it can be.</p>
+  </div>
+</section>
+
+
+<section class="band hair" id="about">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">About</p>
+      <h2 class="d2">The filmmaker behind 508 Media.</h2>
+    </div>
+    <div class="about rv">
+      
+      <div class="badge-wrap">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-m="logo.png" alt="508 Media Co." loading="lazy" width="420" height="420">
+      </div>
+      <div>
+        <p class="first">I'm Drew. I picked up a camera at eleven, filming motocross.</p>
+        <p>Chasing riders around a track teaches you to shoot fast, frame something moving, and find the shot before the moment's gone. Seven years later that's turned into 508 Media.</p>
+        <p>Now I film businesses, brands and vehicles — Reels, ad creative, automotive work and drone. Same instinct, better tools: get the shot, cut it so people actually watch it, and hand back something a business can market with.</p>
+        <p class="loc">Based in Upstate South Carolina.<br>Available for projects locally and beyond.</p>
+        <div class="sect-cta"><a class="btn js-book" href="#contact">Book a shoot →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band hair" id="faq">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="tag">Questions</p>
+      <h2 class="d2">The things everyone asks.</h2>
+    </div>
+    <div class="faq rv">
+      <div class="qa">
+        <button type="button" aria-expanded="false">Why is there a three-month minimum?</button>
+        <div class="a" hidden><p>Because one month of content doesn't prove anything. Three months gives you a real library, a consistent presence, and enough material to actually test what your audience responds to. After that it's month to month — carry on, pause, or change packages with 30 days' notice.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Which package should I pick?</button>
+        <div class="a" hidden><p>Starter if you want to stay visible without a big commitment. Content is where most businesses land — eight videos and fifteen photos a month is enough to post consistently and still have ads to run, and drone is included. Signature is for businesses posting daily and running ads properly. If none fit, ask for a custom quote.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">How long until I get my content?</button>
+        <div class="a" hidden><p>Normally within a week of the shoot day. We'll agree the exact schedule when you book, and once we're in a rhythm you'll know roughly when each month's batch lands. If something's needed for a specific date, tell me up front and we'll plan the shoot around it.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Who owns the videos and photos?</button>
+        <div class="a" hidden><p>You do. Every finished file is yours to use anywhere, forever — organic posts, paid ads, your website, printed material, future campaigns. No licence fees and nothing expires. I keep the right to show work in my own portfolio unless you'd rather I didn't, which is fine — just say so before the shoot.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Do you run my ads for me?</button>
+        <div class="a" hidden><p>No — I make the creative, you run it. That keeps you in control of your own budget, targeting and account, and means nothing gets marked up. Everything is delivered ready to run on Meta, Instagram or TikTok. If you want a hand getting the first one posted, ask and I'll walk you through it.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Is advertising spend included in the price?</button>
+        <div class="a" hidden><p>No. Package prices cover production only — my time, equipment and post-production. Any ad budget is paid by you directly to the platform. You can also just post everything organically and spend nothing at all.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">What if I need something outside my package?</button>
+        <div class="a" hidden><p>Extra videos, an additional shoot day, a bigger production or a one-off campaign all get quoted separately and agreed in writing before any work starts. Nothing gets added to an invoice you haven't seen coming.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band close" id="contact">
+  <div class="wrap">
+    <div class="pin-grid">
+      <div>
+        <p class="tag rv">Book a shoot</p>
+        <h2 class="d2 rv">Got something worth showing?<br><span class="dim">Let's make it look good.</span></h2>
+        <p class="lead rv" style="margin-top:26px;max-width:44ch">Tell me about your business and what you're after. I'll come back within a business day with a plan, a price and dates that work.</p>
+        <p class="lead rv mono" style="margin-top:32px;font-size:15px;color:var(--fg-3);letter-spacing:0">
+          <a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a><br>
+          <a href="tel:+18649154071">(864) 915-4071</a><br>
+          Upstate South Carolina · available beyond
+        </p>
+        <div class="sect-cta rv">
+          <a class="btn ghost" href="#portfolio">View my work →</a>
+        </div>
+      </div>
+
+      <form class="rv" id="inquiry" method="POST" novalidate>
+        <div><label for="nm">Your name</label><input id="nm" name="name" type="text" required autocomplete="name"></div>
+        <div><label for="bz">Business / brand</label><input id="bz" name="business" type="text" autocomplete="organization"></div>
+        <div><label for="em">Email</label><input id="em" name="email" type="email" required autocomplete="email"></div>
+        <div><label for="ph">Phone</label><input id="ph" name="phone" type="tel" autocomplete="tel"></div>
+        <div>
+          <label for="pt">Service type</label>
+          <select id="pt" name="service_type" required>
+            <option value="">Select one</option>
+            <option>Business Reels</option>
+            <option>Facebook / Instagram ad creative</option>
+            <option>Automotive content</option>
+            <option>Car / truck roller</option>
+            <option>Custom project</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="pk">Package / budget</label>
+          <select id="pk" name="package" required>
+            <option value="">Select one</option>
+            <option>Starter — $850/mo</option>
+            <option>Content — $1,500/mo (Most popular)</option>
+            <option>Signature — $2,300/mo</option>
+            <option>Custom project</option>
+            <option>Not sure yet — recommend one</option>
+          </select>
+        </div>
+        <div><label for="dt">Preferred date</label><input id="dt" name="preferred_date" type="date"></div>
+        <div><label for="lc">Location</label><input id="lc" name="location" type="text" placeholder="City, or where we'd film"></div>
+        <div class="w2"><label for="ms">Tell me about the project</label><textarea id="ms" name="message" placeholder="What your business does, what you want filmed, and where the content will be used." required></textarea></div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="w2"><button class="btn lg" type="submit" id="send" style="width:100%">Send my inquiry →</button></div>
+        <p class="formnote w2">I reply within one business day. Nothing is booked until the scope, dates and price are confirmed in writing — sending this doesn't commit you to anything.</p>
+        <div class="w2 formmsg" id="formmsg" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<div class="dock" id="dock">
+  <p>Book a shoot<small>Packages from $850/mo</small></p>
+  <a class="btn sm js-book" href="#contact">Book</a>
+</div>
+
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="mark" href="#top" aria-label="508 Media Co. — home"><i></i><b>508</b><s>MEDIA CO.</s><u></u><i></i></a>
+      <div class="foot-links">
+        <a href="#services">Services</a><a href="#portfolio">Portfolio</a>
+        <a href="#packages">Packages</a><a href="#about">About</a><a href="#faq">FAQ</a>
+        <a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a>
+        
+        <a href="#" target="_blank" rel="noopener" hidden>Instagram</a>
+        <a href="#" target="_blank" rel="noopener" hidden>TikTok</a>
+      </div>
+    </div>
+    <a class="btn js-book" href="#contact">Book a shoot →</a>
+  </div>
+  <div class="wrap">
+    <p class="legal">
+      © <span id="yr">2026</span> 508 Media Co. Video production based in Upstate South Carolina — Greenville, Greer, Simpsonville, Mauldin, Easley, Taylors, Travelers Rest, Anderson, Spartanburg and Fountain Inn — available for projects beyond.<br>
+      Packages require a three-month minimum and continue month to month afterwards with 30 days' notice. Production costs such as location fees, permits, props, paid talent and travel beyond the Upstate are quoted separately. Advertising spend is paid by the client directly to the platform and is not included in any package price. Drone operations are subject to location, weather, safety and applicable airspace regulations.<br>
+      Not affiliated with or endorsed by Meta Platforms, Inc.
+    </p>
+  </div>
+</footer>
+</div>
+<script>
+
+(function(){var M={"auto-build.jpg":"https://drewreid508.github.io/508mediaco/media-v2/auto-build.jpg",
+"auto-build.mp4":"https://drewreid508.github.io/508mediaco/media-v2/auto-build.mp4",
+"auto-guardian.jpg":"https://drewreid508.github.io/508mediaco/media-v2/auto-guardian.jpg",
+"auto-guardian.mp4":"https://drewreid508.github.io/508mediaco/media-v2/auto-guardian.mp4",
+"auto-ram2500.jpg":"https://drewreid508.github.io/508mediaco/media-v2/auto-ram2500.jpg",
+"auto-ram2500.mp4":"https://drewreid508.github.io/508mediaco/media-v2/auto-ram2500.mp4",
+"auto-roller.jpg":"https://drewreid508.github.io/508mediaco/media-v2/auto-roller.jpg",
+"auto-roller.mp4":"https://drewreid508.github.io/508mediaco/media-v2/auto-roller.mp4",
+"auto-tundra.jpg":"https://drewreid508.github.io/508mediaco/media-v2/auto-tundra.jpg",
+"auto-tundra.mp4":"https://drewreid508.github.io/508mediaco/media-v2/auto-tundra.mp4",
+"biz-7brew.jpg":"https://drewreid508.github.io/508mediaco/media-v2/biz-7brew.jpg",
+"biz-7brew.mp4":"https://drewreid508.github.io/508mediaco/media-v2/biz-7brew.mp4",
+"biz-blueworks.jpg":"https://drewreid508.github.io/508mediaco/media-v2/biz-blueworks.jpg",
+"biz-blueworks.mp4":"https://drewreid508.github.io/508mediaco/media-v2/biz-blueworks.mp4",
+"biz-stadium.jpg":"https://drewreid508.github.io/508mediaco/media-v2/biz-stadium.jpg",
+"biz-stadium.mp4":"https://drewreid508.github.io/508mediaco/media-v2/biz-stadium.mp4",
+"logo.png":"https://drewreid508.github.io/508mediaco/media-v2/logo.png"};
+document.querySelectorAll('[data-m]').forEach(function(e){var u=M[e.dataset.m];if(u)e.src=u;});
+document.querySelectorAll('[data-mv]').forEach(function(e){var u=M[e.dataset.mv];if(u)e.setAttribute('data-src',u);});
+})();
+
+
+(function(){
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ───────── nav ───────── */
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('on', scrollY > 20); }, {passive:true});
+
+  var burger = document.getElementById('burger'), sheet = document.getElementById('sheet');
+  function setSheet(o){ burger.setAttribute('aria-expanded', String(o)); sheet.hidden = !o; }
+  burger.addEventListener('click', function(){ setSheet(burger.getAttribute('aria-expanded') !== 'true'); });
+  sheet.addEventListener('click', function(e){ if (e.target.tagName === 'A') setSheet(false); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape') setSheet(false); });
+
+  /* ───────── reveal ───────── */
+  var rv = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -10% 0px', threshold:0.08});
+    rv.forEach(function(el, i){ el.style.transitionDelay = Math.min(i % 5, 4) * 70 + 'ms'; io.observe(el); });
+  }
+
+  /* ───────── FAQ ───────── */
+  document.querySelectorAll('.qa button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!open));
+      b.nextElementSibling.hidden = open;
+    });
+  });
+
+  /* ───────── pinned steps, scroll-driven ───────── */
+  var outer = document.querySelector('.pin-outer');
+  var steps = [].slice.call(document.querySelectorAll('.pstep'));
+  var arts  = [].slice.call(document.querySelectorAll('.art'));
+  var bars  = [].slice.call(document.querySelectorAll('.pbar i span'));
+
+  function pinTick(){
+    if (!outer) return;
+    var r = outer.getBoundingClientRect();
+    var total = outer.offsetHeight - innerHeight;
+    var p = Math.min(1, Math.max(0, -r.top / (total || 1)));
+    var raw = p * steps.length;
+    var idx = Math.min(steps.length - 1, Math.floor(raw));
+    steps.forEach(function(s, i){ s.classList.toggle('live', i === idx); });
+    arts.forEach(function(a, i){ a.classList.toggle('live', i === idx); });
+    bars.forEach(function(b, i){
+      var f = i < idx ? 1 : (i === idx ? Math.min(1, raw - idx) : 0);
+      b.style.transform = 'scaleX(' + f + ')';
+    });
+  }
+
+  /* ───────── count-up ───────── */
+  var counted = false;
+  function countUp(){
+    if (counted) return; counted = true;
+    document.querySelectorAll('#nums .v').forEach(function(el){
+      var to = +el.dataset.to, sfx = el.dataset.suffix || '', t0 = null, D = 1100;
+      if (reduce){ el.textContent = to + sfx; return; }
+      function step(t){
+        if (!t0) t0 = t;
+        var k = Math.min(1, (t - t0) / D);
+        var e = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(to * e) + sfx;
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var nums = document.getElementById('nums');
+  if (nums && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) countUp(); });
+    }, {threshold:0.4}).observe(nums);
+  } else { countUp(); }
+
+  /* ───────── sticky dock ───────── */
+  var dock = document.getElementById('dock'), start = document.getElementById('start');
+  function dockTick(){
+    if (!dock) return;
+    var past = scrollY > innerHeight * 0.9;
+    var atForm = start && start.getBoundingClientRect().top < innerHeight * 0.75;
+    dock.classList.toggle('up', past && !atForm);
+  }
+
+  addEventListener('scroll', function(){ pinTick(); dockTick(); }, {passive:true});
+  addEventListener('resize', function(){ pinTick(); dockTick(); });
+  pinTick(); dockTick();
+
+  /* ───────── hero canvas: a field that resolves into a growth curve ───────── */
+  var cv = document.getElementById('field');
+  if (cv && !reduce) {
+    var cx = cv.getContext('2d'), W = 0, H = 0, DPR = Math.min(2, devicePixelRatio || 1), t = 0;
+    var GAP = 34;
+    function size(){
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * DPR; cv.height = H * DPR;
+      cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    function curveY(x){
+      var n = x / W;
+      return H * (0.82 - Math.pow(n, 1.75) * 0.52);
+    }
+    function draw(){
+      t += 0.0055;
+      cx.clearRect(0, 0, W, H);
+
+      /* dot field, brightening near the curve */
+      for (var x = GAP / 2; x < W; x += GAP) {
+        for (var y = GAP / 2; y < H; y += GAP) {
+          var cyv = curveY(x);
+          var d = Math.abs(y - cyv);
+          var near = Math.max(0, 1 - d / 190);
+          var pulse = 0.5 + 0.5 * Math.sin(t * 2.1 + x * 0.008 + y * 0.006);
+          var a = 0.045 + near * 0.5 * pulse;
+          var r = 1 + near * 1.5;
+          cx.beginPath();
+          cx.arc(x, y + Math.sin(t * 1.5 + x * 0.01) * near * 5, r, 0, 6.2832);
+          cx.fillStyle = 'rgba(' + (near > 0.35 ? '124,178,255' : '138,146,158') + ',' + a.toFixed(3) + ')';
+          cx.fill();
+        }
+      }
+
+      /* the curve itself */
+      cx.beginPath();
+      for (var px = 0; px <= W; px += 8) {
+        var py = curveY(px) + Math.sin(t * 1.5 + px * 0.01) * 5;
+        px === 0 ? cx.moveTo(px, py) : cx.lineTo(px, py);
+      }
+      var g = cx.createLinearGradient(0, 0, W, 0);
+      g.addColorStop(0, 'rgba(72,143,246,0)');
+      g.addColorStop(0.35, 'rgba(72,143,246,.5)');
+      g.addColorStop(1, 'rgba(127,178,255,.9)');
+      cx.strokeStyle = g; cx.lineWidth = 1.6; cx.stroke();
+
+      requestAnimationFrame(draw);
+    }
+    size(); addEventListener('resize', size); draw();
+  }
+
+  /* ───────── reel players: poster first, video injected on demand ───────── */
+  document.querySelectorAll('.reel .vid, .samp .vid').forEach(function(box){
+    var src = box.getAttribute('data-src'), vid = null;
+    function build(){
+      if (vid) return vid;
+      vid = document.createElement('video');
+      vid.src = src; vid.loop = true; vid.playsInline = true; vid.preload = 'none';
+      vid.setAttribute('playsinline',''); vid.muted = false; vid.volume = 0.85;
+      box.insertBefore(vid, box.firstChild);
+      return vid;
+    }
+    function play(){
+      var v = build(), p = v.play();
+      if (p && p.catch) p.catch(function(){ v.muted = true; v.play().catch(function(){}); });
+      box.classList.add('playing');
+    }
+    function stop(){ if (vid){ vid.pause(); vid.currentTime = 0; box.classList.remove('playing'); } }
+    box.addEventListener('click', function(){
+      document.querySelectorAll('.reel .vid.playing, .samp .vid.playing').forEach(function(o){
+        if (o !== box){ var ov = o.querySelector('video'); if (ov){ ov.pause(); ov.currentTime = 0; } o.classList.remove('playing'); }
+      });
+      box.classList.contains('playing') ? stop() : play();
+    });
+  });
+
+  /* ───────── booking link ─────────
+     EDIT: paste your Calendly (or similar) URL and every "book" button opens
+     it in a new tab instead of scrolling to the form. Leave '' to use the form. */
+  var BOOKING_URL = '';
+  if (BOOKING_URL) {
+    document.querySelectorAll('.js-book').forEach(function(a){
+      a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener';
+    });
+  }
+
+  /* ───────── portfolio filter ───────── */
+  (function(){
+    var btns = [].slice.call(document.querySelectorAll('.filters button'));
+    var grid = document.getElementById('grid');
+    var empty = document.getElementById('empty');
+    if (!btns.length || !grid) return;
+    var cards = [].slice.call(grid.querySelectorAll('.reel'));
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var f = b.dataset.f;
+        btns.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+        var shown = 0;
+        cards.forEach(function(c){
+          var hit = f === 'all' || (' ' + c.dataset.cat + ' ').indexOf(' ' + f + ' ') > -1;
+          c.hidden = !hit;
+          if (hit) shown++;
+          if (!hit){
+            var v = c.querySelector('video');
+            if (v){ v.pause(); v.currentTime = 0; }
+            var box = c.querySelector('.vid');
+            if (box) box.classList.remove('playing');
+          }
+        });
+        if (empty) empty.hidden = shown > 0;
+      });
+    });
+  })();
+
+  /* ───────── package buttons preselect the form ───────── */
+  document.querySelectorAll('.js-pkg').forEach(function(a){
+    a.addEventListener('click', function(){
+      var want = a.dataset.pkg, sel = document.getElementById('pk');
+      if (!sel || !want) return;
+      for (var i = 0; i < sel.options.length; i++){
+        if (sel.options[i].text === want){ sel.selectedIndex = i; break; }
+      }
+      sel.classList.add('lit');
+      setTimeout(function(){ sel.classList.remove('lit'); }, 1400);
+    });
+  });
+
+  /* ───────── inquiry form: validate, send, report back ─────────
+     EDIT: paste your Formspree form ID between the quotes (the part after
+     /f/ in the endpoint they give you). Until then the form tells people
+     to email or call instead of silently failing. */
+  /* ───────── booking backend: the same Google Form 508 Filmzz uses ─────────
+     Posts straight into the Google Form; Google writes the row to the linked
+     Sheet, and the Apps Script in that Sheet texts + emails both you and the
+     client. No third-party form service, no server, no credential on the page.
+
+     Both brands share one form, so every 508 Media enquiry is stamped with a
+     SOURCE line (read it in the Sheet and in the SMS alert) to tell them apart.
+     To split them later: make a second Google Form, then swap ENDPOINT and the
+     nine entry ids below for that form's. Both halves must change together. */
+  var FORM_ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSd-G2A4Y1O8U1j78neP9ZGlQpFfmzmSyHqt20lie-h7ouVCFQ/formResponse';
+  var FIELD_IDS = {
+    name:         'entry.207022369',
+    businessName: 'entry.444221534',
+    email:        'entry.1777192855',
+    phone:        'entry.1805905143',
+    projectType:  'entry.2066163859',
+    budget:       'entry.111280340',
+    shootDate:    'entry.34369500',
+    location:     'entry.2058135756',
+    message:      'entry.339321494'
+  };
+
+  (function(){
+    var form = document.getElementById('inquiry');
+    var msg  = document.getElementById('formmsg');
+    if (!form || !msg) return;
+
+    var EMAIL = 'drew@508mediaco.com', PHONE = '(864) 915-4071';
+
+    function show(kind, html){
+      msg.className = 'w2 formmsg ' + kind;
+      msg.innerHTML = html;
+      msg.hidden = false;
+      msg.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      /* validate first, and point at the field that needs fixing */
+      form.querySelectorAll('.field-bad').forEach(function(d){ d.classList.remove('field-bad'); });
+      var bad = null;
+      form.querySelectorAll('[required]').forEach(function(el){
+        var empty = !el.value || !el.value.trim();
+        var badEmail = el.type === 'email' && el.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value);
+        if (empty || badEmail){
+          if (el.parentElement) el.parentElement.classList.add('field-bad');
+          if (!bad) bad = el;
+        }
+      });
+      if (bad){
+        show('bad', "<b>Almost there.</b> A couple of fields still need filling in — they're highlighted above.");
+        bad.focus();
+        return;
+      }
+
+      form.classList.add('sending');
+      show('', 'Sending…');
+
+      var g = function(n){ var el = form.elements[n]; return el && el.value ? el.value.trim() : ''; };
+
+      /* Never send an empty string: a Required question that arrives blank
+         rejects the WHOLE submission, and no-cors makes that rejection
+         invisible — the visitor would be thanked while the lead was binned. */
+      var body = new URLSearchParams();
+      body.set(FIELD_IDS.name,         g('name'));
+      body.set(FIELD_IDS.businessName, g('business')       || '(not given)');
+      body.set(FIELD_IDS.email,        g('email'));
+      body.set(FIELD_IDS.phone,        g('phone')          || '(not given)');
+      body.set(FIELD_IDS.projectType,  g('service_type')   || '(not given)');
+      body.set(FIELD_IDS.budget,       g('package')        || '(not given)');
+      body.set(FIELD_IDS.shootDate,    g('preferred_date') || 'Flexible');
+      body.set(FIELD_IDS.location,     g('location')       || '(not given)');
+      body.set(FIELD_IDS.message, [
+        '*** SOURCE: 508 MEDIA CO. (508mediaco.com) ***',
+        '',
+        'Service type: ' + (g('service_type') || '(not given)'),
+        'Package / budget: ' + (g('package')  || '(not given)'),
+        'Preferred date: ' + (g('preferred_date') || 'Flexible'),
+        'Location: ' + (g('location') || '(not given)'),
+        '',
+        g('message') || '(no message left)'
+      ].join('\n'));
+
+      /* Google Forms sends no CORS headers, so the browser will not hand us the
+         response: status is always 0 and ok always false whether Google saved
+         the row or refused it. There is nothing to check. fetch still rejects
+         when the request never left the machine — offline, DNS, refused — and
+         that is the one real failure worth reporting. URLSearchParams sets
+         x-www-form-urlencoded, which skips the CORS preflight; JSON would not. */
+      fetch(FORM_ENDPOINT, { method:'POST', mode:'no-cors', body: body })
+        .then(function(){
+          form.classList.remove('sending');
+          form.reset();
+          show('ok', "<b>Got it — thanks.</b> I'll come back within one business day with a plan, a price and some dates. If it's urgent, call or text " +
+            "<a href='tel:+18649154071'>" + PHONE + "</a>.");
+        })
+        .catch(function(){
+          form.classList.remove('sending');
+          show('bad', "<b>Couldn't reach the server.</b> Check your connection, or email <a href='mailto:" + EMAIL +
+            "'>" + EMAIL + "</a> and I'll pick it up from there.");
+        });
+    });
+  })();
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+
+
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');
+
+</script>

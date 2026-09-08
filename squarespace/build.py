@@ -141,6 +141,12 @@ CHROME = """
    renders edge to edge exactly as it does standalone.
    ========================================================== */
 
+/* Squarespace's own page content. The site is injected via the FOOTER slot,
+   which lands as a direct child of <body> with no Squarespace wrapper around
+   it, so the template's own markup simply gets hidden rather than unwrapped. */
+#siteWrapper, #page, #sections, article.sections, .sqs-announcement-bar-dropzone,
+main#page, .tweak-fixed-nav { display: none !important; }
+
 /* Squarespace's own header, footer and announcement bar. */
 #header, .header, #footer-sections, footer.sections,
 .sqs-announcement-bar-dropzone { display: none !important; }
@@ -225,6 +231,18 @@ body { background: var(--ink) !important; margin: 0 !important; }
 </script>
 """)
 
+(HERE / "04-code-injection-footer.html").write_text(f"""<!--
+  508 MEDIA CO. - paste into Code Injection > FOOTER
+  Lands as a direct child of <body>; pairs with 01 in the HEADER slot.
+-->
+<div id="mc508">
+{markup}
+</div>
+<script>
+{body_js}
+</script>
+""")
+
 (HERE / "03-seo-fields.txt").write_text(
     "Type these into Squarespace's own SEO panel, NOT the code block.\n"
     "Squarespace generates its own <title> and OG tags; a second set fights it.\n"
@@ -235,6 +253,7 @@ a = (HERE / "01-site-header-injection.html").read_text()
 b = (HERE / "02-code-block.html").read_text()
 print(f"01-site-header-injection.html  {len(a):>7,} bytes")
 print(f"02-code-block.html             {len(b):>7,} bytes")
+print(f"04-code-injection-footer.html  {len((HERE/'04-code-injection-footer.html').read_text()):>7,} bytes")
 print(f"03-seo-fields.txt              written")
 if unresolved:
     print(f"\nBLOCKING ({len(unresolved)}) — the page will look broken without these:")

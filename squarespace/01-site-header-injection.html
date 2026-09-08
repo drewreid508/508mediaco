@@ -13,6 +13,12 @@
    renders edge to edge exactly as it does standalone.
    ========================================================== */
 
+/* Squarespace's own page content. The site is injected via the FOOTER slot,
+   which lands as a direct child of <body> with no Squarespace wrapper around
+   it, so the template's own markup simply gets hidden rather than unwrapped. */
+#siteWrapper, #page, #sections, article.sections, .sqs-announcement-bar-dropzone,
+main#page, .tweak-fixed-nav { display: none !important; }
+
 /* Squarespace's own header, footer and announcement bar. */
 #header, .header, #footer-sections, footer.sections,
 .sqs-announcement-bar-dropzone { display: none !important; }

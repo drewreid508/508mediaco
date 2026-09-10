@@ -732,6 +732,30 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #mc508 [hidden]{display:none!important}
 @media(max-width:820px){#mc508 .pnote .btn.sm{min-height:44px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center}
 #mc508 .burger{min-width:44px;min-height:44px}}
+#mc508 .offer{
+  display:flex; flex-wrap:wrap; align-items:center; gap:16px 26px;
+  border:1px solid rgba(72,143,246,.42); border-radius:20px;
+  background:linear-gradient(122deg,rgba(72,143,246,.15),var(--surface) 60%);
+  padding:22px 26px; margin:0 0 26px;
+  box-shadow:0 26px 70px -46px rgba(72,143,246,.85);
+}
+#mc508 .offer .amt{
+  font-size:clamp(30px,4.2vw,42px); font-weight:700; letter-spacing:-.04em;
+  line-height:1; white-space:nowrap; color:var(--blue-lift);
+}
+#mc508 .offer .body{flex:1; min-width:250px}
+#mc508 .offer .k{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--blue); margin:0 0 8px;
+}
+#mc508 .offer p.t2{font-size:16px; line-height:1.5; color:var(--fg-2); margin:0}
+#mc508 .offer p.t2 b{color:var(--fg); font-weight:600}
+#mc508 .plan .save{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.01em;
+  color:var(--blue-lift); margin:7px 0 0; display:block;
+}
+#mc508 .plan .save s{color:var(--fg-3); text-decoration:line-through; margin-right:7px}
+#mc508 .plan.star .save{color:var(--blue-lift)}
 @media(min-width:900px){#mc508 .plans.trio{grid-template-columns:repeat(3,1fr)}}
 #mc508 .plan .term{
   font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.02em;color:var(--fg-3);

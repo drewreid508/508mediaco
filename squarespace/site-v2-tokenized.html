@@ -818,6 +818,96 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
 .addon-txt p:last-of-type{font-size:15px;line-height:1.5;color:var(--fg-2);margin:0;max-width:62ch}
 .addon .px2{font-size:32px;font-weight:700;letter-spacing:-.035em;margin:0;white-space:nowrap;font-variant-numeric:tabular-nums}
 .addon .px2 em{display:block;font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--fg-3);margin-top:8px;font-weight:400}
+
+/* ══════════════════════════ EXAMPLE PACKAGE CONTENTS ══════════════════════════ */
+.exlink{
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  background:none;border:0;border-bottom:1px solid rgba(72,143,246,.4);
+  padding:0 0 2px;margin:0;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue-lift);line-height:1.7;
+  transition:color .3s,border-color .3s;
+}
+.exlink:hover{color:var(--fg);border-color:var(--fg-3)}
+.plan .exlink{margin:15px auto 0}
+.pnote .exlink{margin:13px 0 0}
+
+.exm{position:fixed;inset:0;z-index:400;display:flex;align-items:flex-end;justify-content:center}
+.exm[hidden]{display:none!important}
+@media(min-width:760px){.exm{align-items:center;padding:32px}}
+.exm-bd{position:absolute;inset:0;background:rgba(3,4,6,.84);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.exm-panel{
+  position:relative;width:100%;min-width:0;max-width:1020px;max-height:94vh;
+  display:flex;flex-direction:column;overflow:hidden;
+  background:var(--surface);border:1px solid var(--hair-2);
+  border-radius:22px 22px 0 0;
+  box-shadow:0 60px 140px -50px rgba(0,0,0,.95);
+  animation:exmIn .5s var(--spring) both;
+}
+@media(min-width:760px){.exm-panel{border-radius:22px;max-height:88vh}}
+@keyframes exmIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.exm-panel{animation:none}}
+.exm-top{
+  flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  min-width:0;
+  padding:22px var(--pad) 18px;border-bottom:1px solid var(--hair);
+}
+.exm-top .tag{margin:0}
+.exm-top h3{margin:8px 0 0;font-size:22px;font-weight:700;letter-spacing:-.028em;line-height:1.15}
+.exm-x{
+  flex:none;width:38px;height:38px;border-radius:50%;cursor:pointer;
+  background:var(--elev);border:1px solid var(--hair-2);color:var(--fg-2);
+  font-size:20px;line-height:1;display:grid;place-items:center;
+  transition:color .3s,background .3s,border-color .3s;
+}
+.exm-x:hover{color:var(--fg);background:var(--elev-2);border-color:var(--fg-3)}
+.exm-body{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:22px var(--pad) 24px}
+.exm-lead{margin:0 0 24px;font-size:16px;line-height:1.55;color:var(--fg-2)}
+.exm-lead b{color:var(--fg);font-weight:600}
+.exm-sec{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 13px;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--fg);
+}
+.exm-sec span{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:13.5px;
+  letter-spacing:-.011em;text-transform:none;color:var(--fg-3);
+}
+.exm-gap{height:26px}
+.exrow{
+  display:grid;grid-auto-flow:column;grid-auto-columns:min(58vw,206px);gap:12px;
+  overflow-x:auto;overflow-y:hidden;padding:2px 2px 14px;margin:0;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;scrollbar-color:var(--hair-2) transparent;
+}
+.exrow::-webkit-scrollbar{height:8px}
+.exrow::-webkit-scrollbar-thumb{background:var(--hair-2);border-radius:99px}
+.exrow::-webkit-scrollbar-track{background:transparent}
+.exrow > *{scroll-snap-align:start}
+@media(min-width:760px){.exrow{grid-auto-columns:216px}}
+.exrow .samp{border-radius:16px}
+.exrow .samp:hover{transform:none;box-shadow:none}
+.exrow .samp .meta{padding:14px 16px 16px}
+.exrow .samp .meta h3{font-size:16px}
+.exrow .samp .meta p{font-size:13.5px}
+.exrow.shots{grid-auto-columns:min(29vw,104px)}
+@media(min-width:760px){.exrow.shots{grid-auto-columns:118px}}
+.exrow.shots figure{
+  margin:0;border-radius:12px;overflow:hidden;aspect-ratio:9/16;
+  background:var(--elev);border:1px solid var(--hair);
+}
+.exrow.shots img{width:100%;height:100%;object-fit:cover;display:block}
+.exm-note{
+  margin:22px 0 0;padding:15px 17px;border:1px solid var(--hair);border-radius:12px;
+  background:var(--ink);font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;line-height:1.75;color:var(--fg-3);
+}
+.exm-note b{color:var(--fg-2);font-weight:500}
+.exm-foot{
+  flex:none;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  padding:15px var(--pad);border-top:1px solid var(--hair);background:var(--ink);
+}
+.exm-foot p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--fg-3)}
 </style>
 <!-- Local SEO: tells Google you're a Greenville business and what you serve.
      EDIT the address, phone, geo coordinates and social URLs to your real ones. -->
@@ -957,7 +1047,6 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
       <li>Hannah's Detailing &amp; Supply</li>
       <li>Naked Metal Fabrication</li>
       <li>Guardian Lighting</li>
-      <li>Upstate Carolina Cars</li>
     </ul>
   </div>
 </section>
@@ -1142,6 +1231,7 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
     <div class="pnote hi rv" style="display:block">
       <p class="k">In every package</p>
       <p class="t2" style="margin-top:8px">Color grading, sound design, motion graphics where they help, vertical 9:16 cuts, and <b>a finished video ad for Facebook and Instagram</b>. The files are yours.</p>
+      <button type="button" class="exlink js-ex" data-ex="all">See example package contents →</button>
     </div>
 
     <div class="plans trio rv">
@@ -1159,6 +1249,7 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
         </ul>
         <p class="excl">No drone on this package.</p>
         <a class="btn ghost js-pkg" href="#contact" data-pkg="Starter · $900/mo">Inquire →</a>
+        <button type="button" class="exlink js-ex" data-ex="starter">See an example month →</button>
       </div>
 
       <div class="plan star">
@@ -1177,6 +1268,7 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
         </ul>
         <p class="excl good">Nearly double the content of Starter, with two ads running instead of one.</p>
         <a class="btn js-pkg" href="#contact" data-pkg="Content · $1,650/mo (Most popular)">Inquire →</a>
+        <button type="button" class="exlink js-ex" data-ex="content">See an example month →</button>
       </div>
 
       <div class="plan">
@@ -1195,6 +1287,7 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
         </ul>
         <p class="excl">The only package with horizontal cuts for YouTube and your website.</p>
         <a class="btn ghost js-pkg" href="#contact" data-pkg="Signature · $2,900/mo">Inquire →</a>
+        <button type="button" class="exlink js-ex" data-ex="signature">See an example month →</button>
       </div>
     </div>
 
@@ -1216,6 +1309,45 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
     <p class="fine"><b>Two things sit outside the package price.</b> Production costs: location or venue fees, permits, props, paid talent, studio rental, or travel beyond the Upstate. All quoted and agreed before I book anything. <b>Advertising spend:</b> you pay Facebook or Instagram directly, whether you run the ads yourself or add ad management. It never runs through me and I never mark it up. Drone depends on weather, safety and airspace, so it is never guaranteed on a given day. After the first three months, packages continue month to month and you can cancel with 30 days' notice.</p>
   </div>
 </section>
+
+
+<div class="exm" id="exm" hidden>
+  <div class="exm-bd" data-exclose></div>
+  <div class="exm-panel" role="dialog" aria-modal="true" aria-labelledby="exmh">
+    <div class="exm-top">
+      <div>
+        <p class="tag">Example package contents</p>
+        <h3 id="exmh">What you actually get</h3>
+      </div>
+      <button type="button" class="exm-x" data-exclose aria-label="Close">&times;</button>
+    </div>
+
+    <div class="exm-body">
+      <p class="exm-lead" id="exmlead">Every package is the same work at a different volume. Everything below is real client work, filmed, graded and cut the way yours would be.</p>
+
+      <p class="exm-sec" id="exsecv">Videos <span>Tap one to play with sound.</span></p>
+      <div class="exrow" id="exvids"></div>
+
+      <div class="exm-gap"></div>
+
+      <p class="exm-sec" id="exseca">The ads <span>Built for Facebook and Instagram.</span></p>
+      <div class="exrow" id="exads"></div>
+
+      <div class="exm-gap"></div>
+
+      <p class="exm-sec" id="exsecp">Photos <span>Shot the same day and graded to match.</span></p>
+      <div class="exrow shots" id="exshots"></div>
+
+
+      <p class="exm-note"><b>In all three packages:</b> colour grading, sound design, motion graphics where they help, captions and vertical 9:16 cuts, every file exported at the size Meta wants. Signature also gets horizontal cuts for YouTube and your website. The files are yours to keep and reuse.</p>
+    </div>
+
+    <div class="exm-foot">
+      <p>3-month minimum · month to month after that</p>
+      <a class="btn sm js-pkg" href="#contact" id="exmcta" data-pkg="Content · $1,650/mo (Most popular)">Inquire →</a>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════ TESTIMONIALS ══════════════
      Kept hidden until real quotes exist. Do NOT ship invented ones.
@@ -1423,7 +1555,23 @@ form.sending button[type=submit]{opacity:.6;pointer-events:none}
 </footer>
 
 <script>
-(function(){var M={"auto-build.jpg":"__MEDIA_auto-build.jpg__",
+(function(){var M=window.M508={
+"examples/ex-protect.jpg":"__MEDIA_examples/ex-protect.jpg__",
+"examples/ex-protect.mp4":"__MEDIA_examples/ex-protect.mp4__",
+"examples/ex-laststep.jpg":"__MEDIA_examples/ex-laststep.jpg__",
+"examples/ex-laststep.mp4":"__MEDIA_examples/ex-laststep.mp4__",
+"examples/ex-paintfirst.jpg":"__MEDIA_examples/ex-paintfirst.jpg__",
+"examples/ex-paintfirst.mp4":"__MEDIA_examples/ex-paintfirst.mp4__",
+"examples/ex-staysclean.jpg":"__MEDIA_examples/ex-staysclean.jpg__",
+"examples/ex-staysclean.mp4":"__MEDIA_examples/ex-staysclean.mp4__",
+
+"examples/ex-ceramic.jpg":"__MEDIA_examples/ex-ceramic.jpg__",
+"examples/ex-ceramic.mp4":"__MEDIA_examples/ex-ceramic.mp4__",
+"examples/ex-carwash.jpg":"__MEDIA_examples/ex-carwash.jpg__",
+"examples/ex-carwash.mp4":"__MEDIA_examples/ex-carwash.mp4__",
+"examples/ex-powdercoat.jpg":"__MEDIA_examples/ex-powdercoat.jpg__",
+"examples/ex-powdercoat.mp4":"__MEDIA_examples/ex-powdercoat.mp4__",
+"auto-build.jpg":"__MEDIA_auto-build.jpg__",
 "auto-build.mp4":"__MEDIA_auto-build.mp4__",
 "auto-guardian.jpg":"__MEDIA_auto-guardian.jpg__",
 "auto-guardian.mp4":"__MEDIA_auto-guardian.mp4__",
@@ -1589,7 +1737,7 @@ document.querySelectorAll('[data-mv]').forEach(function(e){var u=M[e.dataset.mv]
   }
 
   /* ───────── reel players: poster first, video injected on demand ───────── */
-  document.querySelectorAll('.reel .vid, .samp .vid').forEach(function(box){
+  function wirePlayer(box){
     var src = box.getAttribute('data-src'), vid = null;
     function build(){
       if (vid) return vid;
@@ -1611,7 +1759,8 @@ document.querySelectorAll('[data-mv]').forEach(function(e){var u=M[e.dataset.mv]
       });
       box.classList.contains('playing') ? stop() : play();
     });
-  });
+  }
+  document.querySelectorAll('.reel .vid, .samp .vid').forEach(wirePlayer);
 
   /* ───────── booking link ─────────
      EDIT: paste your Calendly (or similar) URL and every "book" button opens
@@ -1663,6 +1812,193 @@ document.querySelectorAll('[data-mv]').forEach(function(e){var u=M[e.dataset.mv]
       setTimeout(function(){ sel.classList.remove('lit'); }, 1400);
     });
   });
+
+  /* ───────── example package contents ───────── */
+  (function(){
+    var box = document.getElementById('exm');
+    if (!box) return;
+    var M    = window.M508 || {},
+        head = document.getElementById('exmh'),
+        lead = document.getElementById('exmlead'),
+        cta  = document.getElementById('exmcta'),
+        rowV = document.getElementById('exvids'),
+        rowA = document.getElementById('exads'),
+        rowP = document.getElementById('exshots'),
+        labV = document.getElementById('exsecv'),
+        labA = document.getElementById('exseca'),
+        labP = document.getElementById('exsecp'),
+        back = null, shown = null;
+
+    /* [ media base, kind, runs, title, what it is, alt ] */
+    var LIB = {
+      stadium:    ['biz-stadium','Social video','0:27','Stadium pressure wash',
+                   'Greer High School stadium: drone, ground and a before/after payoff.',
+                   'Drone and ground shots of a high school stadium being pressure washed'],
+      blueworks:  ['biz-blueworks','Social video','0:10','Roll-off delivery',
+                   'A service business filmed doing the work, start to finish.',
+                   'Roll-off dumpster being delivered on a job site'],
+      sevenbrew:  ['biz-7brew','Social video','0:13','Night shoot at 7 Brew',
+                   'A night wash cut into a ready-to-run piece with an end card.',
+                   'Coffee stand lit up at night during a wash'],
+      guardian:   ['auto-guardian','Social video','0:11','Semi trucks after dark',
+                   'Shot so the lighting carries the whole piece, no voiceover needed.',
+                   'Semi trucks lit up at night'],
+      roller:     ['auto-roller','Social video','0:16','Rolling shots at dusk',
+                   'Highway passes, overpass shots and forged wheel detail.',
+                   'Bagged Ram 2500 rolling shot at dusk'],
+      tundra:     ['auto-tundra','Social video','0:14','Fabrication shop build',
+                   'Grinder sparks, hardware detail and the finished truck.',
+                   'Fabrication and powder coat shop build'],
+      ram2500:    ['auto-ram2500','Social video','0:06','Vehicle walkaround',
+                   'Black on black, shot tight: stance, wheels and the details people zoom in on.',
+                   'Black Ram 2500 walkaround'],
+      build:      ['auto-build','Social video','0:20','Suspension build',
+                   'Detail work, sparks and slow motion, cut for socials.',
+                   'Super Duty suspension build in a shop'],
+      powdercoat: ['examples/ex-powdercoat','Process video','0:15','Powder coat process',
+                   'No talking, just the work. Short cuts like this fill the gaps all month.',
+                   'Powder coating a fabricated part inside a spray booth'],
+
+      ceramic:    ['examples/ex-ceramic','Video ad','0:18','Not scratch proof',
+                   'Owner on camera, the myth struck out on screen and a coating-stack diagram built to the script.',
+                   'Vertical ad with a struck-out SCRATCH PROOF graphic'],
+      carwash:    ['examples/ex-carwash','Video ad','0:32','Stop automated car washes',
+                   'Hook in the first two seconds, the problem called out on the paint, then the offer and an end card.',
+                   'Vertical ad with a swirl-marks callout over a truck'],
+      staysclean: ['examples/ex-staysclean','Video ad','0:17','Stays clean longer',
+                   'Day one against day two with the grime building, then water and dirt beading off a coated panel.',
+                   'Vertical ad showing water beading off a coated panel'],
+      protect:    ['examples/ex-protect','Video ad','0:27','Do not wait to protect it',
+                   'A three-tile threat grid that ticks off green as he talks, closing on the new-vehicle pitch.',
+                   'Vertical ad with a three-tile threat grid ticking off green'],
+      laststep:   ['examples/ex-laststep','Video ad','0:15','The last step',
+                   'A five-step ladder filling in on every step he names: wash, clay bar, polish, decon, coat.',
+                   'Vertical ad with a five-step process ladder'],
+      paintfirst: ['examples/ex-paintfirst','Video ad','0:15','Paint is noticed first',
+                   'A price counter rolling to $100,000, stamped UNPROTECTED, with a reticle locking onto the paint.',
+                   "Vertical ad with a reticle locking onto a truck's paint"]
+    };
+
+    var REAL = ' Everything below is real client work, filmed, graded and cut the way yours would be.';
+    var SETS = {
+      starter: {
+        h:'Starter, in practice', pkg:'Starter · $900/mo',
+        t:'<b>Starter is 3 videos, 1 video ad and 6 photos a month.</b>' + REAL,
+        v:['blueworks','roller','powdercoat'], a:['ceramic'], p:6, n:[3,1,6]
+      },
+      content: {
+        h:'Content, in practice', pkg:'Content · $1,650/mo (Most popular)',
+        t:'<b>Content is 5 videos, 2 video ads and 10 photos a month.</b>' + REAL,
+        v:['stadium','sevenbrew','tundra','ram2500','powdercoat'],
+        a:['carwash','staysclean'], p:10, n:[5,2,10]
+      },
+      signature: {
+        h:'Signature, in practice', pkg:'Signature · $2,900/mo',
+        t:'<b>Signature is 8 videos, 3 video ads and 15 photos a month.</b>' + REAL,
+        v:['stadium','blueworks','sevenbrew','guardian','roller','tundra','ram2500','build'],
+        a:['protect','laststep','paintfirst'], p:10, n:[8,3,15]
+      },
+      all: {
+        h:'What you actually get', pkg:'Content · $1,650/mo (Most popular)',
+        t:'Every package is the same work at a different volume.' + REAL,
+        v:['stadium','roller','powdercoat','guardian'], a:['carwash','ceramic'], p:10, n:null
+      }
+    };
+
+    /* The photo strip is built off the Stills section so the two never drift
+       and the browser reuses images it has already fetched. */
+    var PICS = [];
+    document.querySelectorAll('#stills .stills figure img').forEach(function(im){
+      PICS.push([im.getAttribute('src') || '', im.alt || '']);
+    });
+
+    function label(el, name, tail){
+      el.textContent = name + ' ';
+      var s = document.createElement('span');
+      s.textContent = tail;
+      el.appendChild(s);
+    }
+    function card(key, i){
+      var d = LIB[key];
+      if (!d) return null;
+      var art  = document.createElement('article'); art.className = 'samp';
+      var vbox = document.createElement('div');    vbox.className = 'vid';
+      vbox.setAttribute('data-src', M[d[0] + '.mp4'] || '');
+      var flag = document.createElement('span');   flag.className = 'flag';
+      flag.textContent = d[1] + ' · ' + d[2];
+      var im = document.createElement('img');
+      im.src = M[d[0] + '.jpg'] || ''; im.alt = d[5];
+      im.loading = 'lazy'; im.width = 540; im.height = 960;
+      var play = document.createElement('span'); play.className = 'play';
+      vbox.appendChild(flag); vbox.appendChild(im); vbox.appendChild(play);
+      var meta = document.createElement('div'); meta.className = 'meta';
+      var t = document.createElement('p'); t.className = 't';
+      t.textContent = ('0' + i).slice(-2);
+      var h = document.createElement('h3'); h.textContent = d[3];
+      var p = document.createElement('p'); p.textContent = d[4];
+      meta.appendChild(t); meta.appendChild(h); meta.appendChild(p);
+      art.appendChild(vbox); art.appendChild(meta);
+      wirePlayer(vbox);
+      return art;
+    }
+    function fill(key){
+      if (shown === key) return;
+      var s = SETS[key] || SETS.all, n = s.n;
+      rowV.textContent = ''; rowA.textContent = ''; rowP.textContent = '';
+      s.v.forEach(function(k, i){ var c = card(k, i + 1); if (c) rowV.appendChild(c); });
+      s.a.forEach(function(k, i){ var c = card(k, i + 1); if (c) rowA.appendChild(c); });
+      PICS.slice(0, s.p).forEach(function(pr){
+        var f = document.createElement('figure'), im = document.createElement('img');
+        im.src = pr[0]; im.alt = pr[1]; im.loading = 'lazy';
+        f.appendChild(im); rowP.appendChild(f);
+      });
+      label(labV, 'Videos', (n ? n[0] + ' a month · t' : 'T') + 'ap one to play with sound.');
+      label(labA, n && n[1] === 1 ? 'The ad' : 'The ads',
+            (n ? n[1] + ' a month · b' : 'B') + 'uilt for Facebook and Instagram.');
+      label(labP, 'Photos', n
+        ? n[2] + ' a month · ' + (n[2] > PICS.length ? PICS.length + ' shown here, shot' : 'shot') +
+          ' the same day and graded to match.'
+        : 'Shot the same day and graded to match.');
+      shown = key;
+    }
+    function stopAll(){
+      box.querySelectorAll('.vid.playing').forEach(function(o){
+        var v = o.querySelector('video');
+        if (v){ v.pause(); v.currentTime = 0; }
+        o.classList.remove('playing');
+      });
+    }
+    function open(key, from){
+      var s = SETS[key] ? key : 'all';
+      fill(s);
+      head.textContent = SETS[s].h;
+      lead.innerHTML   = SETS[s].t;
+      cta.dataset.pkg  = SETS[s].pkg;
+      back = from || null;
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+      box.querySelector('.exm-body').scrollTop = 0;
+      var x = box.querySelector('.exm-x'); if (x) x.focus();
+    }
+    function close(){
+      stopAll();
+      box.hidden = true;
+      document.body.style.overflow = '';
+      if (back && back.focus) back.focus();
+      back = null;
+    }
+
+    document.querySelectorAll('.js-ex').forEach(function(b){
+      b.addEventListener('click', function(e){ e.preventDefault(); open(b.dataset.ex, b); });
+    });
+    box.querySelectorAll('[data-exclose]').forEach(function(b){
+      b.addEventListener('click', close);
+    });
+    cta.addEventListener('click', function(){ back = null; close(); });
+    addEventListener('keydown', function(e){
+      if (!box.hidden && (e.key === 'Escape' || e.key === 'Esc')) close();
+    });
+  })();
 
   /* ───────── inquiry form: validate, send, report back ─────────
      EDIT: paste your Formspree form ID between the quotes (the part after

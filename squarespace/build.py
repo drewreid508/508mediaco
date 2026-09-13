@@ -200,6 +200,59 @@ main#page, .tweak-fixed-nav { display: none !important; }
 body { background: var(--ink) !important; margin: 0 !important; }
 """
 
+
+# ------------------------------------------------------- editor switch
+# Inside Squarespace's admin preview the template's own sections are hidden by
+# CHROME, so they can't be found or deleted in the editor. A button (admin
+# preview only: framed AND on *.squarespace.com, never on 508mediaco.com)
+# toggles html.mc508-sq, which turns the CHROME overrides off and hides our site.
+SWITCH = "mc508-sq"
+
+def gate_chrome(css):
+    """Prefix every rule that targets Squarespace's markup with
+    html:not(.mc508-sq). Rules on our own wrapper stay untouched: prefixing
+    them would add specificity and let `#mc508 h1{color:inherit}` beat the
+    site's own heading colours."""
+    out = []
+    for prelude, body in split_top_level(strip_comments(css)):
+        if body is None:
+            out.append(prelude); continue
+        sels = [x.strip() for x in prelude.split(",") if x.strip()]
+        gated = [x if x.startswith(WRAP) else f"html:not(.{SWITCH}) {x}" for x in sels]
+        out.append(",\n".join(gated) + "{" + body + "}")
+    out.append(f"html.{SWITCH} {WRAP} {{ display: none !important; }}")
+    return "\n".join(out)
+
+SWITCH_JS = """<script>
+/* 508 MEDIA CO. editor switch. Only runs inside Squarespace's admin preview. */
+(function () {
+  var framed; try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  if (!framed || !/\\.squarespace\\.com$/.test(location.hostname)) return;
+  var KEY = "mc508-show-sq", root = document.documentElement, btn = null;
+  function saved() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
+  function apply(on) {
+    root.classList.toggle("%s", on);
+    try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {}
+    if (btn) btn.textContent = on ? "Show my site" : "Show Squarespace sections";
+  }
+  function mount() {
+    if (btn || !document.body) return;
+    btn = document.createElement("button");
+    btn.type = "button"; btn.id = "mc508-switch";
+    btn.setAttribute("style", "position:fixed;left:16px;bottom:16px;z-index:2147483647;" +
+      "font:600 13px/1 -apple-system,system-ui,sans-serif;padding:11px 16px;border-radius:999px;" +
+      "border:0;background:#488FF6;color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.35);cursor:pointer");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault(); e.stopPropagation(); apply(!root.classList.contains("%s"));
+    });
+    document.body.appendChild(btn);
+    apply(saved());
+  }
+  apply(saved());
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount); else mount();
+})();
+</script>""" % (SWITCH, SWITCH)
+
 # ------------------------------------------------------------------- emit
 
 (HERE / "01-site-header-injection.html").write_text(f"""<!--
@@ -208,7 +261,7 @@ body { background: var(--ink) !important; margin: 0 !important; }
 -->
 {font_link}
 <style>
-{CHROME}
+{gate_chrome(CHROME)}
 
 /* ==========================================================
    508 MEDIA CO. — site styles, rescoped under {WRAP}
@@ -217,6 +270,7 @@ body { background: var(--ink) !important; margin: 0 !important; }
 </style>
 
 {jsonld}
+{SWITCH_JS}
 """)
 
 (HERE / "02-code-block.html").write_text(f"""<!--

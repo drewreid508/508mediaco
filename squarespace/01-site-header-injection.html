@@ -6,71 +6,93 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Oswald:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-
-/* ==========================================================
-   508 MEDIA CO. — Squarespace container overrides
-   Neutralises Squarespace's page chrome so the injected site
-   renders edge to edge exactly as it does standalone.
-   ========================================================== */
-
-/* Squarespace's own page content. The site is injected via the FOOTER slot,
-   which lands as a direct child of <body> with no Squarespace wrapper around
-   it, so the template's own markup simply gets hidden rather than unwrapped. */
-#siteWrapper, #page, #sections, article.sections, .sqs-announcement-bar-dropzone,
-main#page, .tweak-fixed-nav { display: none !important; }
-
-/* Squarespace's own header, footer and announcement bar. */
-#header, .header, #footer-sections, footer.sections,
-.sqs-announcement-bar-dropzone { display: none !important; }
-
-/* Strip every layer of padding / max-width between the page root and
-   our Code Block so the site can run full bleed. */
-#sections .page-section, #sections .section-border,
-#sections .content-wrapper, .page-section > .content-wrapper,
-.sqs-layout, .sqs-row, .row.sqs-row, .col, [class*="sqs-col"],
-.sqs-block, .sqs-block.code-block, .sqs-block-code, .sqs-block-content {
+html:not(.mc508-sq) #siteWrapper,
+html:not(.mc508-sq) #page,
+html:not(.mc508-sq) #sections,
+html:not(.mc508-sq) article.sections,
+html:not(.mc508-sq) .sqs-announcement-bar-dropzone,
+html:not(.mc508-sq) main#page,
+html:not(.mc508-sq) .tweak-fixed-nav{ display: none !important; }
+html:not(.mc508-sq) #header,
+html:not(.mc508-sq) .header,
+html:not(.mc508-sq) #footer-sections,
+html:not(.mc508-sq) footer.sections,
+html:not(.mc508-sq) .sqs-announcement-bar-dropzone{ display: none !important; }
+html:not(.mc508-sq) #sections .page-section,
+html:not(.mc508-sq) #sections .section-border,
+html:not(.mc508-sq) #sections .content-wrapper,
+html:not(.mc508-sq) .page-section > .content-wrapper,
+html:not(.mc508-sq) .sqs-layout,
+html:not(.mc508-sq) .sqs-row,
+html:not(.mc508-sq) .row.sqs-row,
+html:not(.mc508-sq) .col,
+html:not(.mc508-sq) [class*="sqs-col"],
+html:not(.mc508-sq) .sqs-block,
+html:not(.mc508-sq) .sqs-block.code-block,
+html:not(.mc508-sq) .sqs-block-code,
+html:not(.mc508-sq) .sqs-block-content{
   padding: 0 !important; margin: 0 !important;
   max-width: none !important; width: 100% !important;
 }
-
-/* CRITICAL: position:sticky (the pinned process section) only works when no
-   ancestor is a scroll container. Squarespace sets overflow:hidden on several
-   wrappers, .sqs-row included. overflow:visible restores sticky. */
-#siteWrapper, #page, #sections, article, .page-section, .section-border,
-.content-wrapper, .content, .sqs-layout, .sqs-row, .row.sqs-row, .col,
-[class*="sqs-col"], .sqs-block, .sqs-block-content { overflow: visible !important; }
-
-#sections .page-section { min-height: 0 !important; }
-
-/* CRITICAL: position:fixed (the nav bar and the mobile CTA dock) is anchored
-   to the viewport ONLY while no ancestor establishes a containing block.
-   transform / filter / perspective / will-change / contain all do. Squarespace
-   templates and section animations apply these, which would silently re-anchor
-   the fixed nav inside the section and break it. */
-#siteWrapper, #page, #sections, article, .page-section, .section-border,
-.content-wrapper, .content, .sqs-layout, .sqs-row, .row.sqs-row, .col,
-[class*="sqs-col"], .sqs-block, .sqs-block-content {
+html:not(.mc508-sq) #siteWrapper,
+html:not(.mc508-sq) #page,
+html:not(.mc508-sq) #sections,
+html:not(.mc508-sq) article,
+html:not(.mc508-sq) .page-section,
+html:not(.mc508-sq) .section-border,
+html:not(.mc508-sq) .content-wrapper,
+html:not(.mc508-sq) .content,
+html:not(.mc508-sq) .sqs-layout,
+html:not(.mc508-sq) .sqs-row,
+html:not(.mc508-sq) .row.sqs-row,
+html:not(.mc508-sq) .col,
+html:not(.mc508-sq) [class*="sqs-col"],
+html:not(.mc508-sq) .sqs-block,
+html:not(.mc508-sq) .sqs-block-content{ overflow: visible !important; }
+html:not(.mc508-sq) #sections .page-section{ min-height: 0 !important; }
+html:not(.mc508-sq) #siteWrapper,
+html:not(.mc508-sq) #page,
+html:not(.mc508-sq) #sections,
+html:not(.mc508-sq) article,
+html:not(.mc508-sq) .page-section,
+html:not(.mc508-sq) .section-border,
+html:not(.mc508-sq) .content-wrapper,
+html:not(.mc508-sq) .content,
+html:not(.mc508-sq) .sqs-layout,
+html:not(.mc508-sq) .sqs-row,
+html:not(.mc508-sq) .row.sqs-row,
+html:not(.mc508-sq) .col,
+html:not(.mc508-sq) [class*="sqs-col"],
+html:not(.mc508-sq) .sqs-block,
+html:not(.mc508-sq) .sqs-block-content{
   transform: none !important; filter: none !important;
   perspective: none !important; will-change: auto !important;
   contain: none !important; backdrop-filter: none !important;
 }
-
-/* Squarespace styles h1-h6, p, a, form controls directly, and a direct rule
-   beats our inherited colour. Re-assert inheritance inside the wrapper. */
-#mc508 h1, #mc508 h2, #mc508 h3, #mc508 h4, #mc508 h5, #mc508 h6,
-#mc508 p, #mc508 li, #mc508 span, #mc508 strong, #mc508 em, #mc508 blockquote,
-#mc508 figure, #mc508 figcaption { color: inherit; font-family: inherit; }
-#mc508 input, #mc508 select, #mc508 textarea, #mc508 button {
+#mc508 h1,
+#mc508 h2,
+#mc508 h3,
+#mc508 h4,
+#mc508 h5,
+#mc508 h6,
+#mc508 p,
+#mc508 li,
+#mc508 span,
+#mc508 strong,
+#mc508 em,
+#mc508 blockquote,
+#mc508 figure,
+#mc508 figcaption{ color: inherit; font-family: inherit; }
+#mc508 input,
+#mc508 select,
+#mc508 textarea,
+#mc508 button{
   font-family: inherit; letter-spacing: inherit;
 }
-#mc508 a { color: inherit; text-decoration: none; }
-
-/* Clip horizontal overflow WITHOUT creating a scroll container (see above). */
-#mc508 { overflow-x: clip; }
-
-/* The page itself, behind the wrapper. */
-body { background: var(--ink) !important; margin: 0 !important; }
-
+#mc508 a{ color: inherit; text-decoration: none; }
+#mc508{ overflow-x: clip; }
+html:not(.mc508-sq) body{ background: var(--ink) !important; margin: 0 !important; }
+html.mc508-sq #mc508 { display: none !important; }
 
 /* ==========================================================
    508 MEDIA CO. — site styles, rescoped under #mc508
@@ -946,4 +968,33 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     }
   ]
 }
+</script>
+<script>
+/* 508 MEDIA CO. editor switch. Only runs inside Squarespace's admin preview. */
+(function () {
+  var framed; try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  if (!framed || !/\.squarespace\.com$/.test(location.hostname)) return;
+  var KEY = "mc508-show-sq", root = document.documentElement, btn = null;
+  function saved() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
+  function apply(on) {
+    root.classList.toggle("mc508-sq", on);
+    try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {}
+    if (btn) btn.textContent = on ? "Show my site" : "Show Squarespace sections";
+  }
+  function mount() {
+    if (btn || !document.body) return;
+    btn = document.createElement("button");
+    btn.type = "button"; btn.id = "mc508-switch";
+    btn.setAttribute("style", "position:fixed;left:16px;bottom:16px;z-index:2147483647;" +
+      "font:600 13px/1 -apple-system,system-ui,sans-serif;padding:11px 16px;border-radius:999px;" +
+      "border:0;background:#488FF6;color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.35);cursor:pointer");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault(); e.stopPropagation(); apply(!root.classList.contains("mc508-sq"));
+    });
+    document.body.appendChild(btn);
+    apply(saved());
+  }
+  apply(saved());
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount); else mount();
+})();
 </script>

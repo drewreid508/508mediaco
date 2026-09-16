@@ -3,7 +3,7 @@ Squarespace generates its own <title> and OG tags; a second set fights it.
 Home page > Page Settings > SEO
 
 SEO Title:
-508 Media Co. | Video Production, Reels &amp; Ads | Upstate SC
+508 Media Co. | Video Content for Businesses | Upstate SC
 
 SEO Description:
-Video production company in Upstate South Carolina. Monthly content packages starting at $900/month: Reels, Facebook and Instagram video ads, photography and automotive content. Custom productions quoted per project.
+I'm Drew, a filmmaker in Upstate South Carolina. I shoot and edit social media videos, reels and promo videos for local businesses. Book a shoot.

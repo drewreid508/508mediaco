@@ -9,9 +9,7 @@ The tokenized file differs from index.html in exactly four ways:
   1. the artifact <head> wrapper instead of index's own doctype/head lines
   2. every "media-v2/<path>" becomes a __MEDIA_<path>__ token (build.py fills
      those from asset-map.json)
-  3. the Google Calendar booking button, which build.py drops while
-     config.json has no booking_url
-  4. <!-- EDIT --> markers and the trailing </body></html> form
+  3. <!-- EDIT --> markers and the trailing </body></html> form
 
 Run with --check OLD_INDEX TOKENIZED to prove the transform reproduces an
 existing pair byte for byte (whitespace-normalised).
@@ -30,10 +28,6 @@ WRAPPER = ('<!doctype html><html><head><meta charset=utf8><meta name=viewport '
 HEAD_RE = re.compile(r'\A<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
                      r'<meta name="viewport"[^>]*>\n')
 
-GCAL = ('\n          <a class="btn js-gcal" href="__BOOKING_URL__" target="_blank" '
-        'rel="noopener">Book a call →</a>')
-GCAL_NOTE = '\n        <p class="micro rv" style="margin-top:14px">Picks a time straight off my calendar — no back and forth.</p>'
-
 
 def transform(src: str) -> str:
     out, n = HEAD_RE.subn(WRAPPER, src)
@@ -46,13 +40,6 @@ def transform(src: str) -> str:
         out = out.replace(attr, attr + "<!-- EDIT -->")
 
     out = re.sub(r'"media-v2/([^"]+)"', r'"__MEDIA_\1__"', out)
-
-    # Booking button: leads the contact CTA row (the one whose first button is ghost).
-    m = re.search(r'<div class="sect-cta rv">(?=\s*\n\s*<a class="btn ghost")', out)
-    assert m, "contact CTA row not found"
-    out = out[:m.end()] + GCAL + out[m.end():]
-    end_div = out.index("</div>", m.end() + len(GCAL))
-    out = out[:end_div + 6] + GCAL_NOTE + out[end_div + 6:]
 
     out = re.sub(r'</body>\n</html>\n?\Z', '\n</body></html>', out)
     return out

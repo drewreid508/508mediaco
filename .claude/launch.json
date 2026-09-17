@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "508mediaco", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8508", "--directory", "/Users/drew/claude/508mediaco"], "port": 8508 }
+  ]
+}

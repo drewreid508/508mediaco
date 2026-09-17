@@ -214,8 +214,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #mc508 .hero-in{width:100%;padding-bottom:clamp(48px,8vh,96px)}
 #mc508 .hero h1{
   font-family:var(--display);font-weight:600;text-transform:uppercase;
-  font-size:clamp(46px,8.6vw,132px);line-height:.92;letter-spacing:-.008em;
-  max-width:12.5ch;text-wrap:balance;margin-top:22px;
+  font-size:clamp(40px,6.4vw,100px);line-height:.92;letter-spacing:-.008em;
+  max-width:16ch;text-wrap:balance;margin-top:22px;
 }
 #mc508 .hero .sub{margin-top:24px;color:rgba(245,247,250,.78);max-width:42ch}
 #mc508 .hero .cta-row{margin-top:36px}
@@ -321,33 +321,14 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #mc508 .pk-note{margin-top:28px;color:var(--fg-2);text-align:center;font-size:15px}
 #mc508 .pk-note a{color:var(--fg);border-bottom:1px solid var(--line-2)}
 #mc508 .pk-note a:hover{border-color:var(--fg)}
-#mc508 .budget{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:
-  radial-gradient(60% 80% at 85% 50%,rgba(72,143,246,.09),rgba(72,143,246,0) 70%),var(--bg)}
-#mc508 .bgrid{display:grid;gap:44px}
-@media(min-width:1000px){#mc508 .bgrid{grid-template-columns:1fr 1fr;gap:72px;align-items:center}}
-#mc508 .budget .h2{font-size:clamp(38px,4.6vw,66px)}
-#mc508 .budget .h2 span{display:block;color:var(--blue)}
-#mc508 .budget .sub{margin-top:24px}
-#mc508 .scope{margin-top:30px;display:grid;gap:10px}
-#mc508 .scope li{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
-#mc508 .scope li:last-child{border-bottom:1px solid var(--line)}
-#mc508 .scope b{font-family:var(--display);font-weight:600;font-size:24px;min-width:84px;color:var(--fg)}
-#mc508 .scope span{color:var(--fg-2)}
-#mc508 .scope-line{margin-top:22px;font-weight:600}
-#mc508 .bpanel{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3.5vw,40px)}
-#mc508 .bpanel h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-2)}
-#mc508 .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0 26px}
-#mc508 .chips button{
-  min-height:58px;border-radius:10px;border:1px solid var(--line-2);background:transparent;color:var(--fg);
-  font:600 17px/1 "Schibsted Grotesk",system-ui,sans-serif;letter-spacing:-.01em;cursor:pointer;
-  transition:background .2s,border-color .2s,color .2s,transform .2s var(--ease);
-}
-#mc508 .chips button:hover{border-color:var(--fg)}
-#mc508 .chips button:active{transform:scale(.98)}
-#mc508 .chips button[aria-checked="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
-#mc508 .chips button:last-child{grid-column:1/-1}
-#mc508 .bpanel .btn{width:100%}
-#mc508 .bpanel .fine{margin-top:16px;color:var(--fg-3);font-size:14px;text-align:center}
+#mc508 .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(44px,6vw,72px) 0;margin-bottom:clamp(88px,12vw,160px)}
+#mc508 .names{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 34px}
+#mc508 .names li{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:clamp(20px,2.2vw,30px);line-height:1.1;color:var(--fg-2)}
+#mc508 .quotes{margin-top:36px;display:grid;gap:14px}
+@media(min-width:900px){#mc508 .quotes{grid-template-columns:repeat(3,1fr);gap:18px}}
+#mc508 .quotes figure{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:26px}
+#mc508 .quotes blockquote{margin:0;font-size:17px}
+#mc508 .quotes figcaption{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 #mc508 .steps{display:grid;gap:0;padding:0;margin:0;list-style:none}
 @media(min-width:760px){#mc508 .steps{grid-template-columns:repeat(2,1fr);column-gap:40px}}
 @media(min-width:1100px){#mc508 .steps{grid-template-columns:repeat(4,1fr);column-gap:32px}}
@@ -435,7 +416,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "508 Media Co.",
-  "description": "Video content for businesses: social media reels, TikTok and Instagram videos, promotional videos, automotive and product videos, project and event videos, and monthly content shoots. Filmed and edited by Drew Reid in Upstate South Carolina.",
+  "description": "Monthly video for local businesses: before and after reels, owner and team videos, customer testimonials and ad cuts, planned around the customers they want more of. Filmed and edited by Drew Reid in Upstate South Carolina.",
   "url": "https://508mediaco.com/",
   "telephone": "+1-864-915-4071",
   "email": "drew@508mediaco.com",
@@ -455,13 +436,13 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     { "@type": "City", "name": "Spartanburg" },
     { "@type": "City", "name": "Fountain Inn" }
   ],
-  "knowsAbout": ["social media video","Instagram Reels","TikTok video","business promotional video","commercial video","product video","automotive video","event video","drone video"],
+  "knowsAbout": ["business video","social media video","before and after video","customer testimonial video","video ads","Instagram Reels","drone video"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Video content shoots",
     "itemListElement": [
-      { "@type": "Offer", "name": "One-time shoot", "description": "A professional video shoot with edited, ready-to-post social media videos. Custom pricing." },
-      { "@type": "Offer", "name": "Monthly content", "description": "Recurring video shoots with multiple edited social media videos every month. Custom pricing." },
+      { "@type": "Offer", "name": "Monthly plan", "description": "A 6-month video plan built around your goals, set shoot and edit days every year, and a monthly check-in call. Start with 4 months. Custom pricing." },
+      { "@type": "Offer", "name": "Foundation shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial. Custom pricing." },
       { "@type": "Offer", "name": "Custom shoot", "description": "Larger productions, multiple locations, commercial-style videos and special events, built around the project." }
     ]
   }

@@ -3,7 +3,7 @@ Squarespace generates its own <title> and OG tags; a second set fights it.
 Home page > Page Settings > SEO
 
 SEO Title:
-508 Media Co. | Video Content for Businesses | Upstate SC
+Video for Local Businesses | Upstate SC | 508 Media Co.
 
 SEO Description:
-I'm Drew, a filmmaker in Upstate South Carolina. I shoot and edit social media videos, reels and promo videos for local businesses. Book a shoot.
+I'm Drew, a filmmaker in Upstate South Carolina. I help local businesses get more customers with monthly video. Get a free ad idea.

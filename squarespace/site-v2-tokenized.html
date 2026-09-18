@@ -138,6 +138,8 @@ section[id]{scroll-margin-top:64px}
 .wall .rw:nth-child(n+5){display:none}
 @media(min-width:1800px){.wall .rw:nth-child(5){display:block}}
 @media(max-width:699px){.wall .rw:nth-child(n+2){display:none}}
+/* hero lead reel: first on phones (only column shown), second on wider screens so the centred wall doesn't clip it */
+@media(min-width:700px){.hero .wall .rw:nth-child(2){order:-1}}
 
 /* ══════════════════════════ HERO ══════════════════════════ */
 .hero{position:relative;height:100svh;min-height:620px;max-height:1120px;display:flex;align-items:flex-end;overflow:hidden}
@@ -442,11 +444,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero" aria-labelledby="hero-h">
   <div class="wall" aria-hidden="true">
-    <div class="rw"><img src="__MEDIA_examples/ex-powdercoat.jpg__" alt="" width="720" height="1280" fetchpriority="high"><video data-src="__MEDIA_examples/ex-powdercoat.mp4__" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="__MEDIA_biz-house.jpg__" alt="" width="720" height="1280" fetchpriority="high"><video data-src="__MEDIA_biz-house.mp4__" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="__MEDIA_examples/ex-powdercoat.jpg__" alt="" width="720" height="1280"><video data-src="__MEDIA_examples/ex-powdercoat.mp4__" muted loop playsinline preload="none"></video></div>
     <div class="rw"><img src="__MEDIA_biz-7brew.jpg__" alt="" width="540" height="960"><video data-src="__MEDIA_biz-7brew.mp4__" muted loop playsinline preload="none"></video></div>
     <div class="rw"><img src="__MEDIA_biz-blueworks.jpg__" alt="" width="540" height="960"><video data-src="__MEDIA_biz-blueworks.mp4__" muted loop playsinline preload="none"></video></div>
     <div class="rw"><img src="__MEDIA_biz-stadium.jpg__" alt="" width="540" height="960"><video data-src="__MEDIA_biz-stadium.mp4__" muted loop playsinline preload="none"></video></div>
-    <div class="rw"><img src="__MEDIA_auto-tundra.jpg__" alt="" width="540" height="960"><video data-src="__MEDIA_auto-tundra.mp4__" muted loop playsinline preload="none"></video></div>
   </div>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap hero-in">

@@ -141,8 +141,6 @@ section[id]{scroll-margin-top:64px}
 .wall .rw:nth-child(n+5){display:none}
 @media(min-width:1800px){.wall .rw:nth-child(5){display:block}}
 @media(max-width:699px){.wall .rw:nth-child(n+2){display:none}}
-/* hero lead reel: first on phones (only column shown), second on wider screens so the centred wall doesn't clip it */
-@media(min-width:700px){.hero .wall .rw:nth-child(2){order:-1}}
 
 /* ══════════════════════════ HERO ══════════════════════════ */
 .hero{position:relative;height:100svh;min-height:620px;max-height:1120px;display:flex;align-items:flex-end;overflow:hidden}
@@ -446,12 +444,13 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
 
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero" aria-labelledby="hero-h">
+  <!-- one 12s montage (1.2s from every portfolio video); each column starts 2.4s later so the wall shows different videos at once -->
   <div class="wall" aria-hidden="true">
-    <div class="rw"><img src="media-v2/biz-house.jpg" alt="" width="720" height="1280" fetchpriority="high"><video data-src="media-v2/biz-house.mp4" muted loop playsinline preload="none"></video></div>
-    <div class="rw"><img src="media-v2/examples/ex-powdercoat.jpg" alt="" width="720" height="1280"><video data-src="media-v2/examples/ex-powdercoat.mp4" muted loop playsinline preload="none"></video></div>
-    <div class="rw"><img src="media-v2/biz-7brew.jpg" alt="" width="540" height="960"><video data-src="media-v2/biz-7brew.mp4" muted loop playsinline preload="none"></video></div>
-    <div class="rw"><img src="media-v2/biz-blueworks.jpg" alt="" width="540" height="960"><video data-src="media-v2/biz-blueworks.mp4" muted loop playsinline preload="none"></video></div>
-    <div class="rw"><img src="media-v2/biz-stadium.jpg" alt="" width="540" height="960"><video data-src="media-v2/biz-stadium.mp4" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="media-v2/hero-reel-0.jpg" alt="" width="720" height="1280" fetchpriority="high"><video data-src="media-v2/hero-reel.mp4" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="media-v2/hero-reel-1.jpg" alt="" width="720" height="1280" loading="lazy"><video data-src="media-v2/hero-reel.mp4" data-t="2.4" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="media-v2/hero-reel-2.jpg" alt="" width="720" height="1280" loading="lazy"><video data-src="media-v2/hero-reel.mp4" data-t="4.8" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="media-v2/hero-reel-3.jpg" alt="" width="720" height="1280" loading="lazy"><video data-src="media-v2/hero-reel.mp4" data-t="7.2" muted loop playsinline preload="none"></video></div>
+    <div class="rw"><img src="media-v2/hero-reel-4.jpg" alt="" width="720" height="1280" loading="lazy"><video data-src="media-v2/hero-reel.mp4" data-t="9.6" muted loop playsinline preload="none"></video></div>
   </div>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap hero-in">
@@ -823,7 +822,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     function shown(v){ return v.parentElement.offsetWidth > 0; }
     function run(v){
       if (!shown(v)) return;
-      if (!v.getAttribute('src')) v.src = v.getAttribute('data-src');
+      if (!v.getAttribute('src')) {
+        /* hero columns share one montage; data-t staggers where each starts, the loop still wraps to 0 */
+        var t = +v.getAttribute('data-t') || 0;
+        if (t) v.addEventListener('loadedmetadata', function(){ v.currentTime = t; }, {once:true});
+        v.src = v.getAttribute('data-src');
+      }
       v.muted = true;
       var p = v.play(); if (p && p.catch) p.catch(function(){});
     }

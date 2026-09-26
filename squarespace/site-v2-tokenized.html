@@ -350,6 +350,15 @@ form select{background-image:linear-gradient(45deg,transparent 50%,var(--fg-2) 5
 form input::placeholder,form textarea::placeholder{color:var(--fg-3)}
 form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(72,143,246,.18)}
 form select.lit{border-color:var(--blue);box-shadow:0 0 0 3px rgba(72,143,246,.25)}
+.lbl{display:block;font-size:13.5px;font-weight:500;color:var(--fg-2);margin-bottom:8px}
+.lbl em{font-style:normal;color:var(--fg-3);font-weight:400}
+.chk{display:flex;flex-wrap:wrap;gap:8px}
+.chk label{position:relative;margin:0;cursor:pointer}
+.chk input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0;border:0}
+.chk span{display:inline-block;padding:11px 16px;border-radius:999px;border:1px solid var(--line-2);background:var(--bg);color:var(--fg-2);font-size:14.5px;line-height:1.2;transition:border-color .2s,background .2s,color .2s}
+.chk label:hover span{border-color:var(--fg-3)}
+.chk input:checked+span{border-color:var(--blue);background:rgba(72,143,246,.14);color:var(--fg)}
+.chk input:focus-visible+span{box-shadow:0 0 0 3px rgba(72,143,246,.25)}
 .field-bad input,.field-bad select,.field-bad textarea{border-color:#E0876A}
 .plan-chip{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(72,143,246,.08);border:1px solid rgba(72,143,246,.3);font-size:14.5px}
 .plan-chip b{color:var(--blue-lift);font-weight:600}
@@ -770,6 +779,26 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <div class="w2"><label for="ct">Phone / email</label><input id="ct" name="contact" type="text" required autocomplete="on" placeholder="Your phone number or email"></div>
         <div class="w2"><label for="bt">What does your business do?</label><input id="bt" name="business_type" type="text" placeholder="Detailing, landscaping, a restaurant…"></div>
         <div class="w2"><label for="vd">What do you want more of?</label><textarea id="vd" name="videos" placeholder="More calls, more bookings, more foot traffic…"></textarea></div>
+        <div class="w2" role="group" aria-labelledby="goal-l">
+          <p class="lbl" id="goal-l">What's the video for? <em>(pick any)</em></p>
+          <div class="chk">
+          <label><input type="checkbox" name="goal" value="More customers"><span>More customers</span></label>
+          <label><input type="checkbox" name="goal" value="Brand awareness"><span>Brand awareness</span></label>
+          <label><input type="checkbox" name="goal" value="Run it as an ad"><span>Run it as an ad</span></label>
+          <label><input type="checkbox" name="goal" value="Go viral"><span>Go viral</span></label>
+          <label><input type="checkbox" name="goal" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </div>
+        <div class="w2" role="group" aria-labelledby="aud-l">
+          <p class="lbl" id="aud-l">Who do you want to reach? <em>(pick any)</em></p>
+          <div class="chk">
+          <label><input type="checkbox" name="audience" value="Ages 18–25"><span>Ages 18–25</span></label>
+          <label><input type="checkbox" name="audience" value="Ages 26–40"><span>Ages 26–40</span></label>
+          <label><input type="checkbox" name="audience" value="Ages 41–55"><span>Ages 41–55</span></label>
+          <label><input type="checkbox" name="audience" value="55 and up"><span>55 and up</span></label>
+          <label><input type="checkbox" name="audience" value="Everyone"><span>Everyone</span></label>
+          </div>
+        </div>
         <div><label for="web">Website or Instagram <em>(optional)</em></label><input id="web" name="web" type="text" placeholder="@handle or website" autocomplete="off"></div>
         <div>
           <label for="when">When do you want to start?</label>
@@ -1051,6 +1080,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       show('', 'Sending…');
 
       var plan = g('plan'), videos = g('videos'), budget = g('budget') || '(not asked)';
+      var checked = function(n){ return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function(i){ return i.value; }).join(', '); };
 
       /* Never send an empty string: the Google Form's first six questions are
          Required, and a blank one rejects the WHOLE submission — invisibly,
@@ -1070,6 +1100,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         'Package: ' + (plan || '(not picked)'),
         'Business does: ' + (g('business_type') || '(not given)'),
         'Wants more of: ' + (videos || '(not given)'),
+        'Video is for: ' + (checked('goal') || '(not given)'),
+        'Wants to reach: ' + (checked('audience') || '(not given)'),
         'Website / Instagram: ' + (g('web') || '(not given)'),
         'Wants to start: ' + (g('when') || '(not given)'),
         'Best contact: ' + contact

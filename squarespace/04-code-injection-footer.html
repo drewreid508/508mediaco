@@ -353,6 +353,26 @@
         <div class="w2"><label for="ct">Phone / email</label><input id="ct" name="contact" type="text" required autocomplete="on" placeholder="Your phone number or email"></div>
         <div class="w2"><label for="bt">What does your business do?</label><input id="bt" name="business_type" type="text" placeholder="Detailing, landscaping, a restaurant…"></div>
         <div class="w2"><label for="vd">What do you want more of?</label><textarea id="vd" name="videos" placeholder="More calls, more bookings, more foot traffic…"></textarea></div>
+        <div class="w2" role="group" aria-labelledby="goal-l">
+          <p class="lbl" id="goal-l">What's the video for? <em>(pick any)</em></p>
+          <div class="chk">
+          <label><input type="checkbox" name="goal" value="More customers"><span>More customers</span></label>
+          <label><input type="checkbox" name="goal" value="Brand awareness"><span>Brand awareness</span></label>
+          <label><input type="checkbox" name="goal" value="Run it as an ad"><span>Run it as an ad</span></label>
+          <label><input type="checkbox" name="goal" value="Go viral"><span>Go viral</span></label>
+          <label><input type="checkbox" name="goal" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </div>
+        <div class="w2" role="group" aria-labelledby="aud-l">
+          <p class="lbl" id="aud-l">Who do you want to reach? <em>(pick any)</em></p>
+          <div class="chk">
+          <label><input type="checkbox" name="audience" value="Ages 18–25"><span>Ages 18–25</span></label>
+          <label><input type="checkbox" name="audience" value="Ages 26–40"><span>Ages 26–40</span></label>
+          <label><input type="checkbox" name="audience" value="Ages 41–55"><span>Ages 41–55</span></label>
+          <label><input type="checkbox" name="audience" value="55 and up"><span>55 and up</span></label>
+          <label><input type="checkbox" name="audience" value="Everyone"><span>Everyone</span></label>
+          </div>
+        </div>
         <div><label for="web">Website or Instagram <em>(optional)</em></label><input id="web" name="web" type="text" placeholder="@handle or website" autocomplete="off"></div>
         <div>
           <label for="when">When do you want to start?</label>
@@ -635,6 +655,7 @@
       show('', 'Sending…');
 
       var plan = g('plan'), videos = g('videos'), budget = g('budget') || '(not asked)';
+      var checked = function(n){ return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function(i){ return i.value; }).join(', '); };
 
       /* Never send an empty string: the Google Form's first six questions are
          Required, and a blank one rejects the WHOLE submission — invisibly,
@@ -654,6 +675,8 @@
         'Package: ' + (plan || '(not picked)'),
         'Business does: ' + (g('business_type') || '(not given)'),
         'Wants more of: ' + (videos || '(not given)'),
+        'Video is for: ' + (checked('goal') || '(not given)'),
+        'Wants to reach: ' + (checked('audience') || '(not given)'),
         'Website / Instagram: ' + (g('web') || '(not given)'),
         'Wants to start: ' + (g('when') || '(not given)'),
         'Best contact: ' + contact

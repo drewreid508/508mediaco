@@ -239,19 +239,12 @@ section[id]{scroll-margin-top:64px}
 @media(min-width:1024px){.make{grid-template-columns:repeat(4,1fr)}}
 .make article{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .3s,transform .5s var(--ease)}
 .make article:hover{border-color:var(--line-2);transform:translateY(-4px)}
-.make figure{aspect-ratio:4/5;overflow:hidden;position:relative}
-.make figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.make article:hover figure img{transform:scale(1.05)}
-.make figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg-2) 0%,rgba(13,16,21,0) 45%)}
-.make .txt{padding:0 22px 24px;margin-top:-34px;position:relative}
+.make .txt{padding:26px 22px 28px;position:relative}
 .make .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
 .make h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:26px;line-height:1.02;margin-top:10px}
 .make p:last-child{color:var(--fg-2);font-size:15.5px;margin-top:10px}
 @media(max-width:639px){
-  .make article{display:grid;grid-template-columns:112px 1fr;align-items:center}
-  .make figure{aspect-ratio:auto;height:100%;min-height:140px}
-  .make figure::after{display:none}
-  .make .txt{margin:0;padding:18px}
+  .make .txt{padding:20px 20px 22px}
   .make h3{font-size:21px;margin-top:6px}
   .make p:last-child{font-size:14.5px;margin-top:6px}
 }
@@ -386,7 +379,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
 /* ══════════════════════════ REVEAL ══════════════════════════ */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.clip img,.make figure img{transition:none}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.clip img}
 </style>
 
 <script type="application/ld+json">
@@ -619,19 +612,15 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     </div>
     <div class="make">
       <article class="rv">
-        <figure><img src="media-v2/biz-stadium.jpg" alt="A stadium being pressure washed, filmed from the air" loading="lazy" width="540" height="960"></figure>
         <div class="txt"><p class="n">01</p><h3>Before &amp; after reels</h3><p>Show the result that brings in the next customer.</p></div>
       </article>
       <article class="rv">
-        <figure><img src="media-v2/auto-tundra.jpg" alt="A crew member grinding metal in a fabrication shop" loading="lazy" width="540" height="960"></figure>
         <div class="txt"><p class="n">02</p><h3>Owner &amp; team videos</h3><p>People buy from someone they trust. Let them meet you first.</p></div>
       </article>
       <article class="rv">
-        <figure><img src="media-v2/examples/ex-ceramic.jpg" alt="A business owner talking on camera" loading="lazy" width="720" height="1280"></figure>
         <div class="txt"><p class="n">03</p><h3>Testimonial videos</h3><p>Your happy customers do the selling for you.</p></div>
       </article>
       <article class="rv">
-        <figure><img src="media-v2/biz-7brew.jpg" alt="A night wash filmed for a social ad" loading="lazy" width="540" height="960"></figure>
         <div class="txt"><p class="n">04</p><h3>Ad cuts</h3><p>15 and 30-second versions, ready to run as ads.</p></div>
       </article>
     </div>

@@ -283,8 +283,10 @@ section[id]{scroll-margin-top:64px}
 .quotes figcaption{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 
 /* ══════════════════════════ PHOTOS + REVIEWS ══════════════════════════ */
-.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(min-width:760px){.shots{grid-template-columns:repeat(3,1fr);gap:14px}}
+.shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad,20px);-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--pad,20px)*-1);padding:0 var(--pad,20px)}
+.shots::-webkit-scrollbar{display:none}
+.shots figure{flex:0 0 62%;scroll-snap-align:start}
+@media(min-width:760px){.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;overflow:visible;margin:0;padding:0}.shots figure{flex:none}}
 @media(min-width:1100px){.shots{grid-template-columns:repeat(6,1fr)}}
 .shots figure{aspect-ratio:3/4;overflow:hidden;border-radius:10px;background:var(--bg-2);border:1px solid var(--line)}
 .shots img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
@@ -416,7 +418,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     "name": "Video content shoots",
     "itemListElement": [
       { "@type": "Offer", "name": "Monthly plan", "description": "A monthly video plan built around your goals, set shoot and edit days each month, and a monthly check-in call." },
-      { "@type": "Offer", "name": "Foundation shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
+      { "@type": "Offer", "name": "Starter shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
       { "@type": "Offer", "name": "Custom shoot", "description": "Larger productions, multiple locations, commercial-style videos and special events, built around the project." }
     ]
   }
@@ -591,24 +593,18 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <p class="sub rv">I shoot photos alongside the video, so you get both from one day.</p>
     </div>
     <div class="shots">
-      <figure class="rv"><img src="__MEDIA_photos/p01.jpg__" alt="Front grille of a black Ram 2500" loading="lazy" width="900" height="1250"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p02.jpg__" alt="Taillight and tailgate of a white Ford Super Duty" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p03.jpg__" alt="Chrome Ford badge on a white truck" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p04.jpg__" alt="Naked Metal Fabrication decal on a truck window" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p05.jpg__" alt="Detailer machine polishing a BMW" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p06.jpg__" alt="Detailer polishing a black SUV" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p07.jpg__" alt="Close-up of a BMW LED headlight after paint correction" loading="lazy" width="900" height="1601"></figure>
       <figure class="rv"><img src="__MEDIA_photos/p08.jpg__" alt="White lifted Chevy Silverado HD at dusk" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p09.jpg__" alt="Front view of a white Silverado HD" loading="lazy" width="900" height="1350"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p10.jpg__" alt="Rear of a Silverado High Country" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p11.jpg__" alt="Chrome grille and LED headlights on a Silverado" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_biz-house.jpg__" alt="A luxury home shot for a listing video" loading="lazy" width="720" height="1280"></figure>
+      <figure class="rv"><img src="__MEDIA_photos/p05.jpg__" alt="Detailer machine polishing a BMW" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_biz-7brew.jpg__" alt="A drive-thru coffee shop at night, filmed for social" loading="lazy" width="540" height="960"></figure>
       <figure class="rv"><img src="__MEDIA_photos/p12.jpg__" alt="Blue custom Silverado rolling on the highway" loading="lazy" width="900" height="1600"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p13.jpg__" alt="Gloved hand wiping down black paint" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_auto-tundra.jpg__" alt="A fabricator grinding metal, sparks flying" loading="lazy" width="540" height="960"></figure>
       <figure class="rv"><img src="__MEDIA_photos/p14.jpg__" alt="Detailer running a green polisher on black paint" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p15.jpg__" alt="Rear of a blue Cadillac CT5-V in a detail bay" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_biz-stadium.jpg__" alt="A stadium being pressure washed, filmed from above" loading="lazy" width="540" height="960"></figure>
       <figure class="rv"><img src="__MEDIA_photos/p16.jpg__" alt="Wheel and yellow caliper on a red Porsche GT2 RS" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_photos/p01.jpg__" alt="Front grille of a black Ram 2500" loading="lazy" width="900" height="1250"></figure>
       <figure class="rv"><img src="__MEDIA_photos/p17.jpg__" alt="Porsche crest on a carbon fiber hood" loading="lazy" width="900" height="1601"></figure>
-      <figure class="rv"><img src="__MEDIA_photos/p18.jpg__" alt="Front of a red Porsche GT2 RS in a shop" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="__MEDIA_photos/p04.jpg__" alt="Naked Metal Fabrication decal on a truck window" loading="lazy" width="900" height="1601"></figure>
     </div>
   </div>
 </section>
@@ -668,7 +664,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <a class="btn js-plan" href="#inquiry" data-plan="Monthly plan">Get started <span class="ar">→</span></a>
       </article>
       <article class="rv">
-        <h3>Foundation shoot</h3>
+        <h3>Starter shoot</h3>
         <p class="for">The place to start. The videos every customer checks before they call.</p>
         <p class="price">Free quote</p>
         <ul>
@@ -677,7 +673,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
           <li>Customer testimonial</li>
           <li>Ready-to-post cuts for social</li>
         </ul>
-        <a class="btn ghost js-plan" href="#inquiry" data-plan="Foundation shoot">Get a quote <span class="ar">→</span></a>
+        <a class="btn ghost js-plan" href="#inquiry" data-plan="Starter shoot">Get a quote <span class="ar">→</span></a>
       </article>
       <article class="rv">
         <h3>Custom shoot</h3>

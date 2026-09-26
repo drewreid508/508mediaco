@@ -329,8 +329,11 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #mc508 .quotes figure{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:26px}
 #mc508 .quotes blockquote{margin:0;font-size:17px}
 #mc508 .quotes figcaption{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
-#mc508 .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(min-width:760px){#mc508 .shots{grid-template-columns:repeat(3,1fr);gap:14px}}
+#mc508 .shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad,20px);-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--pad,20px)*-1);padding:0 var(--pad,20px)}
+#mc508 .shots::-webkit-scrollbar{display:none}
+#mc508 .shots figure{flex:0 0 62%;scroll-snap-align:start}
+@media(min-width:760px){#mc508 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;overflow:visible;margin:0;padding:0}
+#mc508 .shots figure{flex:none}}
 @media(min-width:1100px){#mc508 .shots{grid-template-columns:repeat(6,1fr)}}
 #mc508 .shots figure{aspect-ratio:3/4;overflow:hidden;border-radius:10px;background:var(--bg-2);border:1px solid var(--line)}
 #mc508 .shots img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
@@ -455,7 +458,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     "name": "Video content shoots",
     "itemListElement": [
       { "@type": "Offer", "name": "Monthly plan", "description": "A monthly video plan built around your goals, set shoot and edit days each month, and a monthly check-in call." },
-      { "@type": "Offer", "name": "Foundation shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
+      { "@type": "Offer", "name": "Starter shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
       { "@type": "Offer", "name": "Custom shoot", "description": "Larger productions, multiple locations, commercial-style videos and special events, built around the project." }
     ]
   }

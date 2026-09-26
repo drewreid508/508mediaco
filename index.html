@@ -285,16 +285,17 @@ section[id]{scroll-margin-top:64px}
 .quotes blockquote{margin:0;font-size:17px}
 .quotes figcaption{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 
-/* ══════════════════════════ PROCESS ══════════════════════════ */
-.steps{display:grid;gap:0;padding:0;margin:0;list-style:none}
-@media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr);column-gap:40px}}
-@media(min-width:1100px){.steps{grid-template-columns:repeat(4,1fr);column-gap:32px}}
-.steps li{padding:30px 0;border-top:1px solid var(--line-2);position:relative}
-.steps li::before{content:"";position:absolute;top:-1px;left:0;width:48px;height:1px;background:var(--blue)}
-.steps .n{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--blue)}
-.steps h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:clamp(40px,4.4vw,60px);line-height:1;margin-top:14px}
-.steps p{color:var(--fg-2);margin-top:12px;max-width:30ch}
-
+/* ══════════════════════════ PHOTOS + REVIEWS ══════════════════════════ */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:760px){.shots{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(min-width:1100px){.shots{grid-template-columns:repeat(6,1fr)}}
+.shots figure{aspect-ratio:3/4;overflow:hidden;border-radius:10px;background:var(--bg-2);border:1px solid var(--line)}
+.shots img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.shots figure:hover img{transform:scale(1.05)}
+.reviews-box{border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:clamp(28px,4vw,48px);max-width:760px}
+.reviews-box p{color:var(--fg-2);max-width:54ch}
+.reviews-box .cta-row{margin-top:26px}
+@media(prefers-reduced-motion:reduce){.shots img{transition:none}}
 /* ══════════════════════════ ABOUT ══════════════════════════ */
 .about{display:grid;gap:44px}
 @media(min-width:960px){.about{grid-template-columns:5fr 6fr;gap:80px;align-items:center}}
@@ -408,8 +409,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     "@type": "OfferCatalog",
     "name": "Video content shoots",
     "itemListElement": [
-      { "@type": "Offer", "name": "Monthly plan", "description": "A 6-month video plan built around your goals, set shoot and edit days every year, and a monthly check-in call. Start with 4 months. Custom pricing." },
-      { "@type": "Offer", "name": "Foundation shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial. Custom pricing." },
+      { "@type": "Offer", "name": "Monthly plan", "description": "A monthly video plan built around your goals, set shoot and edit days each month, and a monthly check-in call." },
+      { "@type": "Offer", "name": "Foundation shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
       { "@type": "Offer", "name": "Custom shoot", "description": "Larger productions, multiple locations, commercial-style videos and special events, built around the project." }
     ]
   }
@@ -426,10 +427,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#packages">Packages</a>
+      <a href="#reviews">Reviews</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn sm" href="#contact">Free ad idea</a>
+    <a class="btn sm" href="#contact">Want a video like this?</a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Menu"><i></i><i></i><i></i></button>
   </div>
 </header>
@@ -437,9 +439,10 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
   <a href="#work">Work</a>
   <a href="#services">Services</a>
   <a href="#packages">Packages</a>
+  <a href="#reviews">Reviews</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
-  <a class="btn" href="#contact">Get a free ad idea <span class="ar">→</span></a>
+  <a class="btn" href="#contact">Want a video like this? <span class="ar">→</span></a>
   <p>Drew · (864) 915-4071</p>
 </div>
 
@@ -461,7 +464,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     <h1 class="rv" id="hero-h">I help Upstate businesses get more customers with video.</h1>
     <p class="sub rv">Monthly video for local businesses, planned around the customers you want more of.</p>
     <div class="cta-row rv">
-      <a class="btn" href="#contact">Get a free ad idea <span class="ar">→</span></a>
+      <a class="btn" href="#contact">Want a video like this? <span class="ar">→</span></a>
       <a class="btn ghost" href="#work">View my work <span class="ar">→</span></a>
     </div>
     <p class="loc rv"><i></i>Based in Upstate South Carolina</p>
@@ -541,7 +544,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
 
     <div class="work-foot rv">
       <p>Want one like this for your business? I'll make you a free 15-second ad idea first.</p>
-      <a class="btn" href="#contact">Get a free ad idea <span class="ar">→</span></a>
+      <a class="btn" href="#contact">Want a video like this? <span class="ar">→</span></a>
     </div>
   </div>
 </section>
@@ -570,6 +573,39 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     <button type="button" data-lb="next" aria-label="Next video">&rarr;</button>
   </div>
 </div>
+
+<!-- ══════════════ PHOTOS ══════════════ -->
+<section class="sect flush" id="photos">
+  <div class="wrap">
+    <div class="sect-head split">
+      <div class="rv">
+        <p class="eyebrow">Photos</p>
+        <h2 class="h2">Stills from my shoots</h2>
+      </div>
+      <p class="sub rv">I shoot photos alongside the video, so you get both from one day.</p>
+    </div>
+    <div class="shots">
+      <figure class="rv"><img src="media-v2/photos/p01.jpg" alt="Front grille of a black Ram 2500" loading="lazy" width="900" height="1250"></figure>
+      <figure class="rv"><img src="media-v2/photos/p02.jpg" alt="Taillight and tailgate of a white Ford Super Duty" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p03.jpg" alt="Chrome Ford badge on a white truck" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p04.jpg" alt="Naked Metal Fabrication decal on a truck window" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p05.jpg" alt="Detailer machine polishing a BMW" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p06.jpg" alt="Detailer polishing a black SUV" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p07.jpg" alt="Close-up of a BMW LED headlight after paint correction" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p08.jpg" alt="White lifted Chevy Silverado HD at dusk" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p09.jpg" alt="Front view of a white Silverado HD" loading="lazy" width="900" height="1350"></figure>
+      <figure class="rv"><img src="media-v2/photos/p10.jpg" alt="Rear of a Silverado High Country" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p11.jpg" alt="Chrome grille and LED headlights on a Silverado" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p12.jpg" alt="Blue custom Silverado rolling on the highway" loading="lazy" width="900" height="1600"></figure>
+      <figure class="rv"><img src="media-v2/photos/p13.jpg" alt="Gloved hand wiping down black paint" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p14.jpg" alt="Detailer running a green polisher on black paint" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p15.jpg" alt="Rear of a blue Cadillac CT5-V in a detail bay" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p16.jpg" alt="Wheel and yellow caliper on a red Porsche GT2 RS" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p17.jpg" alt="Porsche crest on a carbon fiber hood" loading="lazy" width="900" height="1601"></figure>
+      <figure class="rv"><img src="media-v2/photos/p18.jpg" alt="Front of a red Porsche GT2 RS in a shop" loading="lazy" width="900" height="1601"></figure>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════ WHAT I CREATE ══════════════ -->
 <section class="sect flush" id="services">
@@ -610,33 +646,32 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <p class="eyebrow">Packages</p>
         <h2 class="h2">Three ways to work with me</h2>
       </div>
-      <p class="sub rv">Every business is different, so every quote is too. Pick what sounds closest and I'll build a plan around it.</p>
+      <p class="sub rv">I don't use set prices because every business needs something different: how many videos, how many shoot days, and what you want them to do for you. Tell me about your business and I'll send you a quote. You'll know the price before anything gets filmed.</p>
     </div>
     <div class="pk">
       <article class="rv pop">
         <span class="badge">MOST POPULAR</span>
         <h3>Monthly plan</h3>
         <p class="for">For businesses that want a steady flow of customers, not a one-off video.</p>
-        <p class="price">Custom pricing</p>
+        <p class="price">Free quote</p>
         <ul>
-          <li>6-month video plan built around your goals</li>
-          <li>Set shoot and edit days every year</li>
+          <li>Monthly video plan built around your goals</li>
+          <li>Set shoot and edit days each month</li>
           <li>Monthly check-in call</li>
-          <li>Start with 4 months, no long contract</li>
         </ul>
-        <a class="btn js-plan" href="#contact" data-plan="Monthly plan">Get started <span class="ar">→</span></a>
+        <a class="btn js-plan" href="#inquiry" data-plan="Monthly plan">Get started <span class="ar">→</span></a>
       </article>
       <article class="rv">
         <h3>Foundation shoot</h3>
         <p class="for">The place to start. The videos every customer checks before they call.</p>
-        <p class="price">Custom pricing</p>
+        <p class="price">Free quote</p>
         <ul>
           <li>Homepage video</li>
           <li>About the business video</li>
           <li>Customer testimonial</li>
           <li>Ready-to-post cuts for social</li>
         </ul>
-        <a class="btn ghost js-plan" href="#contact" data-plan="Foundation shoot">Get a quote <span class="ar">→</span></a>
+        <a class="btn ghost js-plan" href="#inquiry" data-plan="Foundation shoot">Get a quote <span class="ar">→</span></a>
       </article>
       <article class="rv">
         <h3>Custom shoot</h3>
@@ -650,26 +685,29 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
           <li>Drone footage</li>
           <li>Recruiting videos</li>
         </ul>
-        <a class="btn ghost js-plan" href="#contact" data-plan="Custom shoot">Talk to me <span class="ar">→</span></a>
+        <a class="btn ghost js-plan" href="#inquiry" data-plan="Custom shoot">Talk to me <span class="ar">→</span></a>
       </article>
     </div>
     <p class="pk-note rv">Not sure which fits? <a href="#contact">Tell me what you want more of.</a></p>
   </div>
 </section>
 
-<!-- ══════════════ HOW IT WORKS ══════════════ -->
-<section class="sect" id="process">
+<!-- ══════════════ REVIEWS ══════════════ -->
+<section class="sect flush" id="reviews">
   <div class="wrap">
     <div class="sect-head">
-      <p class="eyebrow rv">How the monthly plan works</p>
-      <h2 class="h2 rv">You run the business. I'll handle the video.</h2>
+      <p class="eyebrow rv">Reviews</p>
+      <h2 class="h2 rv">What my clients say</h2>
     </div>
-    <ol class="steps">
-      <li class="rv"><p class="n">01</p><h3>Plan call</h3><p>We talk about your business, your customers and what you want more of.</p></li>
-      <li class="rv"><p class="n">02</p><h3>6-month plan</h3><p>You get a written plan: every shoot and why it's there. Nothing gets filmed until you sign off.</p></li>
-      <li class="rv"><p class="n">03</p><h3>Shoot &amp; edit</h3><p>I come to you and turn it into videos and ads.</p></li>
-      <li class="rv"><p class="n">04</p><h3>Check in</h3><p>Every month we look at what's done and what would help most next.</p></li>
-    </ol>
+    <div class="reviews-box rv">
+      <p>I'm collecting reviews from the businesses I've filmed for, and I'll post them here as they come in. If you've worked with me, a few honest words would mean a lot.</p>
+      <div class="cta-row">
+        <!-- When the Google Business Profile is live, point "Leave a review" at its review link (g.page/r/…/review) and keep the mailto as the second option.
+             Add real reviews as <figure><blockquote>…</blockquote><figcaption>NAME · BUSINESS</figcaption></figure> inside a .quotes div. Never invent a quote. -->
+        <a class="btn" href="mailto:drew@508mediaco.com?subject=My%20review%20of%20508%20Media%20Co.">Send me a review <span class="ar">→</span></a>
+        <a class="btn ghost" href="sms:+18649154071">Text me <span class="ar">→</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -708,7 +746,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <h2 class="h2 rv">Ready to get more customers?</h2>
       <p class="sub rv">Tell me about your business and I'll make you a free 15-second ad idea. No charge, no commitment.</p>
       <div class="cta-row rv">
-        <a class="btn" href="#inquiry" id="tobook">Get a free ad idea <span class="ar">→</span></a>
+        <a class="btn" href="#inquiry" id="tobook">Want a video like this? <span class="ar">→</span></a>
         <a class="btn ghost" href="#work">View my work <span class="ar">→</span></a>
       </div>
     </div>
@@ -735,14 +773,15 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <div class="w2"><label for="ct">Phone / email</label><input id="ct" name="contact" type="text" required autocomplete="on" placeholder="Your phone number or email"></div>
         <div class="w2"><label for="bt">What does your business do?</label><input id="bt" name="business_type" type="text" placeholder="Detailing, landscaping, a restaurant…"></div>
         <div class="w2"><label for="vd">What do you want more of?</label><textarea id="vd" name="videos" placeholder="More calls, more bookings, more foot traffic…"></textarea></div>
-        <div class="w2">
-          <label for="bd">What's your monthly video budget?</label>
-          <select id="bd" name="budget">
+        <div><label for="web">Website or Instagram <em>(optional)</em></label><input id="web" name="web" type="text" placeholder="@handle or website" autocomplete="off"></div>
+        <div>
+          <label for="when">When do you want to start?</label>
+          <select id="when" name="when">
             <option value="">Select one</option>
-            <option>Under $1,000/mo</option>
-            <option>$1,000–$2,000/mo</option>
-            <option>$2,000+/mo</option>
-            <option>Not sure</option>
+            <option>As soon as possible</option>
+            <option>In the next month</option>
+            <option>In a few months</option>
+            <option>Just looking for now</option>
           </select>
         </div>
         <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -762,7 +801,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     <div class="foot">
       <a class="mark" href="#top" aria-label="508 Media Co. home"><i></i><b>508</b><s>MEDIA CO.</s><u></u><i></i></a>
       <nav aria-label="Footer">
-        <a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#reviews">Reviews</a><a href="#about">About</a><a href="#contact">Contact</a>
         <a href="https://www.instagram.com/508_filmzz/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.tiktok.com/@508_filmzz" target="_blank" rel="noopener">TikTok</a>
       </nav>
@@ -944,7 +983,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
   }
   document.getElementById('planclear').addEventListener('click', function(){ setPlan(''); });
   document.querySelectorAll('.js-plan').forEach(function(a){
-    a.addEventListener('click', function(){ setPlan(a.getAttribute('data-plan')); });
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      setPlan(a.getAttribute('data-plan'));
+      document.getElementById('inquiry').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+      setTimeout(function(){ document.getElementById('nm').focus({preventScroll:true}); }, reduce ? 0 : 650);
+    });
   });
   document.getElementById('tobook').addEventListener('click', function(e){
     e.preventDefault();
@@ -1009,7 +1053,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       form.classList.add('sending');
       show('', 'Sending…');
 
-      var plan = g('plan'), videos = g('videos'), budget = g('budget') || 'Not sure';
+      var plan = g('plan'), videos = g('videos'), budget = g('budget') || '(not asked)';
 
       /* Never send an empty string: the Google Form's first six questions are
          Required, and a blank one rejects the WHOLE submission — invisibly,
@@ -1029,7 +1073,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         'Package: ' + (plan || '(not picked)'),
         'Business does: ' + (g('business_type') || '(not given)'),
         'Wants more of: ' + (videos || '(not given)'),
-        'Budget: ' + budget,
+        'Website / Instagram: ' + (g('web') || '(not given)'),
+        'Wants to start: ' + (g('when') || '(not given)'),
         'Best contact: ' + contact
       ].join('\n'));
 

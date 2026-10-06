@@ -179,6 +179,9 @@ section[id]{scroll-margin-top:64px}
 @media(min-width:1024px){
   .grid{grid-template-columns:repeat(4,1fr);gap:16px}
   .grid:not(.filtered) .clip.feat{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  /* fixed 9:16 row height, so two 2x2 features can sit side by side without a regular clip to size their rows */
+  #work>.wrap{container-type:inline-size}
+  .grid:not(.filtered){grid-auto-rows:calc((100cqw - 48px) / 4 * 16 / 9)}
 }
 @media(max-width:1023px){.grid:not(.filtered) .clip.desk{display:none}}
 
@@ -491,14 +494,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <button type="button" data-f="other" aria-pressed="false">Shops &amp; automotive</button>
     </div>
 
-    <!-- 10 clips on purpose: on desktop the two 2x2 features + 8 fill 4 full rows of 4 (house lands bottom-right via dense flow); the 4 "desk" clips hide below 1024px so phones/tablets get an even 6. -->
+    <!-- 12 clips on purpose: on desktop the four 2x2 features + 8 fill 6 full rows of 4 (dense flow); the 6 "desk" clips hide below 1024px so phones (2 cols) and tablets (3 cols) both get an even 6. -->
     <div class="grid rv" id="grid">
-      <button type="button" class="clip feat" data-cat="ext" data-src="media-v2/biz-stadium.mp4">
-        <img src="media-v2/biz-stadium.jpg" alt="Drone and ground shots of a high school stadium being pressure washed" loading="lazy" width="540" height="960">
+      <button type="button" class="clip feat" data-cat="ext" data-src="media-v2/biz-hq-southpark.mp4">
+        <img src="media-v2/biz-hq-southpark.jpg" alt="Semi-custom home under construction in the South Park neighborhood" loading="lazy" width="720" height="1280">
         <span class="play" aria-hidden="true"></span>
-        <span class="meta"><span class="cat">Pressure Washing</span><span class="ttl">Greer High School stadium</span><span class="biz">Bratcher's Power Washing</span></span>
+        <span class="meta"><span class="cat">Real Estate</span><span class="ttl">South Park community tour</span><span class="biz">Hunter Quinn Homes</span></span>
       </button>
-      <button type="button" class="clip" data-cat="ext" data-src="media-v2/biz-blueworks.mp4">
+      <button type="button" class="clip desk" data-cat="ext" data-src="media-v2/biz-blueworks.mp4">
         <img src="media-v2/biz-blueworks.jpg" alt="Roll-off dumpster delivered on a job site" loading="lazy" width="540" height="960">
         <span class="play" aria-hidden="true"></span>
         <span class="meta"><span class="cat">Construction</span><span class="ttl">Roll-off delivery</span><span class="biz">Blueworks Dumpsters</span></span>
@@ -513,10 +516,15 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <span class="play" aria-hidden="true"></span>
         <span class="meta"><span class="cat">Fabrication</span><span class="ttl">Powder coat process</span><span class="biz">Naked Metal Fabrication</span></span>
       </button>
-      <button type="button" class="clip" data-cat="other" data-src="media-v2/auto-tundra.mp4">
+      <button type="button" class="clip desk" data-cat="other" data-src="media-v2/auto-tundra.mp4">
         <img src="media-v2/auto-tundra.jpg" alt="Grinder sparks during a truck build in a fabrication shop" loading="lazy" width="540" height="960">
         <span class="play" aria-hidden="true"></span>
         <span class="meta"><span class="cat">Fabrication</span><span class="ttl">Truck shop build</span><span class="biz">Naked Metal Fabrication</span></span>
+      </button>
+      <button type="button" class="clip feat" data-cat="ext" data-src="media-v2/biz-stadium.mp4">
+        <img src="media-v2/biz-stadium.jpg" alt="Drone and ground shots of a high school stadium being pressure washed" loading="lazy" width="540" height="960">
+        <span class="play" aria-hidden="true"></span>
+        <span class="meta"><span class="cat">Pressure Washing</span><span class="ttl">Greer High School stadium</span><span class="biz">Bratcher's Power Washing</span></span>
       </button>
       <button type="button" class="clip desk" data-cat="other" data-src="media-v2/auto-guardian.mp4">
         <img src="media-v2/auto-guardian.jpg" alt="Semi trucks lit up at night" loading="lazy" width="540" height="960">
@@ -532,6 +540,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <img src="media-v2/biz-house.jpg" alt="Walkthrough of a large home, from the front walk through the kitchen, living rooms and staircase" loading="lazy" width="720" height="1280">
         <span class="play" aria-hidden="true"></span>
         <span class="meta"><span class="cat">Real Estate</span><span class="ttl">Luxury home tour</span><span class="biz">Home listing video</span></span>
+      </button>
+      <button type="button" class="clip feat" data-cat="ext" data-src="media-v2/biz-hq-october.mp4">
+        <img src="media-v2/biz-hq-october.jpg" alt="New home sales rep seated in a model home with the words Buying a home this October" loading="lazy" width="720" height="1280">
+        <span class="play" aria-hidden="true"></span>
+        <span class="meta"><span class="cat">Real Estate</span><span class="ttl">October move-in offer</span><span class="biz">Hunter Quinn Homes</span></span>
       </button>
       <button type="button" class="clip desk" data-cat="other" data-src="media-v2/examples/ex-staysclean.mp4">
         <img src="media-v2/examples/ex-staysclean.jpg" alt="Water beading off a ceramic coated panel" loading="lazy" width="720" height="1280">
@@ -557,7 +570,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
   <div class="wrap">
     <p class="eyebrow rv">Local businesses I've filmed for</p>
     <ul class="names rv">
-      <li>Bratcher's Power Washing</li><li>Blueworks Dumpsters</li><li>Naked Metal Fabrication</li><li>Guardian Lighting</li><li>Hannah's Detailing &amp; Supply</li>
+      <li>Hunter Quinn Homes</li><li>Bratcher's Power Washing</li><li>Blueworks Dumpsters</li><li>Naked Metal Fabrication</li><li>Guardian Lighting</li><li>Hannah's Detailing &amp; Supply</li>
     </ul>
     <!-- Add real Google reviews here once you have them. Copy one <figure> per review; never invent a quote.
     <div class="quotes rv">
@@ -693,7 +706,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <div class="cta-row">
         <!-- When the Google Business Profile is live, point "Leave a review" at its review link (g.page/r/…/review) and keep the mailto as the second option.
              Add real reviews as <figure><blockquote>…</blockquote><figcaption>NAME · BUSINESS</figcaption></figure> inside a .quotes div. Never invent a quote. -->
-        <a class="btn" href="mailto:drew@508mediaco.com?subject=My%20review%20of%20508%20Media%20Co.">Send me a review <span class="ar">→</span></a>
+        <a class="btn" href="https://g.page/r/CQRtijkKqWhOEBI/review" target="_blank" rel="noopener">Leave a Google review <span class="ar">→</span></a>
         <a class="btn ghost" href="sms:+18649154071">Text me: (864) 915-4071 <span class="ar">→</span></a>
       </div>
     </div>

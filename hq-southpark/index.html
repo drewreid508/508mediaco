@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>South Park Model Home · 508 Media Co.</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Your South Park model home video from 508 Media Co. Widescreen and phone versions, ready to download.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="508 Media Co.">
+<meta property="og:title" content="South Park Model Home · 508 Media Co.">
+<meta property="og:description" content="Your video is ready. Widescreen and phone versions, ready to download.">
+<meta property="og:url" content="https://drewreid508.github.io/508mediaco/hq-southpark/">
+<meta property="og:image" content="https://drewreid508.github.io/508mediaco/hq-southpark/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://drewreid508.github.io/508mediaco/hq-southpark/og.jpg">
+<link rel="icon" href="../media-v2/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one centered delivery column, a screening-room player per video, Drew's 508 Media Co. look (dark-first, single theme). */
+:root{
+  --ink:#06070A; --panel:#0E1219; --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.16);
+  --fg:#F5F7FA; --fg2:#A3ABB7; --fg3:#6B7480; --blue:#488FF6; --blue-wash:rgba(72,143,246,.09);
+  --display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);background-image:radial-gradient(110% 60% at 50% 0%,#141922 0%,var(--ink) 70%);
+  color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:flex;flex-direction:column;gap:56px}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500;margin:0}
+.muted{color:var(--fg2)}
+h1,h2{font-family:var(--display);text-transform:uppercase;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1{font-size:clamp(40px,8vw,68px);line-height:.95;font-weight:700}
+h1 em,h2 em{font-style:normal;color:var(--blue)}
+h2{font-size:clamp(28px,5vw,40px);line-height:1;font-weight:700}
+p{margin:0}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.mark{display:inline-flex;align-items:center;gap:8px;position:relative;padding:7px 13px}
+.mark::before,.mark::after{content:"";position:absolute;width:10px;height:10px;border:1.8px solid var(--blue)}
+.mark::before{top:0;left:0;border-right:0;border-bottom:0}
+.mark::after{bottom:0;right:0;border-left:0;border-top:0}
+.mark b{font-family:var(--display);font-weight:700;font-size:28px;line-height:1}
+.mark s{font-family:var(--display);font-weight:600;font-size:28px;line-height:1;text-decoration:none;color:transparent;-webkit-text-stroke:1px var(--fg)}
+.mark i{width:5px;height:5px;border-radius:50%;background:var(--blue);align-self:flex-end;margin-bottom:5px}
+.slate{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);display:flex;gap:14px;flex-wrap:wrap}
+.slate span:not(:last-child)::after{content:"/";margin-left:14px;color:var(--line2)}
+
+.intro{display:flex;flex-direction:column;gap:18px}
+.note{max-width:62ch;font-size:17px;color:#C9CFD8}
+.note b{color:var(--fg);font-weight:600}
+
+/* player */
+.reel{display:flex;flex-direction:column;gap:16px}
+.reelhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.reelhead > div:first-child{display:flex;flex-direction:column;gap:8px;min-width:0}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:3px;gap:2px}
+.seg button{all:unset;cursor:pointer;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);
+  padding:8px 14px;border-radius:999px;transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.screen{background:#000;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;justify-content:center}
+.screen video{display:block;width:100%;max-width:100%;background:#000}
+.screen.phone video{width:auto;height:min(72vh,680px);max-width:100%}
+.specs{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--fg3);font-variant-numeric:tabular-nums}
+.specs b{color:var(--fg2);font-weight:500}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:15px;text-decoration:none;
+  color:#fff;background:var(--blue);border:0;border-radius:8px;padding:13px 20px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line2)}
+.btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.btn svg{flex:0 0 auto}
+.dl{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.dl .muted{font-size:14px}
+
+/* where to post */
+.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.uses div{background:var(--panel);padding:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.uses b{font-size:15px;font-weight:600}
+.uses p{font-size:14px;color:var(--fg2);line-height:1.5}
+.uses .fmt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+
+/* bonus */
+.bonus{border:1.5px solid var(--blue);border-radius:14px;background:var(--blue-wash);padding:clamp(18px,4vw,30px);display:flex;flex-direction:column;gap:18px}
+
+.ask{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--panel);
+  border:1px solid var(--line2);border-radius:14px;padding:clamp(18px,4vw,28px)}
+.ask .stars{display:flex;gap:3px;color:var(--blue)}
+.askbody{display:flex;flex-direction:column;gap:6px;min-width:0}
+.askbody p{color:#C9CFD8;max-width:52ch}
+@media (max-width:720px){.ask{grid-template-columns:1fr}}
+
+/* closing */
+.close{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;border-top:1px solid var(--line);padding-top:32px}
+.close > div{display:flex;flex-direction:column;gap:12px;min-width:0}
+.contact{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);
+  border:1px solid var(--line2);border-radius:5px;padding:4px 8px}
+.copy:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.contact a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line2)}
+.sig{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em}
+@media (max-width:640px){.close{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark" aria-label="508 Media Co."><b>508</b><s>MEDIA CO.</s><i></i></div>
+    <div class="slate"><span>Delivery</span><span>Hunter Quinn Homes</span><span>Oct 6, 2026</span></div>
+  </header>
+
+  <section class="intro">
+    <p class="kick">South Park · Piedmont, SC</p>
+    <h1>Your South Park<br>video is <em>ready.</em></h1>
+    <p class="note">Mya, thanks for letting me film at the South Park model home. You get the finished video in <b>two versions</b>: widescreen for your website and YouTube, and a phone cut for Instagram, Facebook and TikTok. Hit play, then grab the full-quality files when you're ready.</p>
+  </section>
+
+  <section class="reel" aria-labelledby="sp-title">
+    <div class="reelhead">
+      <div><p class="kick">The model home video</p><h2 id="sp-title">South Park <em>Model Home</em></h2></div>
+      <div class="seg" role="group" aria-label="Video version">
+        <button type="button" id="sp-wide" aria-pressed="true" data-target="sp" data-src="media/southpark-wide.mp4" data-poster="media/southpark-wide.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" id="sp-phone" aria-pressed="false" data-target="sp" data-src="media/southpark-phone.mp4" data-poster="media/southpark-phone.jpg" data-fmt="phone">Phone</button>
+      </div>
+    </div>
+    <div class="screen" id="sp-screen"><video id="sp" controls playsinline preload="metadata" poster="media/southpark-wide.jpg" src="media/southpark-wide.mp4"></video></div>
+    <div class="specs" id="sp-specs"><span><b>Length</b> 0:36</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> website · YouTube · Facebook</span></div>
+    <div class="dl" id="dl-row"></div>
+  </section>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <div class="stars" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
+    <div class="askbody">
+      <h2 id="ask-title">Happy with it?</h2>
+      <p>Tell other business owners what it was like to work together. A Google review takes about a minute.</p>
+    </div>
+    <a class="btn" href="https://g.page/r/CQRtijkKqWhOEBI/review" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg> Leave a Google review</a>
+  </section>
+
+  <section class="reel" aria-labelledby="use-title">
+    <div><p class="kick">Where to put it</p><h2 id="use-title" style="margin-top:8px">Get it <em>working</em> this week</h2></div>
+    <div class="uses">
+      <div><span class="fmt">Widescreen</span><b>Your website</b><p>At the top of the South Park community page, so buyers see the home before they scroll.</p></div>
+      <div><span class="fmt">Widescreen</span><b>Google Business Profile</b><p>Add it under Photos → Videos. People who search for Hunter Quinn see it on your listing.</p></div>
+      <div><span class="fmt">Phone</span><b>Reels &amp; TikTok</b><p>Post it, then pin it to the top of your profile.</p></div>
+      <div><span class="fmt">Either</span><b>Text it to leads</b><p>Send the link to anyone who asked about South Park. They tour the home before they call you.</p></div>
+    </div>
+  </section>
+
+  <section class="bonus" aria-labelledby="oct-title">
+    <div class="reelhead">
+      <div><p class="kick">Bonus · preview</p><h2 id="oct-title">Your <em>October Offer</em> ad</h2></div>
+      <div class="seg" role="group" aria-label="Preview version">
+        <button type="button" id="oct-wide" aria-pressed="true" data-target="oct" data-src="media/october-wide.mp4" data-poster="media/october-wide.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" id="oct-phone" aria-pressed="false" data-target="oct" data-src="media/october-phone.mp4" data-poster="media/october-phone.jpg" data-fmt="phone">Phone</button>
+      </div>
+    </div>
+    <p class="note" style="font-size:16px">I cut a 15-second ad for your October offer from the same shoot and made it to run as a paid ad on Facebook and Instagram. You're watching a watermarked preview.</p>
+    <div class="screen" id="oct-screen"><video id="oct" controls playsinline preload="metadata" poster="media/october-wide.jpg" src="media/october-wide.mp4"></video></div>
+    <div class="dl"><span class="muted">Want the clean version without the watermark? Call or text me at <b style="color:var(--fg)">(864) 915-4071</b>.</span></div>
+  </section>
+
+  <footer class="close">
+    <div>
+      <p class="kick">Know someone?</p>
+      <p class="note" style="font-size:16px">If you know a builder or business that needs video, send them my way.</p>
+    </div>
+    <div>
+      <p class="sig">Drew Reid</p>
+      <p class="kick" style="color:var(--fg3)">Owner · 508 Media Co.</p>
+      <div class="contact">
+        <div class="row"><span id="ph">(864) 915-4071</span><button type="button" class="copy" data-copy="ph">Copy</button></div>
+        <div class="row"><span id="em">drew@508mediaco.com</span><button type="button" class="copy" data-copy="em">Copy</button></div>
+        <div class="row"><a href="https://508mediaco.com" target="_blank" rel="noopener">508mediaco.com</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+// Full-quality files: WeTransfer link made Oct 6, 2026 with a 30-day expiry (dies ~Nov 5). Swap and republish if it lapses.
+const DRIVE_URL = "https://we.tl/t-Fju2e5WGPwsNxqKx";
+
+const SPECS = {
+  sp: { wide: ['0:36','1920 × 1080','website · YouTube · Facebook'],
+        phone:['0:36','1080 × 1920','Reels · TikTok · Stories'] }
+};
+
+document.querySelectorAll('.seg button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.target, v = document.getElementById(id);
+    btn.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    v.pause(); v.poster = btn.dataset.poster; v.src = btn.dataset.src; v.load();
+    document.getElementById(id + '-screen').classList.toggle('phone', btn.dataset.fmt === 'phone');
+    const s = SPECS[id] && SPECS[id][btn.dataset.fmt];
+    if (s) document.getElementById(id + '-specs').innerHTML =
+      `<span><b>Length</b> ${s[0]}</span><span><b>Size</b> ${s[1]}</span><span><b>Use</b> ${s[2]}</span>`;
+  });
+});
+
+const dl = document.getElementById('dl-row');
+if (DRIVE_URL) {
+  dl.innerHTML = `<a class="btn" href="${DRIVE_URL}" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+    Download full-quality files</a><span class="muted">Both versions, 1080p. The download link works until Nov 5.</span>`;
+} else {
+  dl.innerHTML = `<span class="muted">You're watching a web-size copy. I'll text you a link to the full-quality 1080p files.</span>`;
+}
+
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () => {
+  const t = document.getElementById(b.dataset.copy).textContent;
+  const done = () => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1600); };
+  try {
+    navigator.clipboard.writeText(t).then(done, () => selectText(b.dataset.copy));
+  } catch (e) { selectText(b.dataset.copy); }
+}));
+function selectText(id){ const r = document.createRange(); r.selectNodeContents(document.getElementById(id));
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+</script>
+
+</body>
+</html>

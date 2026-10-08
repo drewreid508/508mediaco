@@ -356,6 +356,12 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 #mc508 .about figure.brand img{width:66%;height:auto;margin:auto;position:absolute;inset:0;object-fit:contain;filter:drop-shadow(0 18px 60px rgba(72,143,246,.28))}
 #mc508 .about figcaption{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);background:rgba(6,7,10,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:7px 10px;border-radius:4px}
 #mc508 .intro{padding:clamp(64px,8vw,112px) 0 0}
+#mc508 .steps{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+@media(min-width:800px){#mc508 .steps{grid-template-columns:repeat(3,1fr);gap:18px}}
+#mc508 .steps li{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:26px 22px 28px}
+#mc508 .steps .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
+#mc508 .steps h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:26px;line-height:1.02;margin-top:10px}
+#mc508 .steps li>p:last-child{color:var(--fg-2);font-size:15.5px;margin-top:10px}
 #mc508 .intro .wrap{display:grid;gap:22px}
 @media(min-width:1024px){#mc508 .intro .wrap{grid-template-columns:5fr 7fr;gap:64px;align-items:start}}
 #mc508 .intro .body{display:grid;gap:18px;max-width:60ch}

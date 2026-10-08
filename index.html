@@ -309,6 +309,12 @@ section[id]{scroll-margin-top:64px}
 .about figure.brand img{width:66%;height:auto;margin:auto;position:absolute;inset:0;object-fit:contain;filter:drop-shadow(0 18px 60px rgba(72,143,246,.28))}
 .about figcaption{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);background:rgba(6,7,10,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:7px 10px;border-radius:4px}
 .intro{padding:clamp(64px,8vw,112px) 0 0}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr);gap:18px}}
+.steps li{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:26px 22px 28px}
+.steps .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
+.steps h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:26px;line-height:1.02;margin-top:10px}
+.steps li>p:last-child{color:var(--fg-2);font-size:15.5px;margin-top:10px}
 .intro .wrap{display:grid;gap:22px}
 @media(min-width:1024px){.intro .wrap{grid-template-columns:5fr 7fr;gap:64px;align-items:start}}
 .intro .body{display:grid;gap:18px;max-width:60ch}
@@ -483,7 +489,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <a class="btn" href="#contact">Get a free quote <span class="ar">→</span></a>
       <a class="btn ghost" href="#work">View my work <span class="ar">→</span></a>
     </div>
-    <p class="loc rv"><i></i>Based in Upstate South Carolina</p>
+    <p class="loc rv"><i></i>Based in Upstate SC · Will travel to NC &amp; GA</p>
   </div>
 </section>
 
@@ -653,6 +659,24 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
   </div>
 </section>
 
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="sect flush" id="how">
+  <div class="wrap">
+    <div class="sect-head split">
+      <div class="rv">
+        <p class="eyebrow">How it works</p>
+        <h2 class="h2">Three steps. You click post.</h2>
+      </div>
+      <p class="sub rv">Simple from start to finish. You work with me the whole way, not an agency.</p>
+    </div>
+    <ol class="steps">
+      <li class="rv"><p class="n">01</p><h3>Free quote call</h3><p>Tell me about your business and your idea. I'll plan the video and give you a custom price.</p></li>
+      <li class="rv"><p class="n">02</p><h3>I shoot &amp; edit</h3><p>I come to you, anywhere in the Upstate, NC or GA, film it and edit it myself.</p></li>
+      <li class="rv"><p class="n">03</p><h3>You click post</h3><p>You get finished videos ready to go. All you have to do is click post.</p></li>
+    </ol>
+  </div>
+</section>
+
 <!-- ══════════════ REVIEWS ══════════════ -->
 <section class="sect flush" id="reviews" hidden style="display:none"><!-- hidden until real reviews exist -->
   <div class="wrap">
@@ -703,7 +727,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <div class="direct rv">
           <a href="tel:+18649154071"><span>Call / text</span>(864) 915-4071</a>
           <a href="mailto:drew@508mediaco.com"><span>Email</span>drew@508mediaco.com</a>
-          <p><span>Based in</span>Greenville · Upstate SC</p>
+          <p><span>Based in</span>Upstate SC · Will travel to NC &amp; GA</p>
         </div>
       </div>
 
@@ -713,30 +737,17 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <div><label for="nm">Name</label><input id="nm" name="name" type="text" required autocomplete="name"></div>
         <div><label for="bz">Business name</label><input id="bz" name="business" type="text" autocomplete="organization"></div>
         <div class="w2"><label for="ct">Phone / email</label><input id="ct" name="contact" type="text" required autocomplete="on" placeholder="Your phone number or email"></div>
-        <div class="w2"><label for="bt">What does your business do?</label><input id="bt" name="business_type" type="text" placeholder="Detailing, landscaping, a restaurant…"></div>
-        <div class="w2"><label for="vd">What do you want more of?</label><textarea id="vd" name="videos" placeholder="More calls, more bookings, more foot traffic…"></textarea></div>
         <div class="w2" role="group" aria-labelledby="goal-l">
-          <p class="lbl" id="goal-l">What's the video for? <em>(pick any)</em></p>
+          <p class="lbl" id="goal-l">What do you want the video to do? <em>(pick any)</em></p>
           <div class="chk">
-          <label><input type="checkbox" name="goal" value="More customers"><span>More customers</span></label>
-          <label><input type="checkbox" name="goal" value="Brand awareness"><span>Brand awareness</span></label>
+          <label><input type="checkbox" name="goal" value="Get more calls & customers"><span>Get more calls &amp; customers</span></label>
           <label><input type="checkbox" name="goal" value="Run it as an ad"><span>Run it as an ad</span></label>
-          <label><input type="checkbox" name="goal" value="Go viral"><span>Go viral</span></label>
+          <label><input type="checkbox" name="goal" value="Get my name out there"><span>Get my name out there</span></label>
+          <label><input type="checkbox" name="goal" value="Show off my work"><span>Show off my work</span></label>
           <label><input type="checkbox" name="goal" value="Not sure yet"><span>Not sure yet</span></label>
           </div>
         </div>
-        <div class="w2" role="group" aria-labelledby="aud-l">
-          <p class="lbl" id="aud-l">Who do you want to reach? <em>(pick any)</em></p>
-          <div class="chk">
-          <label><input type="checkbox" name="audience" value="Ages 18–25"><span>Ages 18–25</span></label>
-          <label><input type="checkbox" name="audience" value="Ages 26–40"><span>Ages 26–40</span></label>
-          <label><input type="checkbox" name="audience" value="Ages 41–55"><span>Ages 41–55</span></label>
-          <label><input type="checkbox" name="audience" value="55 and up"><span>55 and up</span></label>
-          <label><input type="checkbox" name="audience" value="Everyone"><span>Everyone</span></label>
-          </div>
-        </div>
-        <div><label for="web">Website or Instagram <em>(optional)</em></label><input id="web" name="web" type="text" placeholder="@handle or website" autocomplete="off"></div>
-        <div>
+        <div class="w2">
           <label for="when">When do you want to start?</label>
           <select id="when" name="when">
             <option value="">Select one</option>
@@ -768,7 +779,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <a href="https://www.tiktok.com/@508_filmzz" target="_blank" rel="noopener">TikTok</a>
       </nav>
     </div>
-    <p class="legal">© <span id="yr">2026</span> 508 Media Co. Video for local businesses by Drew Reid, based in Upstate South Carolina: Greenville, Greer, Simpsonville, Spartanburg, Anderson and nearby.</p>
+    <p class="legal">© <span id="yr">2026</span> 508 Media Co. Video for local businesses by Drew Reid, based in Upstate South Carolina: Greenville, Greer, Simpsonville, Spartanburg, Anderson and nearby. Will travel to North Carolina and Georgia.</p>
   </div>
 </footer>
 
@@ -1034,11 +1045,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         '*** SOURCE: 508 MEDIA CO. (508mediaco.com) ***',
         '',
         'Package: ' + (plan || '(not picked)'),
-        'Business does: ' + (g('business_type') || '(not given)'),
-        'Wants more of: ' + (videos || '(not given)'),
-        'Video is for: ' + (checked('goal') || '(not given)'),
-        'Wants to reach: ' + (checked('audience') || '(not given)'),
-        'Website / Instagram: ' + (g('web') || '(not given)'),
+        'Video should: ' + (checked('goal') || '(not given)'),
         'Wants to start: ' + (g('when') || '(not given)'),
         'Best contact: ' + contact
       ].join('\n'));

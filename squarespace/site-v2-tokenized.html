@@ -305,6 +305,12 @@ section[id]{scroll-margin-top:64px}
 .about figure.brand{background:radial-gradient(118% 88% at 50% 40%,#151b25 0%,#0B0E13 58%,#06070A 100%);border:1px solid var(--line-2)}
 .about figure.brand img{width:66%;height:auto;margin:auto;position:absolute;inset:0;object-fit:contain;filter:drop-shadow(0 18px 60px rgba(72,143,246,.28))}
 .about figcaption{position:absolute;left:16px;bottom:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);background:rgba(6,7,10,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:7px 10px;border-radius:4px}
+.intro{padding:clamp(64px,8vw,112px) 0 0}
+.intro .wrap{display:grid;gap:22px}
+@media(min-width:1024px){.intro .wrap{grid-template-columns:5fr 7fr;gap:64px;align-items:start}}
+.intro .body{display:grid;gap:18px;max-width:60ch}
+.intro .body p{color:var(--fg-2);font-size:clamp(17px,1.5vw,19.5px);line-height:1.6}
+.intro .body p:first-child{color:var(--fg)}
 .about .body{display:grid;gap:18px;margin-top:28px;max-width:54ch}
 .about .body p{color:var(--fg-2);font-size:clamp(17px,1.5vw,19px)}
 .about .body p:first-child{color:var(--fg)}
@@ -475,6 +481,20 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <a class="btn ghost" href="#work">View my work <span class="ar">→</span></a>
     </div>
     <p class="loc rv"><i></i>Based in Upstate South Carolina</p>
+  </div>
+</section>
+
+<!-- ══════════════ INTRO (Drew's story, in his words, Oct 8 2026) ══════════════ -->
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">Hey, I'm Drew</p>
+      <h2 class="h2">Born and raised in Piedmont, SC.</h2>
+    </div>
+    <div class="body rv">
+      <p>I grew up on dirt bikes, and around 11 I saw a motocross edit on Instagram and said, "I want to do that." I've had a camera in my hands ever since. Now I film for businesses around the Upstate, and my favorite part is taking an idea from a conversation and turning it into a video.</p>
+      <p>Working with me is easy. No big agency, just me from start to finish. I'll handle the videos, so all you have to do is click post. And I'm not scared to get my camera wet or dirty, whether that's hanging off the back of a truck or a boat.</p>
+    </div>
   </div>
 </section>
 
@@ -674,8 +694,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       <p class="eyebrow rv">About me</p>
       <h2 class="h2 rv">The guy behind 508.</h2>
       <div class="body rv">
-        <p>I'm Drew. I film and edit for businesses around the Upstate, and every shoot is planned around the customers you want more of.</p>
-        <p>I plan it with you, shoot it at your business and edit it myself, so your business looks as good online as it does in person.</p>
+        <p>Every shoot is planned around the customers you want more of. We talk through your idea first, then I turn it into a video.</p>
+        <p>I shoot it at your business and edit it myself, so your business looks as good online as it does in person. Cars, job sites, the lake or the woods, I'll go where the shot is.</p>
       </div>
       <blockquote class="rv">No big agency. No passing you off to someone else. You work directly with me.</blockquote>
       <p class="sig rv"><b>Drew Reid</b><a href="tel:+18649154071">(864) 915-4071</a><a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a></p>

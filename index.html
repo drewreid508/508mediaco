@@ -737,6 +737,18 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <div><label for="nm">Name</label><input id="nm" name="name" type="text" required autocomplete="name"></div>
         <div><label for="bz">Business name</label><input id="bz" name="business" type="text" autocomplete="organization"></div>
         <div class="w2"><label for="ct">Phone / email</label><input id="ct" name="contact" type="text" required autocomplete="on" placeholder="Your phone number or email"></div>
+        <div class="w2" role="group" aria-labelledby="vtype-l">
+          <p class="lbl" id="vtype-l">What kind of video do you want? <em>(pick any)</em></p>
+          <div class="chk">
+          <label><input type="checkbox" name="vtype" value="Business video"><span>Business video</span></label>
+          <label><input type="checkbox" name="vtype" value="Social media videos"><span>Social media videos</span></label>
+          <label><input type="checkbox" name="vtype" value="Ad for Facebook/Instagram"><span>Ad for Facebook/Instagram</span></label>
+          <label><input type="checkbox" name="vtype" value="Drone video"><span>Drone video</span></label>
+          <label><input type="checkbox" name="vtype" value="Real estate / property"><span>Real estate / property</span></label>
+          <label><input type="checkbox" name="vtype" value="Monthly content"><span>Monthly content</span></label>
+          <label><input type="checkbox" name="vtype" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </div>
         <div class="w2" role="group" aria-labelledby="goal-l">
           <p class="lbl" id="goal-l">What do you want the video to do? <em>(pick any)</em></p>
           <div class="chk">
@@ -1026,7 +1038,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       form.classList.add('sending');
       show('', 'Sending…');
 
-      var plan = g('plan'), videos = g('videos'), budget = g('budget') || '(not asked)';
+      var checked = function(n){ return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function(i){ return i.value; }).join(', '); };
+      var plan = g('plan'), videos = checked('vtype'), budget = g('budget') || '(not asked)';
       var checked = function(n){ return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function(i){ return i.value; }).join(', '); };
 
       /* Never send an empty string: the Google Form's first six questions are
@@ -1044,7 +1057,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
       body.set(FIELD_IDS.message, [
         '*** SOURCE: 508 MEDIA CO. (508mediaco.com) ***',
         '',
-        'Package: ' + (plan || '(not picked)'),
+        'Video type: ' + (videos || '(not given)'),
         'Video should: ' + (checked('goal') || '(not given)'),
         'Wants to start: ' + (g('when') || '(not given)'),
         'Best contact: ' + contact

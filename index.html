@@ -238,23 +238,30 @@ section[id]{scroll-margin-top:64px}
 
 /* ══════════════════════════ WHAT I CREATE ══════════════════════════ */
 .make{display:grid;gap:14px}
-@media(min-width:640px){.make{grid-template-columns:repeat(2,1fr);gap:18px}}
-@media(min-width:1024px){.make{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:640px){.make{grid-template-columns:repeat(2,1fr);gap:18px}.make article:last-child{grid-column:1/-1}}
+@media(min-width:1024px){.make{grid-template-columns:repeat(6,1fr)}.make article{grid-column:span 2}.make article:nth-child(n+4){grid-column:span 3}}
 .make article{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .3s,transform .5s var(--ease)}
 .make article:hover{border-color:var(--line-2);transform:translateY(-4px)}
 .make .txt{padding:26px 22px 28px;position:relative}
 .make .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
 .make h3{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:26px;line-height:1.02;margin-top:10px}
-.make p:last-child{color:var(--fg-2);font-size:15.5px;margin-top:10px}
+.make .txt>p:not(.n){color:var(--fg-2);font-size:15.5px;margin-top:10px}
+.make ul{margin-top:16px;display:grid;gap:8px}
+.make li{position:relative;padding-left:22px;font-size:14.5px;color:var(--fg)}
+.make li::before{content:"";position:absolute;left:1px;top:.62em;width:10px;height:1px;background:var(--blue)}
+.make .fn{font-size:13px!important;font-style:italic;color:var(--fg-3)!important;margin-top:14px!important}
 @media(max-width:639px){
   .make .txt{padding:20px 20px 22px}
   .make h3{font-size:21px;margin-top:6px}
-  .make p:last-child{font-size:14.5px;margin-top:6px}
+  .make .txt>p:not(.n){font-size:14.5px;margin-top:6px}
 }
 
 /* ══════════════════════════ PACKAGES ══════════════════════════ */
 .pk{display:grid;gap:14px}
-@media(min-width:900px){.pk{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(min-width:700px){.pk{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(min-width:1200px){.pk{grid-template-columns:repeat(4,1fr)}.pk h3{font-size:29px}.pk .for{min-height:4.6em}}
+.pk-free{margin-top:22px;text-align:center;font-size:16px;color:var(--fg-2)}
+.pk-free b{color:var(--fg);font-weight:600}
 .pk article{position:relative;display:flex;flex-direction:column;padding:34px 28px 28px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line)}
 .pk article.pop{background:linear-gradient(180deg,rgba(72,143,246,.1),var(--bg-2) 55%);border-color:rgba(72,143,246,.5);box-shadow:0 30px 90px -50px rgba(72,143,246,.9)}
 .pk .badge{position:absolute;top:-11px;left:28px;background:var(--blue);color:#fff;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;padding:5px 10px;border-radius:4px}
@@ -415,9 +422,10 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
     "@type": "OfferCatalog",
     "name": "Video content shoots",
     "itemListElement": [
-      { "@type": "Offer", "name": "Monthly plan", "description": "A monthly video plan built around your goals, set shoot and edit days each month, and a monthly check-in call." },
-      { "@type": "Offer", "name": "Starter shoot", "description": "The videos every lead checks before they call: a homepage video, an about video and a customer testimonial." },
-      { "@type": "Offer", "name": "Custom shoot", "description": "Larger productions, multiple locations, commercial-style videos and special events, built around the project." }
+      { "@type": "Offer", "name": "Single video", "description": "One 15-30 second video filmed at your business, edited, color graded and delivered in 7 days." },
+      { "@type": "Offer", "name": "Commercial", "description": "A TV-style ad with drone shots, an on-camera spokesperson or voiceover, and graphics with your offer." },
+      { "@type": "Offer", "name": "Monthly plan", "description": "A monthly video plan built around your goals: Starter, Growth or Pro, with a monthly check-in call." },
+      { "@type": "Offer", "name": "Custom shoot", "description": "Project or build series, multiple locations, recruiting videos and events, built around the project." }
     ]
   }
 }
@@ -621,20 +629,23 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <p class="eyebrow">Services</p>
         <h2 class="h2">What I make</h2>
       </div>
-      <p class="sub rv">Everything is shot and edited by me, built to bring in customers.</p>
+      <p class="sub rv">Everything is shot and edited by me, built to bring in customers. You post it. I create it.</p>
     </div>
     <div class="make">
       <article class="rv">
-        <div class="txt"><p class="n">01</p><h3>Before &amp; after reels</h3><p>Show the result that brings in the next customer.</p></div>
+        <div class="txt"><p class="n">01</p><h3>Business video</h3><p>Videos that show people what your business does and why they should pick you.</p><ul><li>Business commercials</li><li>Service &amp; how-it-works videos</li><li>Customer testimonials</li><li>Project &amp; build videos</li><li>Before &amp; after videos</li><li>Owner &amp; team stories</li></ul></div>
       </article>
       <article class="rv">
-        <div class="txt"><p class="n">02</p><h3>Owner &amp; team videos</h3><p>People buy from someone they trust. Let them meet you first.</p></div>
+        <div class="txt"><p class="n">02</p><h3>Social content</h3><p>Short videos made for your feeds. One shoot gives you several finished videos.</p><ul><li>Facebook &amp; Instagram posts</li><li>YouTube videos</li><li>Website &amp; Google profile videos</li><li>Multiple cuts from one shoot</li><li>Captions &amp; motion graphics</li><li>Music &amp; sound design</li></ul></div>
       </article>
       <article class="rv">
-        <div class="txt"><p class="n">03</p><h3>Testimonial videos</h3><p>Your happy customers do the selling for you.</p></div>
+        <div class="txt"><p class="n">03</p><h3>Ad creative</h3><p>Video built to run as paid ads, with strong hooks and a clear offer.</p><ul><li>Facebook &amp; Instagram ads</li><li>Multiple hooks per ad</li><li>Different versions of the same ad</li><li>On-camera spokesperson or voiceover</li><li>Offer &amp; price graphics</li><li>Comes with a step-by-step setup guide</li></ul><p class="fn">You run your own ads. I make the media and show you how.</p></div>
       </article>
       <article class="rv">
-        <div class="txt"><p class="n">04</p><h3>Ad cuts</h3><p>15 and 30-second versions, ready to run as ads.</p></div>
+        <div class="txt"><p class="n">04</p><h3>Drone content</h3><p>Cinematic aerial footage that shows the full size of what you do.</p><ul><li>Homes &amp; property listings</li><li>New home communities</li><li>Job sites &amp; construction progress</li><li>Land, lots &amp; grading</li><li>Equipment &amp; fleets</li></ul></div>
+      </article>
+      <article class="rv">
+        <div class="txt"><p class="n">05</p><h3>Monthly content</h3><p>A steady flow of finished videos every month, planned around what you want more of. You always have something ready to post.</p><ul><li>Planned shoot days</li><li>Multiple finished videos</li><li>Ad versions included</li><li>Ready-to-post delivery</li></ul></div>
       </article>
     </div>
   </div>
@@ -648,48 +659,41 @@ footer{border-top:1px solid var(--line);padding:44px 0 36px}
         <p class="eyebrow">Packages</p>
         <h2 class="h2">Your business. Your video. Built around your ideas.</h2>
       </div>
-      <p class="sub rv">Every video starts with a plan. Before I pick up the camera, we talk about what your business does, who you want to reach, and what you want the video to do. Pick the package that fits, or tell me what you need and I'll build something custom. No surprise costs.</p>
+      <p class="sub rv">Every video starts with a plan. Before I pick up the camera, we talk about what your business does, who you want to reach, and what you want the video to do. Pick the package that fits, or tell me what you need and I'll build something custom. Free quote, no surprise costs.</p>
     </div>
     <div class="pk">
+      <article class="rv">
+        <h3>Single video</h3>
+        <p class="for">One video filmed at your business. The easy way to start.</p>
+        <p class="price">Custom priced</p>
+        <ul><li>15–30 second video</li><li>Filmed at your business</li><li>Edited and color graded</li><li>Delivered in 7 days</li></ul>
+        <a class="btn ghost js-plan" href="#inquiry" data-plan="Single video">Get a free quote <span class="ar">→</span></a>
+      </article>
+      <article class="rv">
+        <h3>Commercial</h3>
+        <p class="for">A TV-style ad for businesses ready to stand out.</p>
+        <p class="price">Custom priced</p>
+        <ul><li>Drone shots</li><li>On-camera spokesperson or voiceover</li><li>Graphics with your offer</li><li>Ready to run as an ad</li></ul>
+        <a class="btn ghost js-plan" href="#inquiry" data-plan="Commercial">Get a free quote <span class="ar">→</span></a>
+      </article>
       <article class="rv pop">
         <span class="badge">MOST POPULAR</span>
         <h3>Monthly plan</h3>
         <p class="for">For businesses that want a steady flow of customers, not a one-off video.</p>
-        <p class="price">Free quote</p>
-        <ul>
-          <li>Monthly video plan built around your goals</li>
-          <li>Set shoot and edit days each month</li>
-          <li>Monthly check-in call</li>
-        </ul>
-        <a class="btn js-plan" href="#inquiry" data-plan="Monthly plan">Get started <span class="ar">→</span></a>
-      </article>
-      <article class="rv">
-        <h3>Starter shoot</h3>
-        <p class="for">The place to start. The videos every customer checks before they call.</p>
-        <p class="price">Free quote</p>
-        <ul>
-          <li>Homepage video</li>
-          <li>About the business video</li>
-          <li>Customer testimonial</li>
-          <li>Ready-to-post cuts for social</li>
-        </ul>
-        <a class="btn ghost js-plan" href="#inquiry" data-plan="Starter shoot">Get a quote <span class="ar">→</span></a>
+        <p class="price">Custom priced</p>
+        <ul><li>Starter: about 2–3 videos a month</li><li>Growth: about 4–6 videos a month</li><li>Pro: about 6–9 videos a month</li><li>Monthly check-in call</li></ul>
+        <a class="btn js-plan" href="#inquiry" data-plan="Monthly plan">Get a free quote <span class="ar">→</span></a>
       </article>
       <article class="rv">
         <h3>Custom shoot</h3>
         <p class="for">For businesses that need something specific.</p>
-        <p class="price">Built around your project</p>
+        <p class="price">Custom priced</p>
         <p class="lbl">For example:</p>
-        <ul>
-          <li>Project or build series</li>
-          <li>Multiple locations</li>
-          <li>Commercial-style ads</li>
-          <li>Drone footage</li>
-          <li>Recruiting videos</li>
-        </ul>
+        <ul><li>Project or build series</li><li>Multiple locations</li><li>Recruiting videos</li><li>Events</li></ul>
         <a class="btn ghost js-plan" href="#inquiry" data-plan="Custom shoot">Talk to me <span class="ar">→</span></a>
       </article>
     </div>
+    <p class="pk-free rv"><b>Interested in a video?</b> Get a free quote. Every project is custom priced to what you need.</p>
     <p class="pk-note rv">Not sure which fits? <a href="#contact">Tell me what you want more of.</a></p>
   </div>
 </section>

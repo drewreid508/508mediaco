@@ -1,0 +1,314 @@
+<title>Video Results Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one phone-first column in the 508 site look. Header, totals strip, log form, weekly chart, entry list, send-report card. */
+#trk508{
+  --ink:#06070A; --panel:#0E1219; --field:#0A0D13; --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.18);
+  --fg:#F5F7FA; --fg2:#A3ABB7; --fg3:#6B7480; --blue:#488FF6; --blue2:#7FB2FF;
+  --good:#5BD69A; --warn:#F0B25A; --bad:#FF7B70;
+  --display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark; background:var(--ink); background-image:radial-gradient(110% 40% at 50% 0%,#141922 0%,var(--ink) 70%);
+  color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  text-align:left; min-height:100vh;
+}
+#trk508, #trk508 *{box-sizing:border-box}
+#trk508 h1,#trk508 h2,#trk508 p{margin:0;padding:0}
+#trk508 h1,#trk508 h2{color:var(--fg)!important;font-family:var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance;font-weight:700}
+#trk508 h1{font-size:clamp(40px,9vw,64px);line-height:.95}
+#trk508 h1 em{font-style:normal;color:var(--blue)}
+#trk508 h2{font-size:clamp(24px,5vw,30px);line-height:1}
+#trk508 a{color:var(--blue2);text-decoration:none}
+#trk508 .wrap{max-width:780px;margin:0 auto;padding-inline:18px;padding-block:28px 56px;display:flex;flex-direction:column;gap:22px}
+#trk508 .kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+#trk508 .muted{color:var(--fg2)}
+#trk508 .hint{font-size:14px;color:var(--fg2)}
+#trk508 .hint i{color:var(--fg);font-style:normal;font-weight:600}
+
+#trk508 .mark{display:inline-flex;align-items:center;gap:8px;position:relative;padding:7px 13px;align-self:flex-start}
+#trk508 .mark::before,#trk508 .mark::after{content:"";position:absolute;width:10px;height:10px;border:1.8px solid var(--blue)}
+#trk508 .mark::before{top:0;left:0;border-right:0;border-bottom:0}
+#trk508 .mark::after{bottom:0;right:0;border-left:0;border-top:0}
+#trk508 .mark b{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;color:var(--fg)}
+#trk508 .mark span{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--fg2)}
+
+#trk508 header{display:flex;flex-direction:column;gap:14px}
+#trk508 .lede{color:var(--fg2);max-width:58ch}
+#trk508 .lede b{color:var(--fg)}
+
+#trk508 input,#trk508 select{font:inherit;font-size:16px;color:var(--fg);background:var(--field);border:1px solid var(--line2);border-radius:8px;padding:10px 11px;width:100%;min-width:0;margin:0;height:auto;box-shadow:none}
+#trk508 input::placeholder{color:var(--fg3)}
+#trk508 input:focus-visible,#trk508 select:focus-visible,#trk508 button:focus-visible,#trk508 a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#trk508 .bizrow{display:flex;flex-direction:column;gap:6px;max-width:360px}
+#trk508 label>span,#trk508 .bizrow>label{font-size:13px;font-weight:600;color:var(--fg2)}
+
+#trk508 .banner{border:1px dashed color-mix(in srgb,var(--warn) 55%,transparent);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:15px;color:var(--fg2)}
+#trk508 .banner b{color:var(--warn)}
+
+#trk508 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+#trk508 .tile{background:var(--panel);padding:14px 14px 12px;min-width:0}
+#trk508 .tile .n{font:700 30px/1 var(--display);font-variant-numeric:tabular-nums;color:var(--fg)}
+#trk508 .tile .l{font-size:13px;color:var(--fg2);margin-top:6px}
+#trk508 .tile.biz .n{color:var(--good)}
+@media (max-width:520px){#trk508 .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+#trk508 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+#trk508 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+#trk508 .field{display:flex;flex-direction:column;gap:5px;min-width:0}
+#trk508 .wide{grid-column:1/-1}
+#trk508 .group{display:flex;flex-direction:column;gap:10px}
+#trk508 .legend{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg3)}
+#trk508 .legend.biz{color:var(--good)}
+#trk508 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#trk508 .between{justify-content:space-between}
+
+#trk508 button,#trk508 .btn{font:600 15px/1 var(--body);border-radius:8px;padding:12px 16px;cursor:pointer;border:1px solid var(--line2);background:transparent;color:var(--fg);display:inline-flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0}
+#trk508 .primary{background:var(--blue);border-color:var(--blue);color:#06070A}
+#trk508 .danger{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 50%,transparent)}
+#trk508 .toast{font-size:14px;color:var(--good);min-height:1.2em}
+#trk508 .toast.err{color:var(--bad)}
+
+#trk508 .chart{width:100%;height:auto;display:block}
+#trk508 .chart text{fill:var(--fg3);font:12px var(--mono)}
+#trk508 .chart .bar{fill:var(--blue)}
+#trk508 .chart .bar.last{fill:var(--good)}
+#trk508 .chart .gl{stroke:var(--line)}
+
+#trk508 .list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+#trk508 .entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--line)}
+#trk508 .entry .t{font-weight:600;overflow-wrap:anywhere}
+#trk508 .entry .meta{font-size:13px;color:var(--fg2);display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:3px}
+#trk508 .entry .nums{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+#trk508 .chip{font:500 12px/1 var(--mono);padding:5px 8px;border-radius:999px;border:1px solid var(--line);color:var(--fg2);font-variant-numeric:tabular-nums}
+#trk508 .chip.money{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent)}
+#trk508 .pill{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:5px;background:rgba(72,143,246,.14);color:var(--blue2)}
+#trk508 .pill.ex{background:rgba(240,178,90,.14);color:var(--warn)}
+#trk508 .acts{display:flex;gap:6px;align-items:flex-start}
+#trk508 .acts button{padding:7px 10px;font-size:13px}
+#trk508 .empty{color:var(--fg2);padding:18px 0}
+
+#trk508 textarea{font:13px/1.5 var(--mono);width:100%;min-height:200px;border:1px solid var(--line2);border-radius:8px;padding:10px;background:var(--field);color:var(--fg);resize:vertical}
+#trk508 .phone{font-family:var(--mono);font-size:15px;color:var(--fg);user-select:all}
+#trk508 .foot{font-size:13px;color:var(--fg3);text-align:center}
+#trk508 [hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){#trk508 button,#trk508 .btn{transition:filter .15s}#trk508 button:hover,#trk508 .btn:hover{filter:brightness(1.12)}}
+</style><style>:root{color-scheme:dark;background:#06070A} html,body{margin:0;background:#06070A}</style>
+<div id="trk508">
+<div class="wrap">
+  <header>
+    <div class="mark"><b>508</b><span>MEDIA CO.</span></div>
+    <div class="kick">Client results</div>
+    <h1>Video <em>Results</em> Tracker</h1>
+    <p class="lede">Each week, open your app insights and log how your videos did, plus any calls, messages or jobs they brought in. Then tap <b>Copy my report</b> and text it to me so we can see what's working.</p>
+    <div class="bizrow">
+      <label for="t-biz">Your business</label>
+      <input id="t-biz" placeholder="e.g. Smith Lawn Care" autocomplete="organization">
+    </div>
+  </header>
+
+  <div class="banner" id="t-exbanner" hidden>
+    <span>These are <b>example numbers</b> so you can see how it works. Your first entry clears them.</span>
+    <button type="button" id="t-clearex">Clear examples</button>
+  </div>
+
+  <div class="tiles" id="t-tiles"></div>
+
+  <section class="card" aria-labelledby="t-logh">
+    <h2 id="t-logh">Log a video</h2>
+    <p class="hint">Where to find it: Instagram or Facebook, tap the post, then <i>View insights</i>. TikTok, tap the video, then <i>More data</i>. Leave a box blank if you don't know.</p>
+    <form id="t-form" novalidate>
+      <div class="group">
+        <div class="grid">
+          <label class="field wide"><span>Video (what was it about?)</span><input id="t-title" placeholder="e.g. Before and after driveway wash"></label>
+          <label class="field"><span>Week of</span><input id="t-date" type="date"></label>
+          <label class="field"><span>Posted on</span>
+            <select id="t-platform">
+              <option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option><option>Google Business</option><option>Other</option>
+            </select></label>
+        </div>
+      </div>
+      <div class="group" style="margin-top:18px">
+        <div class="legend">From the app insights</div>
+        <div class="grid">
+          <label class="field"><span>Views</span><input id="t-views" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Likes</span><input id="t-likes" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Comments</span><input id="t-comments" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Shares</span><input id="t-shares" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Saves</span><input id="t-saves" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>New followers</span><input id="t-follows" type="number" min="0" inputmode="numeric"></label>
+        </div>
+      </div>
+      <div class="group" style="margin-top:18px">
+        <div class="legend biz">What it did for your business</div>
+        <div class="grid">
+          <label class="field"><span>Calls / texts</span><input id="t-calls" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>DMs / messages</span><input id="t-dms" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Quote requests</span><input id="t-quotes" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>Jobs booked</span><input id="t-jobs" type="number" min="0" inputmode="numeric"></label>
+          <label class="field"><span>$ booked</span><input id="t-money" type="number" min="0" step="1" inputmode="decimal"></label>
+          <label class="field"><span>Notes</span><input id="t-notes" placeholder="optional"></label>
+        </div>
+      </div>
+      <div class="row" style="margin-top:18px">
+        <button class="primary" type="submit" id="t-save">Save entry</button>
+        <button type="button" id="t-cancel" hidden>Cancel edit</button>
+        <span class="toast" id="t-toast" role="status"></span>
+      </div>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="t-charth">
+    <h2 id="t-charth">Views by week</h2>
+    <div id="t-chart"></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-listh">
+    <div class="row between">
+      <h2 id="t-listh">Your entries</h2>
+      <span class="hint" id="t-count"></span>
+    </div>
+    <div class="list" id="t-list"></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-reph">
+    <h2 id="t-reph">Send me your numbers</h2>
+    <p class="hint">Copy a short summary, then paste it in a text to me at <span class="phone">(864) 915-4071</span>.</p>
+    <div class="row">
+      <button class="primary" type="button" id="t-copy">Copy my report</button>
+      <select id="t-range" style="width:auto">
+        <option value="30">Last 30 days</option><option value="7">Last 7 days</option><option value="90">Last 90 days</option><option value="all">All time</option>
+      </select>
+      <a class="btn" href="sms:+18649154071">Open a text to me</a>
+      <span class="toast" id="t-copytoast" role="status"></span>
+    </div>
+    <textarea id="t-report" readonly hidden aria-label="Report text"></textarea>
+  </section>
+
+  <p class="foot">Your entries save on this phone or computer only. Use the same device and browser each week.</p>
+</div>
+</div>
+<script>(function(){
+  var KEY="508-results-v1", BIZ="508-results-biz";
+  var NUMS=["views","likes","comments","shares","saves","follows","calls","dms","quotes","jobs","money"];
+  var $=function(id){return document.getElementById("t-"+id)};
+  var fmt=function(n){return Number(n||0).toLocaleString("en-US")};
+  var money=function(n){return "$"+Number(n||0).toLocaleString("en-US",{maximumFractionDigits:0})};
+  function iso(d){var z=new Date(d.getTime()-d.getTimezoneOffset()*60000);return z.toISOString().slice(0,10)}
+  function daysAgo(n){var d=new Date();d.setDate(d.getDate()-n);return iso(d)}
+
+  var EXAMPLES=[
+    {title:"Before and after driveway wash",date:daysAgo(20),platform:"Instagram",views:4210,likes:188,comments:14,shares:22,saves:31,follows:19,calls:3,dms:6,quotes:4,jobs:2,money:640},
+    {title:"Meet the owner",date:daysAgo(13),platform:"Facebook",views:2380,likes:96,comments:21,shares:9,saves:4,follows:11,calls:2,dms:3,quotes:2,jobs:1,money:350},
+    {title:"Before and after driveway wash",date:daysAgo(13),platform:"TikTok",views:9870,likes:612,comments:40,shares:57,saves:88,follows:63,calls:1,dms:4,quotes:2,jobs:1,money:300},
+    {title:"Fall special promo",date:daysAgo(6),platform:"Instagram",views:5530,likes:241,comments:18,shares:35,saves:27,follows:24,calls:5,dms:9,quotes:6,jobs:3,money:1150}
+  ].map(function(e,i){e.id="ex"+i;e.example=true;return e});
+
+  function load(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(e){return null}}
+  function store(){try{localStorage.setItem(KEY,JSON.stringify(entries))}catch(e){}}
+  var entries=load()||EXAMPLES.slice(), editing=null, pendingDelete=null;
+
+  try{$("biz").value=localStorage.getItem(BIZ)||""}catch(e){}
+  $("biz").addEventListener("input",function(e){try{localStorage.setItem(BIZ,e.target.value)}catch(_){}});
+  $("date").value=iso(new Date());
+
+  function onlyReal(){entries=entries.filter(function(e){return !e.example})}
+  $("clearex").onclick=function(){onlyReal();store();render()};
+  function sum(list,k){return list.reduce(function(a,e){return a+(Number(e[k])||0)},0)}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  function renderTiles(){
+    var eng=sum(entries,"likes")+sum(entries,"comments")+sum(entries,"shares")+sum(entries,"saves");
+    var leads=sum(entries,"calls")+sum(entries,"dms")+sum(entries,"quotes");
+    var t=[["Views",fmt(sum(entries,"views"))],["Likes, comments, shares, saves",fmt(eng)],["New followers",fmt(sum(entries,"follows"))],
+      ["Calls, messages, quotes",fmt(leads),1],["Jobs booked",fmt(sum(entries,"jobs")),1],["$ booked",money(sum(entries,"money")),1]];
+    $("tiles").innerHTML=t.map(function(x){return '<div class="tile'+(x[2]?" biz":"")+'"><div class="n">'+x[1]+'</div><div class="l">'+x[0]+'</div></div>'}).join("");
+  }
+
+  function weekStart(ds){var d=new Date(ds+"T12:00:00");d.setDate(d.getDate()-d.getDay());return iso(d)}
+  function renderChart(){
+    var by={};entries.forEach(function(e){var w=weekStart(e.date);by[w]=(by[w]||0)+(Number(e.views)||0)});
+    var weeks=Object.keys(by).sort().slice(-8);
+    if(!weeks.length){$("chart").innerHTML='<p class="empty">Your weekly views show up here after your first entry.</p>';return}
+    var W=640,H=220,L=48,B=28,T=12,R=8,max=Math.max.apply(null,weeks.map(function(w){return by[w]}))||1;
+    var step=Math.pow(10,Math.floor(Math.log10(max))),top=Math.ceil(max/step)*step,bw=(W-L-R)/weeks.length;
+    var s='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Views per week">';
+    [0,top/2,top].forEach(function(t){var y=T+(H-T-B)*(1-t/top);
+      s+='<line class="gl" x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(L-6)+'" y="'+(y+4)+'" text-anchor="end">'+(t>=1000?(t/1000)+"k":t)+'</text>'});
+    weeks.forEach(function(w,i){var h=(H-T-B)*(by[w]/top),x=L+i*bw+bw*.18,y=H-B-h,d=new Date(w+"T12:00:00");
+      s+='<rect class="bar'+(i===weeks.length-1?" last":"")+'" x="'+x+'" y="'+y+'" width="'+(bw*.64)+'" height="'+Math.max(h,1)+'" rx="3"><title>'+fmt(by[w])+' views</title></rect>';
+      s+='<text x="'+(x+bw*.32)+'" y="'+(H-8)+'" text-anchor="middle">'+(d.getMonth()+1)+'/'+d.getDate()+'</text>'});
+    $("chart").innerHTML=s+"</svg>";
+  }
+
+  function renderList(){
+    var list=entries.slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+    $("count").textContent=list.length?list.length+(list.length===1?" entry":" entries"):"";
+    if(!list.length){$("list").innerHTML='<p class="empty">No entries yet. Log your first video above.</p>';return}
+    $("list").innerHTML=list.map(function(e){
+      var d=new Date(e.date+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"});
+      var chips=[["views",e.views],["likes",e.likes],["comments",e.comments],["shares",e.shares],["saves",e.saves],["followers",e.follows],["calls",e.calls],["DMs",e.dms],["quotes",e.quotes],["jobs",e.jobs]]
+        .filter(function(x){return x[1]!==""&&x[1]!=null&&!isNaN(x[1])}).map(function(x){return '<span class="chip">'+fmt(x[1])+' '+x[0]+'</span>'}).join("")
+        +(e.money?'<span class="chip money">'+money(e.money)+'</span>':"");
+      var acts=e.example?"":(pendingDelete===e.id
+        ?'<button type="button" class="danger" data-del="'+e.id+'">Delete?</button><button type="button" data-nodel="1">Keep</button>'
+        :'<button type="button" data-edit="'+e.id+'">Edit</button><button type="button" data-askdel="'+e.id+'">Delete</button>');
+      return '<div class="entry"><div><div class="t">'+esc(e.title)+'</div><div class="meta">'+d+' <span class="pill">'+esc(e.platform)+'</span>'
+        +(e.example?'<span class="pill ex">Example</span>':"")+(e.notes?'<span>'+esc(e.notes)+'</span>':"")+'</div></div>'
+        +'<div class="acts">'+acts+'</div><div class="nums">'+chips+'</div></div>'}).join("");
+  }
+
+  function render(){$("exbanner").hidden=!entries.some(function(e){return e.example});renderTiles();renderChart();renderList()}
+
+  $("list").addEventListener("click",function(ev){
+    var b=ev.target.closest("button");if(!b)return;
+    if(b.dataset.askdel){pendingDelete=b.dataset.askdel;renderList()}
+    else if(b.dataset.nodel){pendingDelete=null;renderList()}
+    else if(b.dataset.del){entries=entries.filter(function(e){return e.id!==b.dataset.del});pendingDelete=null;store();render()}
+    else if(b.dataset.edit){var e=entries.filter(function(x){return x.id===b.dataset.edit})[0];if(!e)return;editing=e.id;
+      $("title").value=e.title;$("date").value=e.date;$("platform").value=e.platform;$("notes").value=e.notes||"";
+      NUMS.forEach(function(k){$(k).value=e[k]==null?"":e[k]});$("save").textContent="Update entry";$("cancel").hidden=false;
+      $("title").scrollIntoView({behavior:"smooth",block:"center"});$("title").focus({preventScroll:true})}
+  });
+
+  function resetForm(){$("form").reset();$("date").value=iso(new Date());editing=null;$("save").textContent="Save entry";$("cancel").hidden=true}
+  $("cancel").onclick=resetForm;
+  function toast(id,msg,err){var t=$(id);t.textContent=msg;t.classList.toggle("err",!!err);clearTimeout(t._h);t._h=setTimeout(function(){t.textContent=""},3000)}
+
+  $("form").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var title=$("title").value.trim(),date=$("date").value;
+    if(!title||!date){toast("toast","Add a video name and a date.",1);return}
+    var e={id:editing||("e"+Date.now()),title:title,date:date,platform:$("platform").value,notes:$("notes").value.trim()};
+    NUMS.forEach(function(k){var v=$(k).value;e[k]=v===""?"":Number(v)});
+    onlyReal();
+    if(editing){entries=entries.map(function(x){return x.id===editing?e:x})}else entries.push(e);
+    store();resetForm();render();toast("toast","Saved.");
+  });
+
+  function buildReport(){
+    var r=$("range").value,cut=r==="all"?"0000":daysAgo(Number(r));
+    var list=entries.filter(function(e){return e.date>=cut}).sort(function(a,b){return a.date.localeCompare(b.date)});
+    var biz=$("biz").value.trim()||"My business",label=$("range").selectedOptions[0].text.toLowerCase();
+    if(!list.length)return biz+": no videos logged for the "+label+".";
+    var best=list.slice().sort(function(a,b){return (b.views||0)-(a.views||0)})[0];
+    var t=biz+" video results ("+label+")\n";
+    t+="Videos logged: "+list.length+"\n";
+    t+="Views: "+fmt(sum(list,"views"))+" | Likes: "+fmt(sum(list,"likes"))+" | Comments: "+fmt(sum(list,"comments"))+" | Shares: "+fmt(sum(list,"shares"))+" | Saves: "+fmt(sum(list,"saves"))+"\n";
+    t+="New followers: "+fmt(sum(list,"follows"))+"\n";
+    t+="Calls/texts: "+fmt(sum(list,"calls"))+" | DMs: "+fmt(sum(list,"dms"))+" | Quotes: "+fmt(sum(list,"quotes"))+"\n";
+    t+="Jobs booked: "+fmt(sum(list,"jobs"))+" | $ booked: "+money(sum(list,"money"))+"\n";
+    t+='Top video: "'+best.title+'" on '+best.platform+" ("+fmt(best.views)+" views)\n\nBy video:\n";
+    list.forEach(function(e){t+="- "+e.date+" "+e.platform+': "'+e.title+'": '+fmt(e.views)+" views, "+fmt(e.calls)+" calls, "+fmt(e.dms)+" DMs, "+fmt(e.jobs)+" jobs"+(e.money?", "+money(e.money):"")+(e.example?" (example)":"")+"\n"});
+    return t.trim();
+  }
+  $("copy").onclick=function(){
+    var txt=buildReport(),box=$("report");box.value=txt;box.hidden=false;
+    var sel=function(){box.select();toast("copytoast","Press and hold the text below to copy it.")};
+    try{navigator.clipboard.writeText(txt).then(function(){toast("copytoast","Copied. Paste it in a text to me.")},sel)}catch(e){sel()}
+  };
+
+  render();
+})();</script>

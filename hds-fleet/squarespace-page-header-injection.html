@@ -73,13 +73,33 @@
 #hds508 .btn svg{flex:0 0 auto}
 #hds508 .pending{font-family:var(--mono);font-size:12px;color:var(--fg3)}
 
-/* review ask */
-#hds508 .ask{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--panel);
-  border:1px solid var(--line2);border-radius:14px;padding:clamp(18px,4vw,28px)}
+/* results tracker */
+#hds508 .track{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end;border:1px solid var(--line2);border-radius:14px;
+  padding:clamp(18px,4vw,28px);background:linear-gradient(135deg,rgba(72,143,246,.10),transparent 60%),var(--panel)}
+#hds508 .trackbody{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media (max-width:720px){#hds508 .track{grid-template-columns:1fr}}
+
+/* review card */
+#hds508 .review{display:grid;grid-template-columns:minmax(0,240px) 1fr;gap:clamp(20px,4vw,36px);align-items:center}
+#hds508 .review .card{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line2);box-shadow:0 18px 50px rgba(0,0,0,.5)}
 #hds508 .stars{display:flex;gap:3px;color:var(--blue)}
-#hds508 .askbody{display:flex;flex-direction:column;gap:6px;min-width:0}
+#hds508 .askbody{display:flex;flex-direction:column;gap:14px;min-width:0}
 #hds508 .askbody p{color:#C9CFD8;max-width:52ch}
-@media (max-width:720px){#hds508 .ask{grid-template-columns:1fr}}
+@media (max-width:640px){#hds508 .review{grid-template-columns:1fr} #hds508 .review .card{max-width:240px}}
+
+/* referral */
+#hds508 .refer{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line);padding-top:40px}
+#hds508 .fifty{display:flex;flex-direction:column;gap:6px}
+#hds508 .fifty b{font-family:var(--display);font-weight:700;font-size:clamp(96px,22vw,168px);line-height:.85;color:var(--blue);letter-spacing:-.01em}
+#hds508 .fifty p{font-size:clamp(18px,3vw,22px);font-weight:600;color:var(--fg)}
+#hds508 .steps{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column}
+#hds508 .steps li{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:baseline;padding-block:16px;border-top:1px solid var(--line)}
+#hds508 .steps li:last-child{border-bottom:1px solid var(--line)}
+#hds508 .steps span{font-family:var(--display);font-weight:700;font-size:40px;line-height:1;color:var(--blue)}
+#hds508 .steps p{font-size:17px;color:#C9CFD8;min-width:0}
+#hds508 .refcall{display:flex;flex-direction:column;gap:4px;border:1.5px solid var(--blue);border-radius:14px;padding:clamp(18px,4vw,26px);margin-top:8px}
+#hds508 .refcall span{color:var(--fg2);font-size:15px}
+#hds508 .refcall b{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,44px);line-height:1.05;color:var(--fg)}
 
 /* closing */
 #hds508 .close{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;border-top:1px solid var(--line);padding-top:32px}
@@ -149,19 +169,41 @@
     <p class="muted" style="font-size:14px">Download links expire, so save the files somewhere you'll keep them.</p>
   </section>
 
-  <section class="ask" aria-labelledby="ask-title">
-    <div class="stars" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
-    <div class="askbody">
-      <h2 id="ask-title">Happy with it?</h2>
-      <p>Tell other business owners what it was like to work together. A Google review takes about a minute.</p>
+  <section class="track" aria-labelledby="trk-title">
+    <div class="trackbody">
+      <p class="kick">Track your results</p>
+      <h2 id="trk-title">See what these ads <em>bring in</em></h2>
+      <p class="note" style="font-size:16px">Once the ads are posted, log the views, calls, quotes and jobs each one brings in. It takes a minute a week. Tap "Copy my report" and text it to me, and I'll use it to make your next video work even harder.</p>
     </div>
-    <a class="btn" href="https://g.page/r/CQRtijkKqWhOEBI/review" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg> Leave a Google review</a>
+    <a class="btn" href="https://www.508mediaco.com/results" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg> Open the results tracker</a>
+  </section>
+
+  <section class="review" aria-labelledby="ask-title">
+    <img class="card" src="https://drewreid508.github.io/508mediaco/hds-fleet/media/review-card.jpg" alt="508 Media Co. review card with a QR code that opens the Google review form" width="800" height="1200" loading="lazy">
+    <div class="askbody">
+      <div class="stars" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
+      <h2 id="ask-title">Loved your <em>videos?</em></h2>
+      <p>A quick Google review helps a small business like mine more than anything. It takes 30 seconds: scan the code or tap the button, tap the stars, and say a few words.</p>
+      <a class="btn" href="https://g.page/r/CQRtijkKqWhOEBI/review" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg> Leave a Google review</a>
+    </div>
+  </section>
+
+  <section class="refer" aria-labelledby="ref-title">
+    <p class="kick">Referral</p>
+    <h2 id="ref-title">Know a business that needs <em>video?</em></h2>
+    <div class="fifty"><b>$50</b><p>for every business you send my way that books.</p></div>
+    <ol class="steps">
+      <li><span>1</span><p>Text me their name and number, or tell them to mention you.</p></li>
+      <li><span>2</span><p>I reach out, show them what I do, and they decide.</p></li>
+      <li><span>3</span><p>When they pay for their first video, I send you $50. No limit.</p></li>
+    </ol>
+    <div class="refcall"><span>Send me a name. Call or text Drew</span><b>(864) 915-4071</b></div>
   </section>
 
   <footer class="close">
     <div>
-      <p class="kick">Know someone?</p>
-      <p class="note" style="font-size:16px">If you know a business that needs video, send them my way.</p>
+      <p class="kick">Thank you</p>
+      <p class="note" style="font-size:16px">Thanks for trusting me with your fleet ads. Questions or problems with a file? Text me anytime.</p>
     </div>
     <div>
       <p class="sig">Drew Reid</p>

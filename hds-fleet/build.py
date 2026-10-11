@@ -18,7 +18,7 @@ STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" ari
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/hds-fleet",
     "RAW_URL": "https://we.tl/t-3tanymarhkRG8KkO",   # raw footage WeTransfer, sent Oct 10, expires Nov 9
-    "FINALS_URL": "",   # Oct 10 v3: old link (t-3guGe4hfWMOegFf8) held the pre-v3 finals; empty removes that card until a v3 WeTransfer exists
+    "FINALS_URL": "https://we.tl/t-7Wkf36sT56howF4E",   # 4 v3 finals WeTransfer (Oct 10 night), expires ~Nov 10; empty removes that card
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
     "STAR": STAR,

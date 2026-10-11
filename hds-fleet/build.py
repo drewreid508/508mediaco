@@ -17,8 +17,8 @@ STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" ari
         '<path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>')
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/hds-fleet",
-    "RAW_URL": "https://we.tl/t-3tanymarhkRG8KkO",   # raw footage WeTransfer, sent Oct 10
-    "FINALS_URL": "",     # optional WeTransfer for the 4 full-quality finals; empty removes that card
+    "RAW_URL": "https://we.tl/t-3tanymarhkRG8KkO",   # raw footage WeTransfer, sent Oct 10, expires Nov 9
+    "FINALS_URL": "https://we.tl/t-3guGe4hfWMOegFf8",   # 4 full-quality finals WeTransfer, expires Nov 9; empty removes that card
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
     "STAR": STAR,

@@ -137,11 +137,11 @@
     <div class="reelhead">
       <div><p class="kick">Ad 01 · Fleet ceramic coating</p><h2 id="ce-title">Fleet <em>Ceramic</em></h2></div>
       <div class="seg" role="group" aria-label="Fleet Ceramic version">
-        <button type="button" aria-pressed="true" data-target="ce" data-src="{{MEDIA}}/media/ceramic-wide.mp4" data-poster="{{MEDIA}}/media/ceramic-wide.jpg" data-fmt="wide">Widescreen</button>
-        <button type="button" aria-pressed="false" data-target="ce" data-src="{{MEDIA}}/media/ceramic-phone.mp4" data-poster="{{MEDIA}}/media/ceramic-phone.jpg" data-fmt="phone">Phone</button>
+        <button type="button" aria-pressed="true" data-target="ce" data-src="{{MEDIA}}/media/ceramic-wide-v3.mp4" data-poster="{{MEDIA}}/media/ceramic-wide-v3.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" aria-pressed="false" data-target="ce" data-src="{{MEDIA}}/media/ceramic-phone-v3.mp4" data-poster="{{MEDIA}}/media/ceramic-phone-v3.jpg" data-fmt="phone">Phone</button>
       </div>
     </div>
-    <div class="screen" id="ce-screen"><video id="ce" controls playsinline preload="metadata" poster="{{MEDIA}}/media/ceramic-wide.jpg" src="{{MEDIA}}/media/ceramic-wide.mp4"></video></div>
+    <div class="screen" id="ce-screen"><video id="ce" controls playsinline preload="metadata" poster="{{MEDIA}}/media/ceramic-wide-v3.jpg" src="{{MEDIA}}/media/ceramic-wide-v3.mp4"></video></div>
     <div class="specs" id="ce-specs"><span><b>Length</b> 0:39</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> website · YouTube · Facebook</span></div>
   </section>
 
@@ -149,11 +149,11 @@
     <div class="reelhead">
       <div><p class="kick">Ad 02 · Mobile fleet detailing</p><h2 id="mo-title">Mobile <em>Fleet</em></h2></div>
       <div class="seg" role="group" aria-label="Mobile Fleet version">
-        <button type="button" aria-pressed="true" data-target="mo" data-src="{{MEDIA}}/media/mobile-wide.mp4" data-poster="{{MEDIA}}/media/mobile-wide.jpg" data-fmt="wide">Widescreen</button>
-        <button type="button" aria-pressed="false" data-target="mo" data-src="{{MEDIA}}/media/mobile-phone.mp4" data-poster="{{MEDIA}}/media/mobile-phone.jpg" data-fmt="phone">Phone</button>
+        <button type="button" aria-pressed="true" data-target="mo" data-src="{{MEDIA}}/media/mobile-wide-v3.mp4" data-poster="{{MEDIA}}/media/mobile-wide-v3.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" aria-pressed="false" data-target="mo" data-src="{{MEDIA}}/media/mobile-phone-v3.mp4" data-poster="{{MEDIA}}/media/mobile-phone-v3.jpg" data-fmt="phone">Phone</button>
       </div>
     </div>
-    <div class="screen" id="mo-screen"><video id="mo" controls playsinline preload="metadata" poster="{{MEDIA}}/media/mobile-wide.jpg" src="{{MEDIA}}/media/mobile-wide.mp4"></video></div>
+    <div class="screen" id="mo-screen"><video id="mo" controls playsinline preload="metadata" poster="{{MEDIA}}/media/mobile-wide-v3.jpg" src="{{MEDIA}}/media/mobile-wide-v3.mp4"></video></div>
     <div class="specs" id="mo-specs"><span><b>Length</b> 0:38</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> website · YouTube · Facebook</span></div>
   </section>
 
@@ -169,7 +169,7 @@
         <p>All 4 finished videos at full 1080p. The players above are web-size copies.</p>
       </div>
     </div>
-    <p class="muted" style="font-size:14px">Both download links work until <b>Nov 9</b>, so save the files somewhere you'll keep them.</p>
+    <p class="muted" id="dl-note" style="font-size:14px">Both download links work until <b>Nov 9</b>, so save the files somewhere you'll keep them.</p>
   </section>
 
   <section class="track" aria-labelledby="trk-title">
@@ -249,6 +249,8 @@
       card.appendChild(a);
     } else if (c[0] === 'finals-card') {
       card.remove();
+      var n = document.getElementById('dl-note');
+      if (n) n.innerHTML = n.innerHTML.replace('Both download links work', 'The download link works');
     } else {
       var p = document.createElement('span');
       p.className = 'pending'; p.textContent = 'Link coming by text.';

@@ -1,0 +1,216 @@
+<title>Hannah's Fleet Delivery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one centered delivery column. HDS logo up top, a player per ad with a widescreen/phone toggle, downloads, review ask, contact. */
+#hds508{
+  --ink:#06070A; --panel:#0E1219; --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.16);
+  --fg:#F5F7FA; --fg2:#A3ABB7; --fg3:#6B7480; --blue:#488FF6;
+  --green:#8CFB5E; --purple:#7B4DFF;
+  --display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark; background:var(--ink); background-image:radial-gradient(110% 50% at 50% 0%,#141922 0%,var(--ink) 70%);
+  color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  text-align:left; min-height:100vh;
+}
+#hds508, #hds508 *{box-sizing:border-box}
+#hds508 h1,#hds508 h2,#hds508 p{margin:0;padding:0}
+#hds508 h1,#hds508 h2{color:var(--fg)!important;font-family:var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+#hds508 h1{font-size:clamp(40px,8vw,68px);line-height:.95;font-weight:700}
+#hds508 h2{font-size:clamp(28px,5vw,40px);line-height:1;font-weight:700}
+#hds508 h1 em,#hds508 h2 em{font-style:normal;color:var(--green)}
+#hds508 a{text-decoration:none}
+#hds508 .wrap{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:flex;flex-direction:column;gap:56px}
+#hds508 .kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+#hds508 .muted{color:var(--fg2)}
+
+/* header */
+#hds508 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+#hds508 .mark{display:inline-flex;align-items:center;gap:8px;position:relative;padding:7px 13px}
+#hds508 .mark::before,#hds508 .mark::after{content:"";position:absolute;width:10px;height:10px;border:1.8px solid var(--blue)}
+#hds508 .mark::before{top:0;left:0;border-right:0;border-bottom:0}
+#hds508 .mark::after{bottom:0;right:0;border-left:0;border-top:0}
+#hds508 .mark b{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--fg)}
+#hds508 .mark s{font-family:var(--display);font-weight:600;font-size:28px;line-height:1;text-decoration:none;color:transparent;-webkit-text-stroke:1px var(--fg)}
+#hds508 .mark i{width:5px;height:5px;border-radius:50%;background:var(--blue);align-self:flex-end;margin-bottom:5px}
+#hds508 .slate{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);display:flex;gap:14px;flex-wrap:wrap}
+#hds508 .slate span:not(:last-child)::after{content:"/";margin-left:14px;color:var(--line2)}
+
+/* intro + client logo */
+#hds508 .intro{display:flex;flex-direction:column;gap:22px}
+#hds508 .logo{display:block;width:min(300px,70%);height:auto;filter:drop-shadow(0 0 28px rgba(140,251,94,.16))}
+#hds508 .note{max-width:62ch;font-size:17px;color:#C9CFD8}
+#hds508 .note b{color:var(--fg);font-weight:600}
+
+/* player */
+#hds508 .reel{display:flex;flex-direction:column;gap:16px}
+#hds508 .reelhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+#hds508 .reelhead > div:first-child{display:flex;flex-direction:column;gap:8px;min-width:0}
+#hds508 .seg{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:3px;gap:2px}
+#hds508 .seg button{all:unset;cursor:pointer;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);
+  padding:8px 14px;border-radius:999px;transition:background .2s,color .2s}
+#hds508 .seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+#hds508 .seg button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#hds508 .screen{background:#000;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;justify-content:center}
+#hds508 .screen video{display:block;width:100%;max-width:100%;background:#000}
+#hds508 .screen.phone video{width:auto;height:min(72vh,680px);max-width:100%}
+#hds508 .specs{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--fg3);font-variant-numeric:tabular-nums}
+#hds508 .specs b{color:var(--fg2);font-weight:500}
+
+/* downloads */
+#hds508 .files{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+#hds508 .file{background:var(--panel);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#hds508 .file b{font-size:17px;font-weight:600;color:var(--fg)}
+#hds508 .file p{font-size:14px;color:var(--fg2);line-height:1.5;flex:1}
+#hds508 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:15px;
+  color:#fff;background:var(--blue);border:0;border-radius:8px;padding:13px 20px;cursor:pointer;align-self:flex-start}
+#hds508 .btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line2)}
+#hds508 .btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+#hds508 .btn svg{flex:0 0 auto}
+#hds508 .pending{font-family:var(--mono);font-size:12px;color:var(--fg3)}
+
+/* review ask */
+#hds508 .ask{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--panel);
+  border:1px solid var(--line2);border-radius:14px;padding:clamp(18px,4vw,28px)}
+#hds508 .stars{display:flex;gap:3px;color:var(--blue)}
+#hds508 .askbody{display:flex;flex-direction:column;gap:6px;min-width:0}
+#hds508 .askbody p{color:#C9CFD8;max-width:52ch}
+@media (max-width:720px){#hds508 .ask{grid-template-columns:1fr}}
+
+/* closing */
+#hds508 .close{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;border-top:1px solid var(--line);padding-top:32px}
+#hds508 .close > div{display:flex;flex-direction:column;gap:12px;min-width:0}
+#hds508 .contact{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
+#hds508 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#hds508 .copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);
+  border:1px solid var(--line2);border-radius:5px;padding:4px 8px}
+#hds508 .copy:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#hds508 .contact a{color:var(--fg);border-bottom:1px solid var(--line2)}
+#hds508 .sig{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em;color:var(--fg)}
+@media (max-width:640px){#hds508 .close{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){#hds508 *{transition:none!important}}
+</style><style>:root{color-scheme:dark;background:#06070A} html,body{margin:0;background:#06070A}</style>
+<div id="hds508">
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark" aria-label="508 Media Co."><b>508</b><s>MEDIA CO.</s><i></i></div>
+    <div class="slate"><span>Delivery</span><span>Hannah's Detailing &amp; Supply</span><span>Oct 10, 2026</span></div>
+  </header>
+
+  <section class="intro">
+    <img class="logo" src="./media/hds-logo.png" alt="Hannah's Detailing &amp; Supply" width="900" height="485">
+    <h1>Your fleet ads<br>are <em>ready.</em></h1>
+    <p class="note">Here are the <b>two fleet ads</b> from the ACE Concrete shoot. Each one comes in two versions: widescreen for your website, YouTube and Facebook, and a phone cut for Reels, TikTok and Stories. Hit play, then grab the files below.</p>
+  </section>
+
+  <section class="reel" aria-labelledby="ce-title">
+    <div class="reelhead">
+      <div><p class="kick">Ad 01 · Fleet ceramic coating</p><h2 id="ce-title">Fleet <em>Ceramic</em></h2></div>
+      <div class="seg" role="group" aria-label="Fleet Ceramic version">
+        <button type="button" aria-pressed="true" data-target="ce" data-src="./media/ceramic-wide.mp4" data-poster="./media/ceramic-wide.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" aria-pressed="false" data-target="ce" data-src="./media/ceramic-phone.mp4" data-poster="./media/ceramic-phone.jpg" data-fmt="phone">Phone</button>
+      </div>
+    </div>
+    <div class="screen" id="ce-screen"><video id="ce" controls playsinline preload="metadata" poster="./media/ceramic-wide.jpg" src="./media/ceramic-wide.mp4"></video></div>
+    <div class="specs" id="ce-specs"><span><b>Length</b> 0:39</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> website · YouTube · Facebook</span></div>
+  </section>
+
+  <section class="reel" aria-labelledby="mo-title">
+    <div class="reelhead">
+      <div><p class="kick">Ad 02 · Mobile fleet detailing</p><h2 id="mo-title">Mobile <em>Fleet</em></h2></div>
+      <div class="seg" role="group" aria-label="Mobile Fleet version">
+        <button type="button" aria-pressed="true" data-target="mo" data-src="./media/mobile-wide.mp4" data-poster="./media/mobile-wide.jpg" data-fmt="wide">Widescreen</button>
+        <button type="button" aria-pressed="false" data-target="mo" data-src="./media/mobile-phone.mp4" data-poster="./media/mobile-phone.jpg" data-fmt="phone">Phone</button>
+      </div>
+    </div>
+    <div class="screen" id="mo-screen"><video id="mo" controls playsinline preload="metadata" poster="./media/mobile-wide.jpg" src="./media/mobile-wide.mp4"></video></div>
+    <div class="specs" id="mo-specs"><span><b>Length</b> 0:38</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> website · YouTube · Facebook</span></div>
+  </section>
+
+  <section class="reel" aria-labelledby="dl-title">
+    <div><p class="kick">Your files</p><h2 id="dl-title" style="margin-top:8px">Download <em>everything</em></h2></div>
+    <div class="files">
+      <div class="file" id="raw-card" data-url="https://we.tl/t-3tanymarhkRG8KkO">
+        <b>Raw footage</b>
+        <p>Every clip from the shoot, straight off the camera. Use it for your own edits, posts and stories.</p>
+      </div>
+      <div class="file" id="finals-card" data-url="">
+        <b>Finished ads · full quality</b>
+        <p>All 4 finished videos at full 1080p. The players above are web-size copies.</p>
+      </div>
+    </div>
+    <p class="muted" style="font-size:14px">Download links expire, so save the files somewhere you'll keep them.</p>
+  </section>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <div class="stars" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
+    <div class="askbody">
+      <h2 id="ask-title">Happy with it?</h2>
+      <p>Tell other business owners what it was like to work together. A Google review takes about a minute.</p>
+    </div>
+    <a class="btn" href="https://g.page/r/CQRtijkKqWhOEBI/review" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg> Leave a Google review</a>
+  </section>
+
+  <footer class="close">
+    <div>
+      <p class="kick">Know someone?</p>
+      <p class="note" style="font-size:16px">If you know a business that needs video, send them my way.</p>
+    </div>
+    <div>
+      <p class="sig">Drew Reid</p>
+      <p class="kick" style="color:var(--fg3)">Owner · 508 Media Co.</p>
+      <div class="contact">
+        <div class="row"><span id="hds-ph">(864) 915-4071</span><button type="button" class="copy" data-copy="hds-ph">Copy</button></div>
+        <div class="row"><span id="hds-em">drew@508mediaco.com</span><button type="button" class="copy" data-copy="hds-em">Copy</button></div>
+        <div class="row"><a href="https://508mediaco.com" target="_blank" rel="noopener">508mediaco.com</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+<script>(function(){
+  var SPECS = {
+    ce: { wide:['0:39','1920 × 1080','website · YouTube · Facebook'], phone:['0:39','1080 × 1920','Reels · TikTok · Stories'] },
+    mo: { wide:['0:38','1920 × 1080','website · YouTube · Facebook'], phone:['0:38','1080 × 1920','Reels · TikTok · Stories'] }
+  };
+  document.querySelectorAll('#hds508 .seg button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.dataset.target, v = document.getElementById(id);
+      btn.parentElement.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+      v.pause(); v.poster = btn.dataset.poster; v.src = btn.dataset.src; v.load();
+      document.getElementById(id + '-screen').classList.toggle('phone', btn.dataset.fmt === 'phone');
+      var s = SPECS[id][btn.dataset.fmt];
+      document.getElementById(id + '-specs').innerHTML =
+        '<span><b>Length</b> ' + s[0] + '</span><span><b>Size</b> ' + s[1] + '</span><span><b>Use</b> ' + s[2] + '</span>';
+    });
+  });
+
+  var DL = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>';
+  [['raw-card','Download raw footage',''],['finals-card','Download finished ads',' ghost']].forEach(function(c){
+    var card = document.getElementById(c[0]), url = card.dataset.url;
+    if (url) {
+      var a = document.createElement('a');
+      a.className = 'btn' + c[2]; a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = DL + ' ' + c[1];
+      card.appendChild(a);
+    } else if (c[0] === 'finals-card') {
+      card.remove();
+    } else {
+      var p = document.createElement('span');
+      p.className = 'pending'; p.textContent = 'Link coming by text.';
+      card.appendChild(p);
+    }
+  });
+
+  document.querySelectorAll('#hds508 .copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var el = document.getElementById(b.dataset.copy);
+      var done = function(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy'; }, 1600); };
+      var sel = function(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+      try { navigator.clipboard.writeText(el.textContent).then(done, sel); } catch (e) { sel(); }
+    });
+  });
+})();</script>

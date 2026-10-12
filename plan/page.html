@@ -1,0 +1,119 @@
+<!-- 508 Media Co. · "Let's Plan Your Video" intake page (508mediaco.com/plan, Not Linked: only people Drew sends it to).
+     Source for build.py, which writes the Squarespace page-header injection and the local preview.
+     Every selector is scoped under #plan508 because the site-wide 508 CSS and the Squarespace theme style bare h1/h2/p.
+     {{FORM_URL}} = the live intake Google Form (responses → "508 Media Co. Intake Responses" sheet). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one centered column. 508 mark, headline + 3 quick facts, the Google Form on a white sheet, contact. */
+#plan508{
+  --ink:#06070A; --panel:#0E1219; --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.16);
+  --fg:#F5F7FA; --fg2:#A3ABB7; --fg3:#6B7480; --blue:#488FF6; --blue-lift:#7FB2FF;
+  --display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark; background:var(--ink); background-image:radial-gradient(110% 40% at 50% 0%,#141922 0%,var(--ink) 70%);
+  color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  text-align:left; min-height:100vh;
+}
+#plan508, #plan508 *{box-sizing:border-box}
+#plan508 h1,#plan508 p{margin:0;padding:0}
+#plan508 h1{color:var(--fg)!important;font-family:var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance;
+  font-size:clamp(40px,8vw,68px);line-height:.95;font-weight:700}
+#plan508 h1 em{font-style:normal;color:var(--blue)}
+#plan508 a{text-decoration:none}
+#plan508 .wrap{max-width:820px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:40px}
+#plan508 .kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500}
+
+/* header */
+#plan508 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+#plan508 .mark{display:inline-flex;align-items:center;gap:8px;position:relative;padding:7px 13px}
+#plan508 .mark::before,#plan508 .mark::after{content:"";position:absolute;width:10px;height:10px;border:1.8px solid var(--blue)}
+#plan508 .mark::before{top:0;left:0;border-right:0;border-bottom:0}
+#plan508 .mark::after{bottom:0;right:0;border-left:0;border-top:0}
+#plan508 .mark b{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--fg)}
+#plan508 .mark s{font-family:var(--display);font-weight:600;font-size:28px;line-height:1;text-decoration:none;color:transparent;-webkit-text-stroke:1px var(--fg)}
+#plan508 .mark i{width:5px;height:5px;border-radius:50%;background:var(--blue);align-self:flex-end;margin-bottom:5px}
+#plan508 .slate{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);display:flex;gap:14px;flex-wrap:wrap}
+#plan508 .slate span:not(:last-child)::after{content:"/";margin-left:14px;color:var(--line2)}
+
+/* intro */
+#plan508 .intro{display:flex;flex-direction:column;gap:18px}
+#plan508 .note{font-size:clamp(16px,2.4vw,19px);color:#C9CFD8;max-width:56ch}
+#plan508 .facts{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+#plan508 .facts li{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+#plan508 .facts b{font-family:var(--display);font-size:24px;font-weight:700;line-height:1;color:var(--fg)}
+#plan508 .facts span{font-size:13.5px;color:var(--fg2);line-height:1.4}
+@media (max-width:560px){#plan508 .facts{grid-template-columns:1fr} #plan508 .facts li{flex-direction:row;align-items:baseline;gap:12px} #plan508 .facts b{min-width:70px}}
+
+/* form */
+#plan508 .sheet{background:#F1EEF8;border-radius:14px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 18px 50px rgba(0,0,0,.5);scroll-margin-top:16px}
+#plan508 .sheet iframe{display:block;width:100%;height:2300px;border:0;background:#F1EEF8}
+@media (max-width:640px){#plan508 .sheet iframe{height:3400px}}
+#plan508 .alt{font-size:14px;color:var(--fg2)}
+#plan508 .alt a{color:var(--blue-lift);border-bottom:1px solid currentColor}
+
+/* closing */
+#plan508 .close{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;border-top:1px solid var(--line);padding-top:32px}
+#plan508 .close > div{display:flex;flex-direction:column;gap:12px;min-width:0}
+#plan508 .contact{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
+#plan508 .contact a{color:var(--fg);border-bottom:1px solid var(--line2);align-self:flex-start}
+#plan508 .sig{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em;color:var(--fg)}
+@media (max-width:640px){#plan508 .close{grid-template-columns:1fr}}
+</style>
+
+<div id="plan508">
+<div class="wrap">
+  <header class="top">
+    <div class="mark" aria-label="508 Media Co."><b>508</b><s>MEDIA CO.</s><i></i></div>
+    <div class="slate"><span>Video planning</span><span>Upstate SC · NC · GA</span></div>
+  </header>
+
+  <section class="intro">
+    <p class="kick">Before we talk</p>
+    <h1>Let's plan<br>your <em>video.</em></h1>
+    <p class="note">Fill this out and I'll come to our call with real ideas for your video, so we spend the time on the fun part, not paperwork.</p>
+    <ul class="facts">
+      <li><b>3 min</b><span>Most questions are tap-to-pick</span></li>
+      <li><b>24 hrs</b><span>I'll reach out with a video idea</span></li>
+      <li><b>Free</b><span>Every project gets a custom quote</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sheet" id="plan-sheet">
+      <iframe id="plan-form" src="{{FORM_URL}}?embedded=true" title="Let's Plan Your Video form" loading="eager">Loading…</iframe>
+    </div>
+    <p class="alt" style="margin-top:14px">Form not loading? <a href="{{FORM_URL}}" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+  </section>
+
+  <footer class="close">
+    <div>
+      <p class="kick">Rather just talk?</p>
+      <p class="note" style="font-size:16px">Call or text me anytime. I'm happy to go over it on the phone.</p>
+    </div>
+    <div>
+      <p class="sig">Drew Reid</p>
+      <p class="kick" style="color:var(--fg3)">Owner · 508 Media Co.</p>
+      <div class="contact">
+        <a href="tel:+18649154071">(864) 915-4071</a>
+        <a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a>
+        <a href="https://508mediaco.com" target="_blank" rel="noopener">508mediaco.com</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+
+<script>
+(function(){
+  // A Google Form section change reloads the iframe; bring its top back into view so people don't land mid-form.
+  var f = document.getElementById('plan-form'), first = true;
+  if (!f) return;
+  f.addEventListener('load', function(){
+    if (first) { first = false; return; }
+    document.getElementById('plan-sheet').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+</script>

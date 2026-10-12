@@ -34,13 +34,14 @@ CFG = {
 MONTHS = [
     {
         "id": "m2026-10", "month": "October", "year": "2026", "delivered": "Oct 12",
-        "dl": "https://we.tl/t-SMvrTTqvbZG4zD6O", "expires": "Nov 11",   # WeTransfer t_exp = 2026-11-11
+        # v1 transfer (t-SMvrTTqvbZG4zD6O) holds the pre-v2 cut, so it's off the page until Drew sends a v2 WeTransfer.
+        "dl": "", "expires": "Nov 11",
         "videos": [
             {
                 "id": "oct-mustang", "kick": "$995 ceramic special", "title": "2025 <em>Mustang</em>",
                 "formats": [  # (button, file stem, fmt class, length, size, use)
-                    ("Phone 9:16", "mustang-phone-oct", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
-                    ("Feed 4:5", "mustang-feed-oct", "phone", "0:51", "1080 × 1350", "Instagram & Facebook feed"),
+                    ("Phone 9:16", "mustang-phone-oct-v2", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "mustang-feed-oct-v2", "phone", "0:51", "1080 × 1350", "Instagram & Facebook feed"),
                 ],
             },
         ],

@@ -34,8 +34,7 @@ CFG = {
 MONTHS = [
     {
         "id": "m2026-10", "month": "October", "year": "2026", "delivered": "Oct 12",
-        # v1 transfer (t-SMvrTTqvbZG4zD6O) holds the pre-v2 cut, so it's off the page until Drew sends a v2 WeTransfer.
-        "dl": "", "expires": "Nov 11",
+        "dl": "https://we.tl/t-2NtJ7CPcF0MmRquZ", "expires": "Nov 11",   # v2 finals transfer, sent Oct 12 4:52 PM, t_exp = 2026-11-11 (v1 was t-SMvrTTqvbZG4zD6O)
         "videos": [
             {
                 "id": "oct-mustang", "kick": "$995 ceramic special", "title": "2025 <em>Mustang</em>",

@@ -39,8 +39,8 @@ MONTHS = [
             {
                 "id": "oct-mustang", "kick": "$995 ceramic special", "title": "2025 <em>Mustang</em>",
                 "formats": [  # (button, file stem, fmt class, length, size, use)
-                    ("Phone 9:16", "mustang-phone-oct", "phone", "0:52", "1080 × 1920", "Reels · TikTok · Stories"),
-                    ("Feed 4:5", "mustang-feed-oct", "phone", "0:52", "1080 × 1350", "Instagram & Facebook feed"),
+                    ("Phone 9:16", "mustang-phone-oct", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "mustang-feed-oct", "phone", "0:51", "1080 × 1350", "Instagram & Facebook feed"),
                 ],
             },
         ],

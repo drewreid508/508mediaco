@@ -34,13 +34,13 @@ CFG = {
 MONTHS = [
     {
         "id": "m2026-10", "month": "October", "year": "2026", "delivered": "Oct 12",
-        "dl": "https://we.tl/t-2NtJ7CPcF0MmRquZ", "expires": "Nov 11",   # v2 finals transfer, sent Oct 12 4:52 PM, t_exp = 2026-11-11 (v1 was t-SMvrTTqvbZG4zD6O)
+        "dl": "https://we.tl/t-tioT368cyyFn3e3D", "expires": "Nov 11",   # v3 finals transfer, sent Oct 12 ~6:40 PM, t_exp = 2026-11-11 (v2 t-2NtJ7CPcF0MmRquZ, v1 t-SMvrTTqvbZG4zD6O)
         "videos": [
             {
                 "id": "oct-mustang", "kick": "$995 ceramic special", "title": "2025 <em>Mustang</em>",
                 "formats": [  # (button, file stem, fmt class, length, size, use)
-                    ("Phone 9:16", "mustang-phone-oct-v2", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
-                    ("Feed 4:5", "mustang-feed-oct-v2", "phone", "0:51", "1080 × 1350", "Instagram & Facebook feed"),
+                    ("Phone 9:16", "mustang-phone-oct-v3", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "mustang-feed-oct-v3", "phone", "0:51", "1080 × 1350", "Instagram & Facebook feed"),
                 ],
             },
         ],

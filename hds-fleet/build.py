@@ -19,6 +19,7 @@ CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/hds-fleet",
     "RAW_URL": "https://we.tl/t-3tanymarhkRG8KkO",   # raw footage WeTransfer, sent Oct 10, expires Nov 9
     "FINALS_URL": "https://we.tl/t-qX5yQbNr14e2fost",   # 4 v3 finals WeTransfer (re-sent Oct 12), expires ~Nov 11; empty removes that card
+    "UPDATED": "Oct 12, 2026",
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
     "STAR": STAR,
@@ -26,8 +27,61 @@ CFG = {
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg>'),
 }
 
+# ── Monthly videos ─────────────────────────────────────────────────────────────
+# NEWEST MONTH FIRST. To add a month: drop the web copies (~10 MB, 1.55 Mbps, poster at 2 s)
+# into media/ with a month suffix in the filename (dodges CDN caching), add an entry at the
+# TOP of this list, run build.py, push, then re-paste the injection. Never delete old months.
+MONTHS = [
+    {
+        "id": "m2026-10", "month": "October", "year": "2026", "delivered": "Oct 12",
+        "dl": "https://we.tl/t-SMvrTTqvbZG4zD6O", "expires": "Nov 11",   # WeTransfer t_exp = 2026-11-11
+        "videos": [
+            {
+                "id": "oct-mustang", "kick": "$995 ceramic special", "title": "2025 <em>Mustang</em>",
+                "formats": [  # (button, file stem, fmt class, length, size, use)
+                    ("Phone 9:16", "mustang-phone-oct", "phone", "0:52", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "mustang-feed-oct", "phone", "0:52", "1080 × 1350", "Instagram & Facebook feed"),
+                ],
+            },
+        ],
+    },
+]
+
+def month_html(m, newest):
+    n = len(m["videos"])
+    out = [f'  <section class="month" aria-labelledby="{m["id"]}">',
+           f'    <div class="monthhead">' + ('<span class="badge">New</span>' if newest else '') +
+           f'<p class="kick">Monthly videos</p><h2 id="{m["id"]}">{m["month"]} <em>{m["year"]}</em></h2>'
+           f'<p class="when">{n} video{"s" if n != 1 else ""} · delivered {m["delivered"]}, {m["year"]}</p></div>']
+    for k, v in enumerate(m["videos"], 1):
+        f0 = v["formats"][0]
+        btns = "\n".join(
+            f'        <button type="button" aria-pressed="{str(i == 0).lower()}" data-target="{v["id"]}" '
+            f'data-src="{{{{MEDIA}}}}/media/{f[1]}.mp4" data-poster="{{{{MEDIA}}}}/media/{f[1]}.jpg" data-fmt="{f[2]}" '
+            f'data-len="{f[3]}" data-size="{f[4]}" data-use="{f[5]}">{f[0]}</button>'
+            for i, f in enumerate(v["formats"]))
+        out.append(f"""    <section class="reel" aria-labelledby="{v['id']}-title">
+      <div class="reelhead">
+        <div><p class="kick">{m['month']} · {k:02d} · {v['kick']}</p><h2 id="{v['id']}-title">{v['title']}</h2></div>
+        <div class="seg" role="group" aria-label="Video version">
+{btns}
+        </div>
+      </div>
+      <div class="screen{' phone' if f0[2] == 'phone' else ''}" id="{v['id']}-screen"><video id="{v['id']}" controls playsinline preload="metadata" poster="{{{{MEDIA}}}}/media/{f0[1]}.jpg" src="{{{{MEDIA}}}}/media/{f0[1]}.mp4"></video></div>
+      <div class="specs" id="{v['id']}-specs"><span><b>Length</b> {f0[3]}</span><span><b>Size</b> {f0[4]}</span><span><b>Use</b> {f0[5]}</span></div>
+    </section>""")
+    out.append(f"""    <div class="files" style="grid-template-columns:1fr">
+      <div class="file" data-dl="{m['dl']}" data-label="Download {m['month']}'s videos">
+        <b>{m['month']}'s videos · full quality</b>
+        <p>Every {m['month']} video in full 1080p, ready to post. The players above are web-size copies. Link works until <b style="font-size:inherit">{m['expires']}</b>, so save the files somewhere you'll keep them.</p>
+      </div>
+    </div>
+  </section>""")
+    return "\n".join(out)
+
 def render(media):
     src = (HERE / "page.html").read_text()
+    src = src.replace("{{MONTHS}}", "\n".join(month_html(m, i == 0) for i, m in enumerate(MONTHS)))
     for k, v in {**CFG, "MEDIA": media}.items():
         src = src.replace("{{" + k + "}}", v)
     assert "{{" not in src, "unfilled token"

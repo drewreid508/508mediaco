@@ -59,6 +59,14 @@
 #hds508 .specs{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);font-size:12px;color:var(--fg3);font-variant-numeric:tabular-nums}
 #hds508 .specs b{color:var(--fg2);font-weight:500}
 
+/* monthly videos: newest month first, one block per month (rendered from MONTHS in build.py) */
+#hds508 .months{display:flex;flex-direction:column;gap:56px}
+#hds508 .monthhead{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:32px}
+#hds508 .monthhead .when{font-family:var(--mono);font-size:12px;color:var(--fg3);letter-spacing:.08em}
+#hds508 .month{display:flex;flex-direction:column;gap:36px}
+#hds508 .badge{display:inline-flex;align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#06070A;background:var(--green);border-radius:999px;padding:4px 10px}
+
 /* downloads */
 #hds508 .files{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 #hds508 .file{background:var(--panel);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -120,14 +128,39 @@
 
   <header class="top">
     <div class="mark" aria-label="508 Media Co."><b>508</b><s>MEDIA CO.</s><i></i></div>
-    <div class="slate"><span>Delivery</span><span>Hannah's Detailing &amp; Supply</span><span>Oct 10, 2026</span></div>
+    <div class="slate"><span>Delivery</span><span>Hannah's Detailing &amp; Supply</span><span>Updated Oct 12, 2026</span></div>
   </header>
 
   <section class="intro">
     <img class="logo" src="./media/hds-logo.png" alt="Hannah's Detailing &amp; Supply" width="900" height="485">
-    <h1>Your fleet ads<br>are <em>ready.</em></h1>
-    <p class="note">Here are the <b>two fleet ads</b> from the ACE Concrete shoot. Each one comes in two versions: widescreen for your website, YouTube and Facebook, and a phone cut for Reels, TikTok and Stories. Hit play, then grab the files below.</p>
+    <h1>Your videos<br>are <em>ready.</em></h1>
+    <p class="note">New videos land here <b>every month</b>, newest first, each with its own download link. Your <b>two fleet ads</b> from the ACE Concrete shoot are further down, along with the raw footage.</p>
   </section>
+
+  <div class="months">
+  <section class="month" aria-labelledby="m2026-10">
+    <div class="monthhead"><span class="badge">New</span><p class="kick">Monthly videos</p><h2 id="m2026-10">October <em>2026</em></h2><p class="when">1 video · delivered Oct 12, 2026</p></div>
+    <section class="reel" aria-labelledby="oct-mustang-title">
+      <div class="reelhead">
+        <div><p class="kick">October · 01 · $995 ceramic special</p><h2 id="oct-mustang-title">2025 <em>Mustang</em></h2></div>
+        <div class="seg" role="group" aria-label="Video version">
+        <button type="button" aria-pressed="true" data-target="oct-mustang" data-src="./media/mustang-phone-oct.mp4" data-poster="./media/mustang-phone-oct.jpg" data-fmt="phone" data-len="0:52" data-size="1080 × 1920" data-use="Reels · TikTok · Stories">Phone 9:16</button>
+        <button type="button" aria-pressed="false" data-target="oct-mustang" data-src="./media/mustang-feed-oct.mp4" data-poster="./media/mustang-feed-oct.jpg" data-fmt="phone" data-len="0:52" data-size="1080 × 1350" data-use="Instagram & Facebook feed">Feed 4:5</button>
+        </div>
+      </div>
+      <div class="screen phone" id="oct-mustang-screen"><video id="oct-mustang" controls playsinline preload="metadata" poster="./media/mustang-phone-oct.jpg" src="./media/mustang-phone-oct.mp4"></video></div>
+      <div class="specs" id="oct-mustang-specs"><span><b>Length</b> 0:52</span><span><b>Size</b> 1080 × 1920</span><span><b>Use</b> Reels · TikTok · Stories</span></div>
+    </section>
+    <div class="files" style="grid-template-columns:1fr">
+      <div class="file" data-dl="https://we.tl/t-SMvrTTqvbZG4zD6O" data-label="Download October's videos">
+        <b>October's videos · full quality</b>
+        <p>Every October video in full 1080p, ready to post. The players above are web-size copies. Link works until <b style="font-size:inherit">Nov 11</b>, so save the files somewhere you'll keep them.</p>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <div class="monthhead"><p class="kick">Fleet ads · Oct 10, 2026</p><h2>Fleet <em>ads</em></h2><p class="when">2 ads · widescreen + phone · ACE Concrete shoot</p></div>
 
   <section class="reel" aria-labelledby="ce-title">
     <div class="reelhead">
@@ -227,7 +260,7 @@
       btn.parentElement.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
       v.pause(); v.poster = btn.dataset.poster; v.src = btn.dataset.src; v.load();
       document.getElementById(id + '-screen').classList.toggle('phone', btn.dataset.fmt === 'phone');
-      var s = SPECS[id][btn.dataset.fmt];
+      var s = btn.dataset.size ? [btn.dataset.len, btn.dataset.size, btn.dataset.use] : SPECS[id][btn.dataset.fmt];
       document.getElementById(id + '-specs').innerHTML =
         '<span><b>Length</b> ' + s[0] + '</span><span><b>Size</b> ' + s[1] + '</span><span><b>Use</b> ' + s[2] + '</span>';
     });
@@ -245,6 +278,20 @@
       card.remove();
       var n = document.getElementById('dl-note');
       if (n) n.innerHTML = n.innerHTML.replace('Both download links work', 'The download link works');
+    } else {
+      var p = document.createElement('span');
+      p.className = 'pending'; p.textContent = 'Link coming by text.';
+      card.appendChild(p);
+    }
+  });
+
+  document.querySelectorAll('#hds508 .file[data-dl]').forEach(function(card){
+    var url = card.dataset.dl;
+    if (url) {
+      var a = document.createElement('a');
+      a.className = 'btn'; a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = DL + ' ' + card.dataset.label;
+      card.appendChild(a);
     } else {
       var p = document.createElement('span');
       p.className = 'pending'; p.textContent = 'Link coming by text.';

@@ -19,7 +19,7 @@ CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/heavyhaul-delivery",
     "FINAL_URL": "https://we.tl/t-AcHEPL8MS8dukomh",   # full-quality reel download (WeTransfer); empty shows "Download link coming by text."
     "UPDATED": "Oct 19, 2026",
-    "NEW_URL": "",   # WeTransfer for the Oct 19 Twins x Heavy Haul vertical + final 16:9; empty shows "Download link coming by text."
+    "NEW_URL": "https://we.tl/t-Jr0JrfoCzjw34bFh",   # WeTransfer for the Oct 19 Twins x Heavy Haul vertical + final 16:9; empty shows "Download link coming by text."
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
     "STAR": STAR,

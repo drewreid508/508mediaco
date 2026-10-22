@@ -32,6 +32,76 @@ CFG = {
 # into media/ with a month suffix in the filename (dodges CDN caching), add an entry at the
 # TOP of this list, run build.py, push, then re-paste the injection. Never delete old months.
 MONTHS = [
+    {   # Oct 21: 8 scripted $995 ads (Oct 19 shoot), 3 formats each. Download transfer not made yet.
+        "id": "m2026-10-995", "month": "October", "year": "2026", "delivered": "Oct 22",
+        "heading": "$995 <em>ceramic ads</em>", "dl": "https://we.tl/t-mMLt5zrDrHMLDT06", "expires": "Nov 21",   # 24 finals (8 ads x 9:16/4:5/16:9), sent Oct 22, t_exp 1795256973
+        "videos": [
+            {
+                "id": "oct995-1", "kick": "$995 ceramic special", "title": "Lake Keowee <em>luxury owners</em>",
+                "formats": [
+                    ("Phone 9:16", "ad1-phone-oct995", "phone", "0:51", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad1-feed-oct995", "phone", "0:51", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad1-wide-oct995", "wide", "0:51", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-2", "kick": "$995 ceramic special", "title": "Verdae <em>picky owners</em>",
+                "formats": [
+                    ("Phone 9:16", "ad2-phone-oct995", "phone", "0:43", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad2-feed-oct995", "phone", "0:43", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad2-wide-oct995", "wide", "0:43", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-3", "kick": "$995 ceramic special", "title": "Lake Keowee <em>bugs &amp; pollen</em>",
+                "formats": [
+                    ("Phone 9:16", "ad3-phone-oct995", "phone", "0:48", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad3-feed-oct995", "phone", "0:48", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad3-wide-oct995", "wide", "0:48", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-4", "kick": "$995 ceramic special", "title": "Lake Keowee <em>keep it right</em>",
+                "formats": [
+                    ("Phone 9:16", "ad4-phone-oct995", "phone", "0:55", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad4-feed-oct995", "phone", "0:55", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad4-wide-oct995", "wide", "0:55", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-5", "kick": "$995 ceramic special", "title": "Verdae <em>don't pay full price</em>",
+                "formats": [
+                    ("Phone 9:16", "ad5-phone-oct995", "phone", "0:45", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad5-feed-oct995", "phone", "0:45", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad5-wide-oct995", "wide", "0:45", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-6", "kick": "$995 ceramic special", "title": "Verdae <em>dirty in 2 days</em>",
+                "formats": [
+                    ("Phone 9:16", "ad6-phone-oct995", "phone", "0:47", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad6-feed-oct995", "phone", "0:47", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad6-wide-oct995", "wide", "0:47", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-7", "kick": "$995 ceramic special", "title": "Upstate <em>sports cars</em>",
+                "formats": [
+                    ("Phone 9:16", "ad7-phone-oct995", "phone", "0:56", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad7-feed-oct995", "phone", "0:56", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad7-wide-oct995", "wide", "0:56", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+            {
+                "id": "oct995-8", "kick": "$995 ceramic special", "title": "Upstate <em>SUVs</em>",
+                "formats": [
+                    ("Phone 9:16", "ad8-phone-oct995", "phone", "1:03", "1080 × 1920", "Reels · TikTok · Stories"),
+                    ("Feed 4:5", "ad8-feed-oct995", "phone", "1:03", "1080 × 1350", "Meta ads · Instagram & Facebook feed"),
+                    ("Widescreen", "ad8-wide-oct995", "wide", "1:03", "1920 × 1080", "website · YouTube · Facebook"),
+                ],
+            },
+        ],
+    },
     {
         "id": "m2026-10", "month": "October", "year": "2026", "delivered": "Oct 12",
         "dl": "https://we.tl/t-eiBYb4ezRnk8aLFH", "expires": "Nov 11",   # v3 + music finals, sent Oct 12 ~7:40 PM, t_exp = 2026-11-11 (v3 no-music t-tioT368cyyFn3e3D, v2 t-2NtJ7CPcF0MmRquZ, v1 t-SMvrTTqvbZG4zD6O)
@@ -51,7 +121,8 @@ def month_html(m, newest):
     n = len(m["videos"])
     out = [f'  <section class="month" aria-labelledby="{m["id"]}">',
            f'    <div class="monthhead">' + ('<span class="badge">New</span>' if newest else '') +
-           f'<p class="kick">Monthly videos</p><h2 id="{m["id"]}">{m["month"]} <em>{m["year"]}</em></h2>'
+           (f'<p class="kick">Monthly videos · {m["month"]} {m["year"]}</p><h2 id="{m["id"]}">{m["heading"]}</h2>' if m.get("heading") else
+            f'<p class="kick">Monthly videos</p><h2 id="{m["id"]}">{m["month"]} <em>{m["year"]}</em></h2>') +
            f'<p class="when">{n} video{"s" if n != 1 else ""} · delivered {m["delivered"]}, {m["year"]}</p></div>']
     for k, v in enumerate(m["videos"], 1):
         f0 = v["formats"][0]
@@ -73,7 +144,7 @@ def month_html(m, newest):
     out.append(f"""    <div class="files" style="grid-template-columns:1fr">
       <div class="file" data-dl="{m['dl']}" data-label="Download {m['month']}'s videos">
         <b>{m['month']}'s videos · full quality</b>
-        <p>Every {m['month']} video in full 1080p, ready to post. The players above are web-size copies. Link works until <b style="font-size:inherit">{m['expires']}</b>, so save the files somewhere you'll keep them.</p>
+        <p>Every {m['month']} video in full 1080p, ready to post. The players above are web-size copies. {(' Link works until <b style="font-size:inherit">' + m['expires'] + '</b>, so save the files somewhere you\'ll keep them.') if m['expires'] else ''}</p>
       </div>
     </div>
   </section>""")

@@ -10,14 +10,36 @@ Same pattern as hq-southpark: the site-wide 508 footer injection draws the homep
 every page, so the injection hides it and mounts #ww508 from a <template> once the DOM is ready.
 Tokens are {{KEY}} with full names only (a bare MEDIA token once ate the word in "508 MEDIA CO.").
 """
-import pathlib
+import html, pathlib, re, subprocess
 
 HERE = pathlib.Path(__file__).parent
+# best-clips pack (woodie-wacker-ads/selects/build.py): one still per clip in media/clips/, grid built from the folder
+CLIPS_DIR = pathlib.Path('/Users/drew/Desktop/WOODIE WACKER EDIT (Oct 26)/BEST CLIPS - graded + stabilized (Oct 28)')
+
+def clip_grid():
+    fs = sorted(f for f in CLIPS_DIR.glob('*.mp4') if not f.name.endswith('.part.mp4')); out = []; (HERE / 'media/clips').mkdir(parents=True, exist_ok=True)
+    for f in fs:
+        clip = f.stem.rsplit(' - ', 1)[1].split(' ')[0]; still = HERE / f'media/clips/{clip}.jpg'
+        if not still.exists() or still.stat().st_mtime < f.stat().st_mtime:
+            d = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(f)]))
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{d / 2:.2f}', '-i', str(f), '-frames:v', '1',
+                            '-vf', 'scale=480:270', '-q:v', '4', str(still)], check=True)
+        label = re.sub(r'^\d+ ', '', f.stem.rsplit(' - ', 1)[0])
+        label = label[0].upper() + label[1:]
+        out.append(f'      <figure><img src="{{{{MEDIA}}}}/media/clips/{clip}.jpg" alt="{html.escape(label)}" width="480" height="270" loading="lazy">'
+                   f'<figcaption>{html.escape(label)} <span>{clip}{" · slow-mo" if "slow-mo" in f.stem else ""}</span></figcaption></figure>')
+    gb = sum(f.stat().st_size for f in fs) / 1e9
+    return '\n'.join(out), str(len(fs)), f'{gb:.1f} GB'
+
+GRID, COUNT, SIZE = clip_grid()
 STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
         '<path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>')
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/woodie-delivery",
-    "FINAL_URL": "",   # WeTransfer of the 4 "woodie wacker final N - graded - (NO) MUSIC.mp4" files; empty shows "Download link coming by text."
+    "FINAL_URL": "",   # WeTransfer of Desktop/WOODIE WACKER EDIT (Oct 26)/DELIVERY - upload to WeTransfer (Oct 28) (5 videos); empty shows "Download link coming by text."
+    "CLIPS_URL": "",   # WeTransfer of the BEST CLIPS folder; empty shows "Download link coming by text."
+    "CLIP_GRID": GRID, "CLIP_COUNT": COUNT, "CLIPS_SIZE": SIZE,
+    "SHOT_TOTAL": "200",
     "UPDATED": "Oct 28, 2026",
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
@@ -28,8 +50,9 @@ CFG = {
 
 def render(media):
     src = (HERE / "page.html").read_text()
-    for k, v in {**CFG, "MEDIA": media}.items():
-        src = src.replace("{{" + k + "}}", v)
+    for _ in range(2):                                 # twice: CLIP_GRID itself carries {{MEDIA}}
+        for k, v in {**CFG, "MEDIA": media}.items():
+            src = src.replace("{{" + k + "}}", v)
     assert "{{" not in src, "unfilled token"
     head = src[src.index('<link rel="preconnect"'):src.index("</style>") + len("</style>")]
     body = src[src.index('<div id="ww508">'):src.index("<script>")].strip()

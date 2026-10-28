@@ -130,6 +130,12 @@
 @media (prefers-reduced-motion:reduce){#ww508 *{transition:none!important}}
 #ww508 .brand{display:flex;flex-direction:column;gap:2px}
 #ww508 .brand small{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--flag)}
+/* best-clips grid: one still per clip, labeled by what's in the shot */
+#ww508 .clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(150px,calc(50% - 5px)),1fr));gap:10px}
+#ww508 .clips figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+#ww508 .clips img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:#000}
+#ww508 .clips figcaption{font-family:var(--mono);font-size:11px;line-height:1.35;color:var(--fg2)}
+#ww508 .clips figcaption span{color:var(--fg3)}
 #ww508 .brand b{font-family:var(--display);font-weight:700;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase;color:var(--fg)}
 </style><style>:root{color-scheme:dark;background:#06070A} html,body{margin:0;background:#06070A}</style>
 <div id="ww508">
@@ -143,7 +149,7 @@
   <section class="intro">
     <div class="brand" aria-label="Mallard Motion, Woodie Wacker"><small>Mallard Motion</small><b>Woodie Wacker</b></div>
     <h1>Your videos<br>are <em>ready.</em></h1>
-    <p class="note">Here are your <b>two videos</b> from the duck hunt shoot. Each one comes <b>with music</b> and <b>without music</b>, so you can use the no-music version if you want to add a trending sound in the app. Watch them below, then grab the <b>full-quality files</b> to post.</p>
+    <p class="note">Here are your <b>three videos</b> from the duck hunt shoot, plus <b>39 of the best raw clips</b>, color graded and stabilized, for anything else you want to post. Videos 01 and 02 come <b>with music</b> and <b>without music</b>, so you can add a trending sound in the app. Watch below, then grab the <b>full-quality files</b>.</p>
   </section>
 
   <section class="reel" aria-labelledby="v1-title">
@@ -164,12 +170,70 @@
     <div class="specs"><span><b>Length</b> 0:29</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> Facebook · YouTube · Website</span></div>
   </section>
 
+  <section class="reel" aria-labelledby="v3-title">
+    <div class="reelhead">
+      <div><p class="kick">Video · 03</p><h2 id="v3-title">Set it up, <em>let it work</em></h2></div>
+    </div>
+    <div class="screen"><video id="v3" controls playsinline preload="metadata" poster="./media/woodie-v3.jpg" src="./media/woodie-v3.mp4"></video></div>
+    <div class="specs"><span><b>Length</b> 0:32</span><span><b>Size</b> 1920 × 1080</span><span><b>Use</b> Facebook · YouTube · Website</span></div>
+  </section>
+
+  <section class="reel" aria-labelledby="clips-title">
+    <div><p class="kick">Raw footage</p><h2 id="clips-title" style="margin-top:8px">Best clips, <em>ready to post</em></h2></div>
+    <p class="note" style="font-size:16px">39 of the best shots from the shoot, picked out of 200 clips. Every one is <b>color graded</b>, <b>stabilized</b> where it was handheld, and trimmed to its best stretch. They're in 4K with no text or music, so use them for stories, quick posts, your website, anything.</p>
+    <div class="clips">
+      <figure><img src="./media/clips/C2625.jpg" alt="Box hero low angle" width="480" height="270" loading="lazy"><figcaption>Box hero low angle <span>C2625</span></figcaption></figure>
+      <figure><img src="./media/clips/C2743.jpg" alt="Box on boat deck" width="480" height="270" loading="lazy"><figcaption>Box on boat deck <span>C2743</span></figcaption></figure>
+      <figure><img src="./media/clips/C2650.jpg" alt="Box on boat, hunter" width="480" height="270" loading="lazy"><figcaption>Box on boat, hunter <span>C2650</span></figcaption></figure>
+      <figure><img src="./media/clips/C2640.jpg" alt="Box on tree" width="480" height="270" loading="lazy"><figcaption>Box on tree <span>C2640</span></figcaption></figure>
+      <figure><img src="./media/clips/C2638.jpg" alt="Box on tree, line out" width="480" height="270" loading="lazy"><figcaption>Box on tree, line out <span>C2638</span></figcaption></figure>
+      <figure><img src="./media/clips/C2700.jpg" alt="Programming" width="480" height="270" loading="lazy"><figcaption>Programming <span>C2700</span></figcaption></figure>
+      <figure><img src="./media/clips/C2703.jpg" alt="Programming" width="480" height="270" loading="lazy"><figcaption>Programming <span>C2703</span></figcaption></figure>
+      <figure><img src="./media/clips/C2611.jpg" alt="Carrying box to tree" width="480" height="270" loading="lazy"><figcaption>Carrying box to tree <span>C2611</span></figcaption></figure>
+      <figure><img src="./media/clips/C2613.jpg" alt="Strapping to tree" width="480" height="270" loading="lazy"><figcaption>Strapping to tree <span>C2613</span></figcaption></figure>
+      <figure><img src="./media/clips/C2616.jpg" alt="Walking off from tree" width="480" height="270" loading="lazy"><figcaption>Walking off from tree <span>C2616</span></figcaption></figure>
+      <figure><img src="./media/clips/C2712.jpg" alt="Stake mount" width="480" height="270" loading="lazy"><figcaption>Stake mount <span>C2712</span></figcaption></figure>
+      <figure><img src="./media/clips/C2716.jpg" alt="Stake mount wide" width="480" height="270" loading="lazy"><figcaption>Stake mount wide <span>C2716</span></figcaption></figure>
+      <figure><img src="./media/clips/C2642.jpg" alt="Box running, decoys behind" width="480" height="270" loading="lazy"><figcaption>Box running, decoys behind <span>C2642</span></figcaption></figure>
+      <figure><img src="./media/clips/C2643.jpg" alt="Box running, decoys behind" width="480" height="270" loading="lazy"><figcaption>Box running, decoys behind <span>C2643</span></figcaption></figure>
+      <figure><img src="./media/clips/C2624.jpg" alt="Decoys moving" width="480" height="270" loading="lazy"><figcaption>Decoys moving <span>C2624</span></figcaption></figure>
+      <figure><img src="./media/clips/C2630.jpg" alt="Decoys moving" width="480" height="270" loading="lazy"><figcaption>Decoys moving <span>C2630</span></figcaption></figure>
+      <figure><img src="./media/clips/C2687.jpg" alt="Decoys moving" width="480" height="270" loading="lazy"><figcaption>Decoys moving <span>C2687</span></figcaption></figure>
+      <figure><img src="./media/clips/C2653.jpg" alt="Decoys in boat" width="480" height="270" loading="lazy"><figcaption>Decoys in boat <span>C2653</span></figcaption></figure>
+      <figure><img src="./media/clips/C2590.jpg" alt="Rigging on boat" width="480" height="270" loading="lazy"><figcaption>Rigging on boat <span>C2590</span></figcaption></figure>
+      <figure><img src="./media/clips/C2599.jpg" alt="Rigging on boat" width="480" height="270" loading="lazy"><figcaption>Rigging on boat <span>C2599</span></figcaption></figure>
+      <figure><img src="./media/clips/C2668.jpg" alt="Splash" width="480" height="270" loading="lazy"><figcaption>Splash <span>C2668</span></figcaption></figure>
+      <figure><img src="./media/clips/C2660.jpg" alt="Tossing decoys" width="480" height="270" loading="lazy"><figcaption>Tossing decoys <span>C2660</span></figcaption></figure>
+      <figure><img src="./media/clips/C2671.jpg" alt="Tossing decoys" width="480" height="270" loading="lazy"><figcaption>Tossing decoys <span>C2671</span></figcaption></figure>
+      <figure><img src="./media/clips/C2673.jpg" alt="Tossing decoys wide" width="480" height="270" loading="lazy"><figcaption>Tossing decoys wide <span>C2673</span></figcaption></figure>
+      <figure><img src="./media/clips/C2649.jpg" alt="Wading" width="480" height="270" loading="lazy"><figcaption>Wading <span>C2649</span></figcaption></figure>
+      <figure><img src="./media/clips/C2605.jpg" alt="Wading the spread" width="480" height="270" loading="lazy"><figcaption>Wading the spread <span>C2605</span></figcaption></figure>
+      <figure><img src="./media/clips/C2629.jpg" alt="Wading toward camera" width="480" height="270" loading="lazy"><figcaption>Wading toward camera <span>C2629</span></figcaption></figure>
+      <figure><img src="./media/clips/C2581.jpg" alt="Dog on boat" width="480" height="270" loading="lazy"><figcaption>Dog on boat <span>C2581</span></figcaption></figure>
+      <figure><img src="./media/clips/C2679.jpg" alt="Hawk" width="480" height="270" loading="lazy"><figcaption>Hawk <span>C2679</span></figcaption></figure>
+      <figure><img src="./media/clips/C2584.jpg" alt="River scenery" width="480" height="270" loading="lazy"><figcaption>River scenery <span>C2584 · slow-mo</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0695.jpg" alt="Drone boat + decoys" width="480" height="270" loading="lazy"><figcaption>Drone boat + decoys <span>DJI_0695</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0698.jpg" alt="Drone boat + decoys" width="480" height="270" loading="lazy"><figcaption>Drone boat + decoys <span>DJI_0698</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0690.jpg" alt="Drone decoys + reflection" width="480" height="270" loading="lazy"><figcaption>Drone decoys + reflection <span>DJI_0690</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0672.jpg" alt="Drone decoys top-down" width="480" height="270" loading="lazy"><figcaption>Drone decoys top-down <span>DJI_0672</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0675.jpg" alt="Drone hunter in spread" width="480" height="270" loading="lazy"><figcaption>Drone hunter in spread <span>DJI_0675</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0659.jpg" alt="Drone pond top-down" width="480" height="270" loading="lazy"><figcaption>Drone pond top-down <span>DJI_0659</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0678.jpg" alt="Drone river" width="480" height="270" loading="lazy"><figcaption>Drone river <span>DJI_0678</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0692.jpg" alt="Drone river top" width="480" height="270" loading="lazy"><figcaption>Drone river top <span>DJI_0692</span></figcaption></figure>
+      <figure><img src="./media/clips/DJI_0664.jpg" alt="Drone river wide" width="480" height="270" loading="lazy"><figcaption>Drone river wide <span>DJI_0664</span></figcaption></figure>
+    </div>
+  </section>
+
   <section class="reel" aria-labelledby="dl-title">
-    <div><p class="kick">Your files</p><h2 id="dl-title" style="margin-top:8px">Download <em>your videos</em></h2></div>
-    <div class="files" style="grid-template-columns:1fr">
-      <div class="file" data-url="" data-label="Download all four files">
-        <b>Both videos · with and without music · full quality</b>
-        <p>Four 1920 × 1080 files, ready to post. Use these, not the web-size players above.</p>
+    <div><p class="kick">Your files</p><h2 id="dl-title" style="margin-top:8px">Download <em>everything</em></h2></div>
+    <div class="files">
+      <div class="file" data-url="" data-label="Download the videos">
+        <b>Your 3 videos · full quality</b>
+        <p>Videos 01 and 02 with and without music, plus Video 03. Five 1920 × 1080 files, ready to post.</p>
+      </div>
+      <div class="file" data-url="" data-label="Download the clips">
+        <b>39 best clips · 4K</b>
+        <p>Color graded and stabilized, 2.1 GB total. Named by what's in the shot, so they're easy to find.</p>
       </div>
     </div>
   </section>

@@ -36,7 +36,7 @@ STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" ari
         '<path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>')
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/woodie-delivery",
-    "FINAL_URL": "",   # ONE WeTransfer of Desktop/WOODIE WACKER EDIT (Oct 26)/WOODIE WACKER - Mallard Motion delivery (Oct 28) (videos + clips, 2.87 GB); empty shows "Download link coming by text."
+    "FINAL_URL": "https://we.tl/t-o6AC7x6Fx3utAJZR",   # ONE WeTransfer of Desktop/WOODIE WACKER EDIT (Oct 26)/WOODIE WACKER - Mallard Motion delivery (Oct 28) (videos + clips, 2.87 GB); empty shows "Download link coming by text."
     "CLIP_GRID": GRID, "CLIP_COUNT": COUNT, "CLIPS_SIZE": SIZE,
     "SHOT_TOTAL": "200",
     "UPDATED": "Oct 28, 2026",

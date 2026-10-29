@@ -126,6 +126,12 @@
 #sd508 .contact a{color:var(--fg);border-bottom:1px solid var(--line2)}
 #sd508 .sig{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em;color:var(--fg)}
 @media (max-width:640px){#sd508 .close{grid-template-columns:1fr}}
+#sd508 .posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+#sd508 .posts figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+#sd508 .posts img,#sd508 .fbcover{display:block;width:100%;max-width:100%;border-radius:8px;border:1px solid var(--line)}
+#sd508 .posts img{aspect-ratio:4/5;object-fit:cover}
+#sd508 .posts figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--fg3)}
+#sd508 .fbcover{aspect-ratio:1640/624;object-fit:cover}
 @media (prefers-reduced-motion:reduce){#sd508 *{transition:none!important}}
 </style>
 <style>#mc508{display:none!important} html,body{background:#06070A!important}</style>
@@ -181,6 +187,19 @@
 
 
 
+
+  <section class="reel" aria-labelledby="ph-title">
+    <div class="reelhead"><div><p class="kick">Photos · Instagram + Facebook · 4:5</p><h2 id="ph-title">Your <em>posts</em></h2></div></div>
+    <div class="posts">
+      <figure><img src="https://drewreid508.github.io/508mediaco/septic-delivery/media/post-01-launch-oct29.jpg" alt="We're on Instagram post" width="720" height="900" loading="lazy"><figcaption>01 · We're on Instagram</figcaption></figure>
+      <figure><img src="https://drewreid508.github.io/508mediaco/septic-delivery/media/post-02-how-often-oct29.jpg" alt="How often to pump post" width="720" height="900" loading="lazy"><figcaption>02 · How often to pump</figcaption></figure>
+      <figure><img src="https://drewreid508.github.io/508mediaco/septic-delivery/media/post-03-signs-oct29.jpg" alt="5 signs post" width="720" height="900" loading="lazy"><figcaption>03 · 5 signs</figcaption></figure>
+      <figure><img src="https://drewreid508.github.io/508mediaco/septic-delivery/media/post-04-dont-flush-oct29.jpg" alt="What not to flush post" width="720" height="900" loading="lazy"><figcaption>04 · What not to flush</figcaption></figure>
+      <figure><img src="https://drewreid508.github.io/508mediaco/septic-delivery/media/post-05-call-oct29.jpg" alt="Call the Doctor post" width="720" height="900" loading="lazy"><figcaption>05 · Call the Doctor</figcaption></figure>
+    </div>
+    <img class="fbcover" src="https://drewreid508.github.io/508mediaco/septic-delivery/media/fb-cover-oct29.jpg" alt="New Facebook cover: septic pumping, install and repairs" width="1200" height="457" loading="lazy">
+    <div class="specs"><span><b>Posts</b> 1080 × 1350</span><span><b>Stories</b> 1080 × 1920</span><span><b>Facebook cover</b> 1640 × 624</span><span><b>Full size</b> in Download everything</span></div>
+  </section>
 
   <footer class="close">
     <div>

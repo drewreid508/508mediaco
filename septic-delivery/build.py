@@ -17,7 +17,7 @@ STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" ari
         '<path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>')
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/septic-delivery",
-    "FINAL_URL": "",   # full-quality WeTransfer of the 3 STYLE 3 reels; empty shows "Download link coming by text."
+    "FINAL_URL": "https://we.tl/t-CiHC3q0PZRMuc5Jv",   # Drew's WeTransfer (reels + posts + stories + FB cover + captions), sent Oct 29; empty shows "Download link coming by text."
     "UPDATED": "Oct 29, 2026",
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,

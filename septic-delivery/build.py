@@ -18,7 +18,7 @@ STAR = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" ari
 CFG = {
     "MEDIA": "https://drewreid508.github.io/508mediaco/septic-delivery",
     "FINAL_URL": "https://we.tl/t-CiHC3q0PZRMuc5Jv",   # Drew's WeTransfer (reels + posts + stories + FB cover + captions), sent Oct 29; empty shows "Download link coming by text."
-    "UPDATED": "Oct 29, 2026",
+    "UPDATED": "Oct 30, 2026",
     "REVIEW_URL": "https://g.page/r/CQRtijkKqWhOEBI/review",
     "STARS": STAR * 5,
     "STAR": STAR,

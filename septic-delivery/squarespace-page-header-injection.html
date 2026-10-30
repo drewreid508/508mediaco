@@ -126,7 +126,8 @@
 #sd508 .contact a{color:var(--fg);border-bottom:1px solid var(--line2)}
 #sd508 .sig{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em;color:var(--fg)}
 @media (max-width:640px){#sd508 .close{grid-template-columns:1fr}}
-#sd508 .posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+#sd508 .posts{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media (max-width:720px){#sd508 .posts{grid-template-columns:repeat(2,1fr)}}
 #sd508 .posts figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
 #sd508 .posts img,#sd508 .fbcover{display:block;width:100%;height:auto;max-width:100%;border-radius:8px;border:1px solid var(--line)}
 #sd508 .posts img{aspect-ratio:4/5;object-fit:cover}

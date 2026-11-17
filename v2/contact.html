@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-live>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Start a Project | Request a Quote | 508 Media Co.</title>
+<meta name="description" content="Request a quote for business video, photography or an automotive shoot in Upstate South Carolina. Pick a preferred date and Drew will get back to you personally.">
+
+<link rel="canonical" href="https://www.508mediaco.com/contact">
+<meta property="og:title" content="Start a Project | Request a Quote | 508 Media Co.">
+<meta property="og:description" content="Request a quote for business video, photography or an automotive shoot in Upstate South Carolina. Pick a preferred date and Drew will get back to you personally.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.508mediaco.com/og-image.jpg">
+<meta name="theme-color" content="#0D0E10">
+<link rel="icon" href="https://drewreid508.github.io/508mediaco/media-v2/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+
+</head>
+<body data-page="contact">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap">
+<a class="wm" href="index.html" aria-label="508 Media Co. home"><img src="assets/brand/logo.png" alt="508 Media Co." width="205" height="120"></a>
+<button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+<nav class="nav" id="nav" aria-label="Main"><a href="business.html">Business</a><a href="automotive.html">Automotive</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a class="btn btn-primary btn-sm" href="contact.html">Start a project</a></nav>
+</div></header>
+<main id="main">
+<section class="page-hero" style="padding-bottom:clamp(24px,3vw,40px)">
+  <div class="wrap">
+    <span class="eyebrow">Start a project</span>
+    <h1>Tell me what you have in mind.</h1>
+    <p class="lede">It takes a couple of minutes. I read every request myself and get back to you personally.</p>
+  </div>
+</section>
+
+<section style="padding-bottom:clamp(72px,9vw,120px)">
+  <div class="wrap form-wrap">
+    <div class="form-card">
+      <form id="inquiry" novalidate>
+        <div class="fgroup">
+          <fieldset>
+            <legend>1 · What's this for?</legend>
+            <div class="type-pick">
+              <label><input type="radio" name="kind" value="business"><b>Business</b><span>Commercials, promos, monthly content, photography</span></label>
+              <label><input type="radio" name="kind" value="auto"><b>Automotive</b><span>Your car or truck: video, photos or both</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <h2 id="form-title" class="sr-only">Business project request</h2>
+
+        <!-- ================= BUSINESS ================= -->
+        <div data-for="business">
+          <div class="fgroup">
+            <p class="legend">2 · The project</p>
+            <div class="field"><label for="b-service">What do you need?</label>
+              <select id="b-service" name="service" required>
+                <option value="">Choose one</option>
+                <option value="monthly">Monthly content partnership</option>
+                <option value="commercial">Commercial or promotional video</option>
+                <option value="ad">Ad-ready videos</option>
+                <option value="product">Product video</option>
+                <option value="drone">Drone footage</option>
+                <option value="photo">Business photography</option>
+                <option value="unsure">Not sure yet</option>
+              </select><span class="msg">Pick the closest option, or "Not sure yet".</span></div>
+            <div class="field" id="b-package-row" hidden><label for="b-package">Which package interests you? <span class="opt">optional</span></label>
+              <select id="b-package" name="package">
+                <option value="">Not sure, help me decide</option>
+                <option value="starter">Starter</option>
+                <option value="growth">Growth</option>
+                <option value="premium">Premium</option>
+              </select></div>
+            <div class="field"><label for="b-details">Tell me about the project</label>
+              <textarea id="b-details" name="details" required placeholder="What does your business do, and what would you like the content to do for you?"></textarea>
+              <span class="msg">A sentence or two is plenty.</span></div>
+          </div>
+          <div class="fgroup">
+            <p class="legend">3 · You and your business</p>
+            <div class="row2">
+              <div class="field"><label for="b-name">Your name</label><input id="b-name" name="name" type="text" autocomplete="name" required><span class="msg">Please add your name.</span></div>
+              <div class="field"><label for="b-biz">Business name</label><input id="b-biz" name="business" type="text" autocomplete="organization" required><span class="msg">Please add your business name.</span></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label for="b-email">Email</label><input id="b-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="msg">Please enter a valid email.</span></div>
+              <div class="field"><label for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="msg">Please enter a 10-digit phone number.</span></div>
+            </div>
+            <div class="field"><label for="b-loc">Where is the business or shoot?</label><input id="b-loc" name="location" type="text" placeholder="City, or address if you have it" required><span class="msg">A city is fine.</span></div>
+          </div>
+          <div class="fgroup">
+            <p class="legend">4 · Timing</p>
+            <div class="row2">
+              <div class="field"><label for="b-date1">Preferred date</label><input id="b-date1" name="preferred_date" type="date" required><span class="msg">Pick a preferred date.</span></div>
+              <div class="field"><label for="b-time1">Preferred time</label>
+                <select id="b-time1" name="preferred_time" required><option value="">Choose</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Flexible</option></select><span class="msg">Pick a time of day.</span></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label for="b-date2">Backup date <span class="opt">optional</span></label><input id="b-date2" name="backup_date" type="date"></div>
+              <div class="field"><label for="b-time2">Backup time <span class="opt">optional</span></label>
+                <select id="b-time2" name="backup_time"><option value="">Choose</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Flexible</option></select></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= AUTOMOTIVE ================= -->
+        <div data-for="auto" hidden>
+          <div class="fgroup">
+            <p class="legend">2 · Your vehicle</p>
+            <div class="row3">
+              <div class="field"><label for="a-year">Year</label><input id="a-year" name="vehicle_year" type="text" inputmode="numeric" pattern="(19|20)[0-9]{2}" maxlength="4" placeholder="2024" required><span class="msg">4-digit year.</span></div>
+              <div class="field"><label for="a-make">Make</label><input id="a-make" name="vehicle_make" type="text" placeholder="Ford" required><span class="msg">Add the make.</span></div>
+              <div class="field"><label for="a-model">Model</label><input id="a-model" name="vehicle_model" type="text" placeholder="F-250" required><span class="msg">Add the model.</span></div>
+            </div>
+          </div>
+          <div class="fgroup">
+            <p class="legend">3 · The shoot</p>
+            <div class="field"><label for="a-service">Type of service</label>
+              <select id="a-service" name="service" required>
+                <option value="">Choose one</option>
+                <option>Cinematic video</option>
+                <option>Photography</option>
+                <option>Video and photography</option>
+                <option>Detail-focused shoot</option>
+                <option>Custom project</option>
+                <option>Not sure yet</option>
+              </select><span class="msg">Pick the closest option.</span></div>
+            <div class="field" id="a-coverage"><span class="lbl" id="cov-l">What do you want covered? <span class="opt">pick any</span></span>
+              <div class="checks" role="group" aria-labelledby="cov-l">
+                <label><input type="checkbox" name="coverage" value="Stationary footage"> Stationary footage</label>
+                <label><input type="checkbox" name="coverage" value="Rolling footage"> Rolling footage</label>
+                <label><input type="checkbox" name="coverage" value="Photography"> Photography</label>
+                <label><input type="checkbox" name="coverage" value="Not sure"> Not sure</label>
+              </div><span class="msg">Pick at least one, or "Not sure".</span></div>
+            <div class="field"><label for="a-loc">Location</label><input id="a-loc" name="location" type="text" placeholder="City, or a spot you have in mind" required><span class="msg">A city is fine.</span></div>
+          </div>
+          <div class="fgroup">
+            <p class="legend">4 · You</p>
+            <div class="field"><label for="a-name">Your name</label><input id="a-name" name="name" type="text" autocomplete="name" required><span class="msg">Please add your name.</span></div>
+            <div class="row2">
+              <div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" autocomplete="email" inputmode="email" required><span class="msg">Please enter a valid email.</span></div>
+              <div class="field"><label for="a-phone">Phone</label><input id="a-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="msg">Please enter a 10-digit phone number.</span></div>
+            </div>
+          </div>
+          <div class="fgroup">
+            <p class="legend">5 · Timing</p>
+            <div class="row2">
+              <div class="field"><label for="a-date1">Preferred date</label><input id="a-date1" name="preferred_date" type="date" required><span class="msg">Pick a preferred date.</span></div>
+              <div class="field"><label for="a-time1">Preferred time</label>
+                <select id="a-time1" name="preferred_time" required><option value="">Choose</option><option>Sunrise</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Sunset / golden hour</option><option>Flexible</option></select><span class="msg">Pick a time of day.</span></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label for="a-date2">Backup date <span class="opt">optional</span></label><input id="a-date2" name="backup_date" type="date"></div>
+              <div class="field"><label for="a-time2">Backup time <span class="opt">optional</span></label>
+                <select id="a-time2" name="backup_time"><option value="">Choose</option><option>Sunrise</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Sunset / golden hour</option><option>Flexible</option></select></div>
+            </div>
+            <div class="field"><label for="a-details">Anything else? <span class="opt">optional</span></label>
+              <textarea id="a-details" name="details" placeholder="Build details, mods, the look you're going for, an event date, references you like..."></textarea></div>
+          </div>
+        </div>
+
+        <div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg><span><b>Please note:</b> Submitting an inquiry does not automatically confirm or reserve your requested date. All bookings are subject to availability and confirmation.</span></div>
+        <div class="submit-row">
+          <button class="btn btn-primary" type="submit">Send my request <span class="arr" aria-hidden="true">→</span></button>
+          <small>Sending this doesn't commit you to anything. Your details are only used to reply to you.</small>
+        </div>
+      </form>
+
+      <div id="done" class="done" hidden>
+        <span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+        <h2 tabindex="-1">Thanks, <span id="first-name">there</span>. Your request is in.</h2>
+        <p class="muted">Here's what happens next:</p>
+        <ol class="steps" style="grid-template-columns:1fr">
+          <li><b>I review your request</b><span>I look at the project and check my availability for your dates.</span></li>
+          <li><b>I reach out</b><span>I'll contact you by phone or email to talk it through.</span></li>
+          <li><b>You get a custom quote</b><span>Nothing is booked until you've agreed to it.</span></li>
+          <li><b>Deposit confirms the date</b><span>Once the deposit invoice is paid and I approve the date, you're booked.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <aside class="aside" id="how" aria-labelledby="how-h">
+      <div style="display:grid;gap:12px">
+        <span class="eyebrow">How booking works</span>
+        <h2 id="how-h" style="font-size:clamp(24px,2.4vw,30px)">No surprises.</h2>
+        <p class="muted">Every project is quoted individually, based on the work involved, what you're getting and the location. I don't charge by the hour, and you'll see the full quote before anything is booked.</p>
+      </div>
+      <ol class="steps">
+        <li><b>You send a request</b><span>With a preferred date and a backup.</span></li>
+        <li><b>I review and reach out</b><span>To talk through the project.</span></li>
+        <li><b>Custom quote</b><span>Discussed and agreed before work begins.</span></li>
+        <li><b>Deposit invoice</b><span>Paying it, plus my approval of the date, confirms the booking.</span></li>
+        <li><b>Balance</b><span>Invoiced according to the payment terms we agreed.</span></li>
+      </ol>
+      <div class="contact-lines">
+        <span class="muted" style="font-size:14px">Rather talk?</span>
+        <a href="tel:+18649154071">Call or text (864) 915-4071</a>
+        <a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>
+<footer class="ftr"><div class="wrap">
+<div class="ftr-grid">
+<div><a class="wm" href="index.html" aria-label="508 Media Co. home"><img src="assets/brand/logo.png" alt="508 Media Co." width="205" height="120"></a>
+<p class="about">Video and photography by Drew Reid. Serving Greenville, Easley, Anderson, Simpsonville, Piedmont and the rest of Upstate South Carolina.</p></div>
+<div><h4>Work with me</h4><ul><li><a href="business.html">Business content</a></li><li><a href="automotive.html">Automotive</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Start a project</a></li></ul></div>
+<div><h4>Studio</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html#how">How booking works</a></li><li><a href="https://www.instagram.com/508_media_co/" rel="noopener">Instagram</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:+18649154071">(864) 915-4071</a></li><li><a href="mailto:drew@508mediaco.com">drew@508mediaco.com</a></li><li><span class="muted" style="font-size:15px">Upstate South Carolina</span></li></ul></div>
+</div>
+<div class="ftr-bottom"><span>© 2026 508 Media Co.</span><span>Every project is quoted individually. Bookings are confirmed once a quote is agreed and the deposit is paid.</span></div>
+</div></footer>
+<dialog class="lb" aria-label="Media viewer"><div class="lb-in">
+<div class="lb-media"></div>
+<div class="lb-cap"></div>
+<button class="lb-btn lb-x" type="button" aria-label="Close">✕</button>
+<button class="lb-btn lb-prev" type="button" aria-label="Previous">←</button>
+<button class="lb-btn lb-next" type="button" aria-label="Next">→</button>
+</div></dialog>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

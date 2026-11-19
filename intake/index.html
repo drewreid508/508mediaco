@@ -183,11 +183,12 @@ form.sending .btn{opacity:.6;pointer-events:none}
       ['1586578348','area',"Anything you DON'T want in your video?",0,null,{w2:1,ph:"Music you hate, things not to show, words you'd never say…"}],
       ['181412111','radio','Do you have a logo and brand colors?',0,["Yes, I'll send my logo",'Logo only, no set colors','No'],{w2:1}]
     ]},
-    { t:'Ads', q:[
-      ['1256272728','radio','Do you run Facebook / Instagram ads now?',1,['Yes, I run them myself','Yes, someone runs them for me','No, but I want to','No, not interested in ads'],{w2:1}]
+    { t:'Ads', sub:'Your ad budget is paid to Meta, separate from video pricing.', q:[
+      ['1256272728','radio','Do you currently run paid Facebook / Instagram ads?',1,['Yes','No',"I've tried before"],{w2:1}],
+      ['731602723','radio','What monthly advertising budget are you comfortable spending on ads?',1,['Under $500','$500–$1,000','$1,000–$2,500','$2,500+'],{w2:1}],
+      ['418126803','radio','What are you looking for help with?',1,['Creating video advertisements','Setting up Facebook / Instagram ads','Managing and optimizing ads','Both video production and ad management','Not sure yet'],{w2:1}]
     ]},
-    { t:'Ad details', branch:1, sub:'Your ad budget is paid to Meta, separate from video pricing.', q:[
-      ['731602723','radio','About how much would you spend on ads per month?',0,['Under $300','$300–$1,000','$1,000+','Not sure'],{w2:1}],
+    { t:'Ad details', q:[
       ['209185674','radio','What should someone do after seeing your ad?',0,['Call me','Fill out a form / request a quote','Message me','Visit my website','Come to my location'],{w2:1}],
       ['1159050143','area',"What's worked (or not worked) with ads before?",0,null,{w2:1}]
     ]},
@@ -204,7 +205,6 @@ form.sending .btn{opacity:.6;pointer-events:none}
       ['475962282','check','Consent',1,['By checking this box, I agree that 508 Media Co. can contact me by phone, text, and email about my project. Message & data rates may apply. Reply STOP to opt out.'],{w2:1,tall:1}]
     ]}
   ];
-  var ADS = '1256272728', NO_ADS = 'No, not interested in ads';
 
   var form = document.getElementById('in-form');
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
@@ -245,13 +245,7 @@ form.sending .btn{opacity:.6;pointer-events:none}
     '<div class="formmsg" id="in-msg" role="status" aria-live="polite" hidden></div></div>';
   form.innerHTML = html;
 
-  var adSec = form.querySelector('[data-sec="4"]');
-  function adsOn(){
-    var c = form.querySelector('input[name="entry.' + ADS + '"]:checked');
-    return !!c && c.value !== NO_ADS;
-  }
   function sync(){
-    adSec.hidden = !adsOn();
     form.querySelectorAll('[data-other]').forEach(function(o){
       document.getElementById('o' + o.dataset.other).hidden = !o.checked;
     });
@@ -312,19 +306,16 @@ form.sending .btn{opacity:.6;pointer-events:none}
       return;
     }
     var body = new URLSearchParams();
-    var skipAds = !adsOn();
     new FormData(form).forEach(function(v, k){
       if (k === '_gotcha') return;
-      var el = form.querySelector('[name="' + k + '"]');
-      if (skipAds && el && el.closest('[data-sec="4"]')) return;
       if (/\.other_option_response$/.test(k)) {
         var base = k.replace('.other_option_response', '');
         if (!form.querySelector('[name="' + base + '"][value="__other_option__"]:checked')) return;
       }
       if (String(v).trim() !== '') body.append(k, v);
     });
-    // Google needs the path through the sections (ad details = page 4 is skipped when they're not interested)
-    body.append('pageHistory', skipAds ? '0,1,2,3,5,6' : '0,1,2,3,4,5,6');
+    // Google needs the path through the sections (every page is visited since the Nov 19 ads questions)
+    body.append('pageHistory', '0,1,2,3,4,5,6');
     body.append('fvv', '1');
     form.classList.add('sending'); msg.hidden = true;
     fetch(ACTION, { method: 'POST', mode: 'no-cors', body: body }).then(function(){
